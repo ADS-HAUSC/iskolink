@@ -1,93 +1,53 @@
 /* TAILWIND VERSION 4.0 */
 @import "tailwindcss";
 
-@layer base {
-    :root {
-        /* FONT SIZES */
-        --text-base: clamp(1rem, 0.9rem + 0.07vw, 1.05rem);
-        --text-heading-3: clamp(1.25rem, 1rem + 1.25vw, 2rem);
-        --text-heading-2: clamp(1.375rem, 1rem + 1.875vw, 2.5rem);
-        --text-heading-1: clamp(2rem, 1.5rem + 2.8vw, 4.5rem);
-        --text-heading-display: clamp(2.6518rem, 1.88rem + 3.459vi, 7.3131rem);
+@theme {
+    /* FONT SIZES */
+    --text-base: clamp(1rem, 0.9rem + 0.07vw, 1.05rem);
+    --text-heading-3: clamp(1.25rem, 1rem + 1.25vw, 2rem);
+    --text-heading-2: clamp(1.375rem, 1rem + 1.875vw, 2.5rem);
+    --text-heading-1: clamp(2rem, 1.5rem + 2.8vw, 4.5rem);
+    --text-heading-display: clamp(2.6518rem, 1.88rem + 3.459vi, 7.3131rem);
 
-        /* COLORS */
-        --tw-text-opacity: 1;
-        --midnight: rgb(14 24 75 / var(--tw-text-opacity)); 
-        --royal: rgb(35 39 92 / var(--tw-text-opacity)); 
-        --royal-violet: rgb(62 62 119 / var(--tw-text-opacity)); 
-        --golden: rgb(201 154 86 / var(--tw-text-opacity)); 
-        --champagne: rgb(249 198 123 / var(--tw-text-opacity)); 
-        --white: rgb(255 255 255 / var(--tw-text-opacity)); 
+    /* COLORS */
+    --tw-text-opacity: 1;
+    --color-midnight: rgb(14 24 75 / var(--tw-text-opacity)); 
+    --color-royal: rgb(35 39 92 / var(--tw-text-opacity)); 
+    --color-royal-violet: rgb(62 62 119 / var(--tw-text-opacity)); 
+    --color-golden: rgb(201 154 86 / var(--tw-text-opacity)); 
+    --color-champagne: rgb(249 198 123 / var(--tw-text-opacity)); 
+    --color-white: rgb(255 255 255 / var(--tw-text-opacity)); 
 
-        /* SPACES */
-        --space-3xs: clamp(0.3125rem, 0.3125rem + 0vi, 0.3125rem);
-        --space-2xs: clamp(0.5625rem, 0.5446rem + 0.0893vi, 0.625rem);
-        --space-xs: clamp(0.875rem, 0.8571rem + 0.0893vi, 0.9375rem);
-        --space-sm: clamp(1.125rem, 1.0893rem + 0.1786vi, 1.25rem);
-        --space-md: clamp(1.6875rem, 1.6339rem + 0.2679vi, 1.875rem);
-        --space-lg: clamp(2.25rem, 2.1786rem + 0.3571vi, 2.5rem);
-        --space-xl: clamp(3.375rem, 3.2679rem + 0.5357vi, 3.75rem);
-        --space-2xl: clamp(4.5rem, 4.3571rem + 0.7143vi, 5rem);
-        --space-3xl: clamp(4.75rem, 5.2571rem + 1.2023vi, 5.25rem);
-    }
-
-    body {
-        font-family: 'Times New Roman', Times, serif; /* CHANGE */
-        background-color: var(--midnight);
-        color: var(--white);
-    }
-    h1 {
-        font-size: var(--text-heading-1);
-    }
-    h2 {
-        font-size: var(--text-heading-2);
-    }
-    h3 {
-        font-size: var(--text-heading-3);
-    }
-    p {
-        font-size: var(--text-base);
-        opacity: 0.8;
-    }
-    span {
-        color: var(--champagne);
-    }
-    img {
-        width: auto;
-        height: auto;
-    }
+    /* SPACINGS */
+    --spacing-3xs: clamp(0.3125rem, 0.3125rem + 0vi, 0.3125rem);
+    --spacing-2xs: clamp(0.5625rem, 0.5446rem + 0.0893vi, 0.625rem);
+    --spacing-xs: clamp(0.875rem, 0.8571rem + 0.0893vi, 0.9375rem);
+    --spacing-sm: clamp(1.125rem, 1.0893rem + 0.1786vi, 1.25rem);
+    --spacing-md: clamp(1.6875rem, 1.6339rem + 0.2679vi, 1.875rem);
+    --spacing-lg: clamp(2.25rem, 2.1786rem + 0.3571vi, 2.5rem);
+    --spacing-xl: clamp(3.375rem, 3.2679rem + 0.5357vi, 3.75rem);
+    --spacing-2xl: clamp(4.5rem, 4.3571rem + 0.7143vi, 5rem);
+    --spacing-3xl: clamp(4.75rem, 5.2571rem + 1.2023vi, 5.25rem);
 }
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/*
+
+h1 {
+    font-size: var(--text-heading-1);
+}
+h2 {
+    font-size: var(--text-heading-2);
+}
+
+*/
 
 @layer components {
     .gradient {
-        background-image: linear-gradient(125deg, var(--midnight), var(--royal), var(--royal-violet));
+        background-image: linear-gradient(125deg, var(--color-midnight), var(--color-royal), var(--color-royal-violet));
     }
 }
-
-@layer utilities {
-    /* BACKGROUND */
-    .bg-midnight {
-        background-color: var(--midnight);
-    }
-    
-    /* TEXT COLORS */
-    .text-midnight {
-        color: var(--midnight);
-    }
-    .text-royal { 
-        color: var(--royal); 
-    }
-    .text-royal-violet { 
-        color: var(--royal-violet); 
-    }
-    .text-golden { 
-        color: var(--golden); 
-    }
-    .text-champagne { 
-        color: var(--champagne); 
-    }
-    .text-white { 
-        color: var(--white); 
-    }
-}
-
