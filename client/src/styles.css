@@ -41,7 +41,7 @@
 
 @font-face {
     font-family: 'The Seasons Bold Italic';
-    src: url('/fonts/TheSeasonsBold.woff2') format('woff2');
+    src: url('/fonts/TheSeasonsBoldItalic.woff2') format('woff2');
     font-weight: bold;
     font-style: italic;
 }
@@ -76,6 +76,7 @@
 
     h1 {
         font-size: var(--text-heading-1);
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     h2 {
@@ -84,7 +85,14 @@
 
     h3 {
         font-size: var(--text-heading-3);
+        font-family: 'Albertus Nova Bold', 'Times New Roman', 'serif';
     }
+
+    /* To add once merged to avoid conflicting code */
+    /* h4 {
+        font-size: var(--text-base);
+        font-family: 'Albertus Nova';
+    } */
 
     p {
         font-family: 'Figtree', 'Arial', sans-serif;
@@ -96,10 +104,21 @@
         color: var(--color-champagne);
         opacity: 1;
     }
+
+    em {
+        font-family: 'The Seasons Bold Italic', 'Times New Roman', serif;
+        font-style: italic;
+    }
 }
 
 @layer components {
     .gradient {
         background-image: linear-gradient(125deg, var(--color-midnight), var(--color-royal), var(--color-royal-violet));
+    }
+
+    /* To remove once moved to h4 */
+    .mini-heading {
+        font-size: var(--text-base);
+        font-family: 'Albertus Nova';
     }
 }
