@@ -32,9 +32,44 @@
     --spacing-3xl: clamp(4.75rem, 5.2571rem + 1.2023vi, 5.25rem);
 }
 
+@font-face {
+    font-family: 'The Seasons Bold';
+    src: url('/fonts/TheSeasonsBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'The Seasons Bold Italic';
+    src: url('/fonts/TheSeasonsBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albertus Nova';
+    src: url('/fonts/albertusnova.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albertus Nova Bold';
+    src: url('/fonts/albertusnova_bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    src: url('/fonts/Figtree-VariableFont_wght.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @layer base {
     body {
-        font-family: 'Times New Roman', Times, serif; /* FONTSPRING DEMO - The Seasons */
+        font-family: 'The Seasons Bold', 'Times New Roman', serif;
         background-color: var(--color-midnight);
         color: var(--color-white);
     }
@@ -52,7 +87,7 @@
     }
 
     p {
-        /* font-family: ; FONTSPRING DEMO - The Seasons */
+        font-family: 'Figtree', 'Arial', sans-serif;
         font-size: var(--text-base);
         opacity: 0.8;
     }
