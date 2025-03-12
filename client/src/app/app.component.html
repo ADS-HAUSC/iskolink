@@ -1,7 +1,7 @@
-<main>
-  <header>
-    <nav>
-      <ul>
+<main class="absolute w-full">
+  <header class="bg-white text-midnight text-base opacity-40">
+    <nav >
+      <ul class="flex gap-xl justify-center">
         <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
         <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
         <li><a routerLink="/activities" routerLinkActive="active" ariaCurrentWhenActive="page">Activities</a></li>
@@ -12,7 +12,6 @@
       </ul>
     </nav>
   </header>
-
 </main>
 
 <router-outlet />

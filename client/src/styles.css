@@ -37,6 +37,7 @@
         font-family: 'Times New Roman', Times, serif; /* FONTSPRING DEMO - The Seasons */
         background-color: var(--color-midnight);
         color: var(--color-white);
+        line-height: normal;
     }
 
     h1 {
@@ -49,6 +50,7 @@
 
     h3 {
         font-size: var(--text-heading-3);
+        color: var(--color-champagne);
     }
 
     p {
