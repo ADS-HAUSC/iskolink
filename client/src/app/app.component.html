@@ -1,16 +1,18 @@
 <main>
-
-  <h3 class="font-bold text-heading-3 leading-none">
-    Founded on the belief that science and <span class="text-champagne">technology</span> can drive meaningful change, <span class="text-champagne">ADS-HAUSC has been a pillar of academic excellence and community impact</span>. 
-  </h3>
-
-  <div class="mb">
-    <p class="text-base opacity-80">Hello world</p>
-  </div>
-
-  <div class="h-48 w-72 gradient mb-xl">
-    <h1 class="text-heading-1">hello</h1>
-  </div>
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
+        <li><a routerLink="/activities" routerLinkActive="active" ariaCurrentWhenActive="page">Activities</a></li>
+        <li><a routerLink="/scholarship" routerLinkActive="active" ariaCurrentWhenActive="page">Scholarship</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a></li>
+        <li><a routerLink="/admin-login" routerLinkActive="active" ariaCurrentWhenActive="page">Admin-Login</a></li>  <!-- to be removed -->
+        <li><a routerLink="/admin-dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Admin-Dashboard</a></li> <!-- to be removed -->
+      </ul>
+    </nav>
+  </header>
 
 </main>
 
+<router-outlet />
