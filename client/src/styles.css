@@ -11,12 +11,12 @@
 
     /* COLORS */
     --tw-text-opacity: 1;
-    --color-midnight: rgb(14 24 75 / var(--tw-text-opacity)); 
-    --color-royal: rgb(35 39 92 / var(--tw-text-opacity)); 
-    --color-royal-violet: rgb(62 62 119 / var(--tw-text-opacity)); 
-    --color-golden: rgb(201 154 86 / var(--tw-text-opacity)); 
-    --color-champagne: rgb(249 198 123 / var(--tw-text-opacity)); 
-    --color-white: rgb(255 255 255 / var(--tw-text-opacity)); 
+    --color-midnight: rgb(14 24 75 / var(--tw-text-opacity)); /* #0E184B */
+    --color-royal: rgb(35 39 92 / var(--tw-text-opacity)); /* #23275C */
+    --color-royal-violet: rgb(62 62 119 / var(--tw-text-opacity)); /* #3E3E77 */
+    --color-golden: rgb(201 154 86 / var(--tw-text-opacity)); /* #C99A56 */
+    --color-champagne: rgb(249 198 123 / var(--tw-text-opacity)); /* #F9C67B */
+    --color-white: rgb(255 255 255 / var(--tw-text-opacity)); /* #FFFFFF */
 
     /* SPACINGS */
     --spacing-3xs: clamp(0.3125rem, 0.3125rem + 0vi, 0.3125rem);
@@ -30,9 +30,34 @@
     --spacing-3xl: clamp(4.75rem, 5.2571rem + 1.2023vi, 5.25rem);
 }
 
+@layer base {
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        background-color: var(--color-midnight);
+        color: var(--color-white);
+    }
 
-body {
-    font-family: 'Times New Roman', Times, serif;
+    h1 {
+        font-size: var(--text-heading-1);
+    }
+
+    h2 {
+        font-size: var(--text-heading-2);
+    }
+
+    h3 {
+        font-size: var(--text-heading-3);
+    }
+
+    p {
+        font-size: var(--text-base);
+        opacity: 0.8;
+    }
+
+    span {
+        color: var(--color-champagne);
+        opacity: 1;
+    }
 }
 
 @layer components {
