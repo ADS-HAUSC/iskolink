@@ -5,7 +5,7 @@
     /* #FONT FAMILY */
 
     /* FONT SIZES */
-    --text-base: clamp(1rem, 0.9rem + 0.07vw, 1.05rem);
+    --text-base: clamp(1rem, 0.8rem + 0.07vw, 1.05rem);
     --text-heading-3: clamp(1.25rem, 1rem + 1.25vw, 2rem);
     --text-heading-2: clamp(1.375rem, 1rem + 1.875vw, 2.5rem);
     --text-heading-1: clamp(2rem, 1.5rem + 2.8vw, 4.5rem);
@@ -34,12 +34,13 @@
 
 @layer base {
     body {
-        font-family: 'Times New Roman', Times, serif; /* FONTSPRING DEMO - The Seasons */
+        /* font-family: 'Times New Roman', Times, serif; FONTSPRING DEMO - The Seasons */
+        font-family: Neue Montreal; /* FONTSPRING DEMO - The Seasons */
         background-color: var(--color-midnight);
         color: var(--color-white);
         line-height: normal;
     }
-
+    
     h1 {
         font-size: var(--text-heading-1);
     }
@@ -52,7 +53,7 @@
         font-size: var(--text-heading-3);
         color: var(--color-champagne);
     }
-
+    
     p {
         /* font-family: ; FONTSPRING DEMO - The Seasons */
         font-size: var(--text-base);
@@ -62,6 +63,11 @@
     span {
         color: var(--color-champagne);
         opacity: 1;
+    }
+
+    img {
+        height: auto;
+        width: auto;
     }
 }
 
