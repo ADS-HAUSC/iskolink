@@ -30,6 +30,7 @@
     --spacing-3xl: clamp(4.75rem, 5.2571rem + 1.2023vi, 5.25rem);
 }
 
+
 body {
     font-family: 'Times New Roman', Times, serif;
 }
