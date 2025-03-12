@@ -2,6 +2,8 @@
 @import "tailwindcss";
 
 @theme {
+    /* #FONT FAMILY */
+
     /* FONT SIZES */
     --text-base: clamp(1rem, 0.9rem + 0.07vw, 1.05rem);
     --text-heading-3: clamp(1.25rem, 1rem + 1.25vw, 2rem);
@@ -32,7 +34,7 @@
 
 @layer base {
     body {
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Times New Roman', Times, serif; /* FONTSPRING DEMO - The Seasons */
         background-color: var(--color-midnight);
         color: var(--color-white);
     }
@@ -50,6 +52,7 @@
     }
 
     p {
+        /* font-family: ; FONTSPRING DEMO - The Seasons */
         font-size: var(--text-base);
         opacity: 0.8;
     }
