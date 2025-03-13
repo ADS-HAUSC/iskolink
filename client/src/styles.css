@@ -102,6 +102,7 @@
     span {
         color: var(--color-champagne);
         opacity: 1;
+        font-weight: bold;
     }
 
     em {
