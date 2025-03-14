@@ -88,11 +88,10 @@
         font-family: 'Albertus Nova Bold', 'Times New Roman', 'serif';
     }
 
-    /* To add once merged to avoid conflicting code */
-    /* h4 {
+    h4 {
         font-size: var(--text-base);
         font-family: 'Albertus Nova';
-    } */
+    }
 
     p {
         font-family: 'Figtree', 'Arial', sans-serif;
@@ -130,27 +129,21 @@
         background-image: linear-gradient(102deg, var(--color-golden) -1.27%, rgba(197, 151, 78, 0.95) 26.69%, rgba(144, 104, 33, 0.90) 104.31%);
     }
 
-    /* To remove once moved to h4 */
-    .mini-heading {
-        font-size: var(--text-base);
-        font-family: 'Albertus Nova';
-    }
-
     .mini-heading-cont {
         @apply flex gap-2xs;
     }
 
     .btn-full {
-        @apply py-2xs px-lg rounded-lg text-midnight bg-golden;
+        @apply py-2xs px-lg rounded-lg text-midnight bg-golden text-center;
     }
 
     .btn-full-gradient {
-        @apply py-2xs px-lg rounded-lg text-midnight;
+        @apply py-2xs px-lg rounded-lg text-midnight text-center;
         background-image: linear-gradient(102deg, var(--color-golden) -1.27%, rgba(197, 151, 78, 0.95) 26.69%, rgba(144, 104, 33, 0.90) 104.31%);
     }
 
     .btn-outlined {
-        @apply py-2xs px-lg border border-golden rounded-lg text-golden;
+        @apply py-2xs px-lg border border-golden rounded-lg text-golden text-center;
     }
 
     .card-content {
@@ -170,11 +163,11 @@
     }
 
     .home-section {
-        @apply px-xl py-3xl flex flex-col gap-md;
+        @apply px-sm sm:px-lg lg:px-xl py-3xl flex flex-col gap-md;
     }
 
     .faq-item {
-        @apply border-2 border-royal-violet rounded-lg p-sm max-w-screen-lg
+        @apply border-2 border-royal-violet rounded-lg p-sm lg:max-w-8/12
     }
     
 }

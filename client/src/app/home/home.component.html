@@ -6,22 +6,22 @@
     <section class="relative h-screen">
         <img class="h-full w-full object-cover" src="images/home-hero-img.png" alt="Group photo of DOST Scholars at Holy Angel University">
         <div class="hero-gradient absolute h-full w-full top-0">
-            <div class="flex flex-col justify-center gap-md h-full mx-xl">
+            <div class="flex flex-col justify-center gap-md h-full mx-sm sm:mx-lg lg:mx-xl">
                 <div class="mini-heading-cont">
                     <img src="images/star-icon.svg" alt="Star Icon">
-                    <h4 class="mini-heading">Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+                    <h4>Association of DOST Scholars - Holy Angel University Student Chapter</h4>
                 </div>
                 <h1 class="text-heading-display leading-none">
                     Scholars <em>of</em> the nation,<br>
                     <span><em>for</em> the nation</span>
                 </h1>
-                <p class="w-5/12">
+                <p class="sm:w-3/4 lg:w-5/12">
                     Empowering future leaders in science and technology through education,
                     innovation, and community service. Join us in shaping a brighter future!
                 </p>
                 <div class="flex gap-sm mt-md">
-                    <a routerLink="/about" class="btn-outlined">Learn More</a>
-                    <a class="btn-full-gradient">Join Now</a>
+                    <a routerLink="/about" class="btn-outlined w-full sm:w-auto">Learn More</a>
+                    <a class="btn-full-gradient w-full sm:w-auto">Join Now</a>
                 </div>
             </div>
         </div>
@@ -32,18 +32,18 @@
     <section class="home-section">
         <div class="mini-heading-cont mt-xl">
             <img src="images/star-icon.svg" alt="Star Icon">
-            <h4 class="mini-heading">About ADS-HAUSC</h4>
+            <h4>About ADS-HAUSC</h4>
         </div>
         <h2>Where stellar minds of tomorrow <span>shine.</span></h2>
-        <p class="w-7/12">
+        <p class="sm:w-3/4 lg:w-7/12">
             Our organization is a community of scholars united by a passion for science,
             technology, and service. Through collaboration and innovation, we strive to empower
             future leaders and create meaningful change.
         </p>
 
         <!-- Cards for About -->
-        <div class="flex flex-row gap-sm mt-lg mb-xl justify-between">
-            <div class="card-content gradient">
+        <div class="flex flex-col lg:flex-row gap-sm mt-lg mb-xl justify-between">
+            <div class="card-content gradient sm:w-3/4 lg:w-auto sm:self-start lg:self-auto">
                 <h3><span>Empowering Scholars</span></h3> <!-- To adjust to lower size -->
                 <div class="content-arrow">
                     <p>Supporting future leaders in science and tech through education and teamwork.</p>
@@ -52,7 +52,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card-content gradient">
+            <div class="card-content gradient sm:w-3/4 lg:w-auto sm:self-center lg:self-auto">
                 <h3><span>Serving the Community</span></h3>
                 <div class="content-arrow">
                     <p>Giving back through outreach programs, mentorship, and advocacy efforts.</p>
@@ -61,7 +61,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card-content gradient">
+            <div class="card-content gradient sm:w-3/4 lg:w-auto sm:self-end lg:self-auto">
                 <h3><span>Inspiring Excellence</span></h3>
                 <div class="content-arrow">
                     <p>Encouraging academic achievement and leadership in science and technology.</p>
@@ -75,13 +75,13 @@
 
 
     <!-- Activities CTA -->
-    <section class="w-full h-full bg-cover bg-center bg-no-repeat pl-xl py-3xl translucent" style="background-image: url('images/activities-cta-img-tl.png');">
-        <div class="flex flex-row-reverse items-center xl:items-stretch gap-sm">
+    <section class="w-full h-full bg-cover bg-center bg-no-repeat px-sm sm:px-lg lg:pr-0 lg:px-xl py-3xl translucent" style="background-image: url('images/activities-cta-img-tl.png');">
+        <div class="flex flex-col lg:flex-row-reverse items-center xl:items-stretch gap-sm">
             <!-- Right or Top side -->
-            <div class="bg-midnight border-2 border-royal-violet rounded-l-lg w-full p-xl flex flex-col justify-center items-start gap-md my-xl">
+            <div class="bg-midnight border-2 border-royal-violet rounded-lg lg:rounded-r-none w-full px-sm sm:px-lg p-xl flex flex-col justify-center items-start gap-md mt-xl lg:mb-xl">
                 <div class="mini-heading-cont">
                     <img src="images/star-icon.svg" alt="Star Icon">
-                    <h4 class="mini-heading">Our Activities</h4>
+                    <h4>Our Activities</h4>
                 </div>
                 <h2 class="w-5/7">Uplifting others through <span>knowledge</span> and <span>service.</span></h2>
                 <p>
@@ -94,9 +94,13 @@
             </div>
 
             <!-- Left or Bottom side -->
-            <div class="flex flex-col justify-center gap-sm my-xl">
-                <img src="images/feat-activity-1.png" alt="Pamasko ni Isko event for elementary students">
-                <img src="images/feat-activity-2.png" alt="Green Delivery Initiative for the environment">
+            <div class="flex flex-col sm:flex-row lg:flex-col justify-center gap-sm mb-xl lg:mt-xl max-w-full">
+                <div class="w-full h-auto object-contain">
+                    <img src="images/feat-activity-1.png" alt="Pamasko ni Isko event for elementary students">
+                </div>
+                <div class="w-full h-auto object-contain">
+                    <img class="" src="images/feat-activity-2.png" alt="Green Delivery Initiative for the environment">
+                </div>
             </div>
         </div>
     </section>
@@ -106,12 +110,12 @@
     <section class="home-section bg-royal">
         <div class="mini-heading-cont mt-xl">
             <img src="images/star-icon.svg" alt="Star Icon">
-            <h4 class="mini-heading">Scholarships</h4>
+            <h4>Scholarships</h4>
         </div>
         <h2>Scholarship Opportunities</h2>
 
         <!-- Cards for Scholarships -->
-        <div class="flex flex-row gap-sm text-midnight mb-xl">
+        <div class="flex flex-col lg:flex-row gap-sm text-midnight mb-xl">
             <div class="card-content golden-gradient">
                 <h3>S&T Undergraduate Scholarships</h3>
                 <div class="content-arrow">
@@ -144,8 +148,8 @@
 
 
     <!-- FAQs | Can be put to backend to avoid lengthy/repetitive divs -->
-    <section class="home-section text-center">
-        <h2 class="mt-xl">Frequently Asked Questions</h2>
+    <section class="home-section">
+        <h2 class="mt-xl text-center">Frequently Asked Questions</h2>
         <div class="flex flex-col gap-md mb-xl items-center">
             <div class="faq-item">
                 <p class="opacity-100 font-bold mb-sm">
@@ -190,8 +194,8 @@
 
     <!-- Contact CTA -->
     <section class="home-section lg:flex-row-reverse lg:gap gradient justify-between">
-        <img src="images/stars-cta.svg" alt="Stars">
-        <div class="flex flex-col items-start gap-md justify-center my-xl">
+        <img class="w-1/2 sm:3/8 mt-xl lg:m-auto" src="images/stars-cta.svg" alt="Stars">
+        <div class="flex flex-col items-start gap-md justify-center mb-xl lg:my-xl">
             <h2>Reach for the Stars, <span>Connect with Us</span></h2>
             <p class="w-3/4">
                 Got questions or ideas? Whether you're a scholar, an aspiring student, or a supporter of
@@ -203,13 +207,13 @@
 
 
     <!-- Footer -->
-    <footer class="flex flex-row justify-between px-xl py-xl items-center">
-        <div class="flex flex-row gap-md items-center">
+    <footer class="flex flex-col lg:flex-row justify-between gap-md px-sm sm:px-lg lg:px-xl py-2xl sm:py-xl items-center">
+        <div class="flex flex-col sm:flex-row gap-md items-center text-center sm:text-start">
             <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo">
             <div class="flex flex-col gap-2xs">
-                <h4 class="mini-heading">Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+                <h4>Association of DOST Scholars - Holy Angel University Student Chapter</h4>
                 <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
-                <div class="flex flex-row gap-md">
+                <div class="flex flex-row gap-md justify-center sm:justify-start">
                     <a href="https://www.facebook.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
                         <img src="images/fb-icon.svg" alt="Facebook Icon">
                         <p>adshausc</p>
@@ -221,7 +225,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col gap-2xs">
+        <div class="flex flex-col gap-2xs text-center lg:text-start">
             <p class="opacity-100 font-bold">Website developed by</p>
             <p>
                 <a href="https://github.com/jimvdz">jimvdz</a> |
