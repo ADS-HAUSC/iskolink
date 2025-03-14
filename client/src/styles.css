@@ -110,7 +110,7 @@
         font-style: italic;
     }
 
-    button {
+    a {
         font-family: 'Figtree', 'Arial', sans-serif;
         font-size: var(--text-base);
         cursor: pointer;
@@ -174,7 +174,7 @@
     }
 
     .faq-item {
-        @apply border-2 border-royal-violet rounded-lg p-sm
+        @apply border-2 border-royal-violet rounded-lg p-sm max-w-screen-lg
     }
     
 }
