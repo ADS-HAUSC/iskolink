@@ -29,7 +29,7 @@
 
 
     <!-- About Call to Action (CTA) -->
-    <section class="mx-xl my-3xl flex flex-col gap-md">
+    <section class="home-section">
         <div class="mini-heading-cont mt-xl">
             <img src="images/star-icon.svg" alt="Star Icon">
             <h4 class="mini-heading">About ADS-HAUSC</h4>
@@ -75,70 +75,80 @@
 
 
     <!-- Activities CTA -->
-    <section class="w-full h-full bg-cover bg-center bg-no-repeat flex flex-row-reverse items-center md:items-stretch gap-sm pl-xl py-3xl" style="background-image: url('images/activities-cta-img.png');">
-        <!-- Right or Top side -->
-        <div class="bg-midnight border border-royal-violet rounded-lg p-xl flex flex-col justify-center items-start gap-md">
-            <div class="mini-heading-cont">
-                <img src="images/star-icon.svg" alt="Star Icon">
-                <h4 class="mini-heading">Our Activities</h4>
+    <section class="w-full h-full bg-cover bg-center bg-no-repeat pl-xl py-3xl translucent" style="background-image: url('images/activities-cta-img-tl.png');">
+        <div class="flex flex-row-reverse items-center xl:items-stretch gap-sm">
+            <!-- Right or Top side -->
+            <div class="bg-midnight border-2 border-royal-violet rounded-l-lg w-full p-xl flex flex-col justify-center items-start gap-md my-xl">
+                <div class="mini-heading-cont">
+                    <img src="images/star-icon.svg" alt="Star Icon">
+                    <h4 class="mini-heading">Our Activities</h4>
+                </div>
+                <h2 class="w-5/7">Uplifting others through <span>knowledge</span> and <span>service.</span></h2>
+                <p>
+                    ADS-HAUSC is committed to making a difference beyond the classroom. Through outreach programs,
+                    educational initiatives, and community-driven projects, we use science and technology to uplift
+                    and inspire. Join us as we create meaningful change—one initiative at a time.
+                </p>
+
+                <button class="btn-full-gradient mt-lg">See Activities</button>
             </div>
-            <h2 class="w-5/7">Uplifting others through <span>knowledge</span> and <span>service.</span></h2>
-            <p>
-                ADS-HAUSC is committed to making a difference beyond the classroom. Through outreach programs,
-                educational initiatives, and community-driven projects, we use science and technology to uplift
-                and inspire. Join us as we create meaningful change—one initiative at a time.
-            </p>
 
-            <button class="btn-full-gradient">See Activities</button>
-        </div>
-
-        <!-- Left or Bottom side -->
-        <div class="basis-full lg:max-w-[5/12] flex flex-col gap-sm">
-            <img src="images/feat-activity-1.png" alt="Pamasko ni Isko event for elementary students">
-            <img src="images/feat-activity-2.png" alt="Green Delivery Initiative for the environment">
+            <!-- Left or Bottom side -->
+            <div class="flex flex-col justify-center gap-sm my-xl">
+                <img src="images/feat-activity-1.png" alt="Pamasko ni Isko event for elementary students">
+                <img src="images/feat-activity-2.png" alt="Green Delivery Initiative for the environment">
+            </div>
         </div>
     </section>
 
 
     <!-- Scholarships CTA -->
-    <section>
-        <div class="mini-heading-cont">
+    <section class="home-section bg-royal">
+        <div class="mini-heading-cont mt-xl">
             <img src="images/star-icon.svg" alt="Star Icon">
             <h4 class="mini-heading">Scholarships</h4>
         </div>
         <h2>Scholarship Opportunities</h2>
 
         <!-- Cards for Scholarships -->
-        <div>
-            <div>
+        <div class="flex flex-row gap-sm text-midnight mb-xl">
+            <div class="card-content golden-gradient">
                 <h3>S&T Undergraduate Scholarships</h3>
-                <p>
-                    The S&T Undergraduate Scholarships Program aims to stimulate and entice talented Filipino
-                    youths to pursue lifetime productive careers in science and technology and ensure a steady,
-                    adequate supply of qualified S&T human resources which can steer the country towards national
-                    progress.
-                </p>
-                <button>-></button>
+                <div class="content-arrow">
+                    <p>
+                        The S&T Undergraduate Scholarships Program aims to stimulate and entice talented Filipino
+                        youths to pursue lifetime productive careers in science and technology and ensure a steady,
+                        adequate supply of qualified S&T human resources which can steer the country towards national
+                        progress.
+                    </p>
+                    <button class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </button>
+                </div>
             </div>
-            <div>
-                <h3 class="">Junior-Level Science Scholarships</h3>
-                <p>
-                    The Junior Level Science Scholarships (JLSS) Program aims to: provide scholarships to support
-                    talented third-year college students pursuing science and technology degrees and ensure a steady
-                    supply of qualified S&T professionals to drive national progress.
-                </p>
-                <button>-></button>
+            <div class="card-content golden-gradient">
+                <h3>Junior-Level Science Scholarships</h3>
+                <div class="content-arrow">
+                    <p>
+                        The Junior Level Science Scholarships (JLSS) Program aims to: provide scholarships to support
+                        talented third-year college students pursuing science and technology degrees and ensure a steady
+                        supply of qualified S&T professionals to drive national progress.
+                    </p>
+                    <button class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
 
-    <!-- FAQs -->
-    <section>
-        <h2>Frequently Asked Questions </h2>
-        <div>
-            <div>
-                <p class="opacity-100 font-bold">
+    <!-- FAQs | Can be put to backend to avoid lengthy/repetitive divs -->
+    <section class="home-section text-center">
+        <h2 class="mt-xl">Frequently Asked Questions</h2>
+        <div class="flex flex-col gap-md mb-xl">
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
                     Who can join ADS-HAUSC and how can I become a member?
                 </p>
                 <p>
@@ -149,8 +159,8 @@
                 </p>
             </div>
     
-            <div>
-                <p class="opacity-100 font-bold">
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
                     What are the benefits of joining ADS-HAUSC?
                 </p>
                 <p>
@@ -161,8 +171,8 @@
                 </p>
             </div>
     
-            <div>
-                <p class="opacity-100 font-bold">
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
                     Does ADS-HAUSC provide financial assistance?
                 </p>
                 <p>
