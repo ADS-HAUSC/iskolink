@@ -109,6 +109,12 @@
         font-family: 'The Seasons Bold Italic', 'Times New Roman', serif;
         font-style: italic;
     }
+
+    button {
+        font-family: 'Figtree', 'Arial', sans-serif;
+        font-size: var(--text-base);
+        cursor: pointer;
+    }
 }
 
 @layer components {
@@ -124,5 +130,38 @@
     .mini-heading {
         font-size: var(--text-base);
         font-family: 'Albertus Nova';
+    }
+
+    .mini-heading-cont {
+        @apply flex gap-2xs;
+    }
+
+    .btn-full {
+        @apply py-2xs px-lg rounded-lg text-midnight bg-golden;
+    }
+
+    .btn-full-gradient {
+        @apply py-2xs px-lg rounded-lg text-midnight;
+        background-image: linear-gradient(102deg, var(--color-golden) -1.27%, rgba(197, 151, 78, 0.95) 26.69%, rgba(144, 104, 33, 0.90) 104.31%);
+    }
+
+    .btn-outlined {
+        @apply py-2xs px-lg border border-golden rounded-lg text-golden;
+    }
+
+    .card-content {
+        @apply p-md flex flex-col gap-md rounded-lg basis-full justify-between;
+    }
+
+    .content-arrow {
+        @apply flex flex-row items-end gap-sm justify-between;
+    }
+
+    .btn-arrow {
+        @apply bg-midnight p-xs rounded-full;
+    }
+
+    .arrow {
+        @apply w-5 max-w-none h-5;
     }
 }
