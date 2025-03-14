@@ -6,8 +6,11 @@
     <section class="relative h-screen">
         <img class="h-full w-full object-cover" src="images/home-hero-img.png" alt="Group photo of DOST Scholars at Holy Angel University">
         <div class="hero-gradient absolute h-full w-full top-0">
-            <div class="flex flex-col justify-center gap-md h-full mx-lg">
-                <h4 class="mini-heading">Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+            <div class="flex flex-col justify-center gap-md h-full mx-xl">
+                <div class="mini-heading-cont">
+                    <img src="images/star-icon.svg" alt="Star Icon">
+                    <h4 class="mini-heading">Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+                </div>
                 <h1 class="text-heading-display leading-none">
                     Scholars <em>of</em> the nation,<br>
                     <span><em>for</em> the nation</span>
@@ -16,96 +19,136 @@
                     Empowering future leaders in science and technology through education,
                     innovation, and community service. Join us in shaping a brighter future!
                 </p>
-                <div>
-                    <button>Learn More</button>
-                    <button>Join Now</button>
+                <div class="flex gap-sm mt-md">
+                    <a routerLink="/about" class="btn-outlined">Learn More</a>
+                    <a class="btn-full-gradient">Join Now</a>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- About Call to Action (CTA) -->
-    <section>
-        <h4 class="mini-heading">About ADS-HAUSC</h4>
+    <section class="home-section">
+        <div class="mini-heading-cont mt-xl">
+            <img src="images/star-icon.svg" alt="Star Icon">
+            <h4 class="mini-heading">About ADS-HAUSC</h4>
+        </div>
         <h2>Where stellar minds of tomorrow <span>shine.</span></h2>
-        <p>
+        <p class="w-7/12">
             Our organization is a community of scholars united by a passion for science,
             technology, and service. Through collaboration and innovation, we strive to empower
             future leaders and create meaningful change.
         </p>
 
         <!-- Cards for About -->
-        <div>
-            <div>
+        <div class="flex flex-row gap-sm mt-lg mb-xl justify-between">
+            <div class="card-content gradient">
                 <h3><span>Empowering Scholars</span></h3> <!-- To adjust to lower size -->
-                <p>Supporting future leaders in science and technology through education and collaboration.</p>
-                <button>-></button>
+                <div class="content-arrow">
+                    <p>Supporting future leaders in science and tech through education and teamwork.</p>
+                    <a routerLink="/about" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
             </div>
-            <div>
+            <div class="card-content gradient">
                 <h3><span>Serving the Community</span></h3>
-                <p>Giving back through outreach programs, mentorship, and advocacy efforts.</p>
-                <button>-></button>
+                <div class="content-arrow">
+                    <p>Giving back through outreach programs, mentorship, and advocacy efforts.</p>
+                    <a routerLink="/about" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
             </div>
-            <div>
+            <div class="card-content gradient">
                 <h3><span>Inspiring Excellence</span></h3>
-                <p>Encouraging academic achievement and leadership in science and technology.</p>
-                <button>-></button>
+                <div class="content-arrow">
+                    <p>Encouraging academic achievement and leadership in science and technology.</p>
+                    <a routerLink="/about" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Activities CTA -->
-    <section style="background-image: url('images/activities-cta-img.png');">
-        <div>
-            <h4 class="mini-heading">Our Activities</h4>
-            <h2>Uplifting others through <span>knowledge</span> and <span>service.</span></h2>
-            <p>
-                ADS-HAUSC is committed to making a difference beyond the classroom. Through outreach programs,
-                educational initiatives, and community-driven projects, we use science and technology to uplift
-                and inspire. Join us as we create meaningful change—one initiative at a time.
-            </p>
-        </div>
-        <div>
-            <img src="images/feat-activity-1.png" alt="Pamasko ni Isko event for elementary students">
-            <img src="images/feat-activity-2.png" alt="Green Delivery Initiative for the environment">
+    <section class="w-full h-full bg-cover bg-center bg-no-repeat pl-xl py-3xl translucent" style="background-image: url('images/activities-cta-img-tl.png');">
+        <div class="flex flex-row-reverse items-center xl:items-stretch gap-sm">
+            <!-- Right or Top side -->
+            <div class="bg-midnight border-2 border-royal-violet rounded-l-lg w-full p-xl flex flex-col justify-center items-start gap-md my-xl">
+                <div class="mini-heading-cont">
+                    <img src="images/star-icon.svg" alt="Star Icon">
+                    <h4 class="mini-heading">Our Activities</h4>
+                </div>
+                <h2 class="w-5/7">Uplifting others through <span>knowledge</span> and <span>service.</span></h2>
+                <p>
+                    ADS-HAUSC is committed to making a difference beyond the classroom. Through outreach programs,
+                    educational initiatives, and community-driven projects, we use science and technology to uplift
+                    and inspire. Join us as we create meaningful change—one initiative at a time.
+                </p>
+
+                <a routerLink="/activities" class="btn-full-gradient mt-lg">See Activities</a>
+            </div>
+
+            <!-- Left or Bottom side -->
+            <div class="flex flex-col justify-center gap-sm my-xl">
+                <img src="images/feat-activity-1.png" alt="Pamasko ni Isko event for elementary students">
+                <img src="images/feat-activity-2.png" alt="Green Delivery Initiative for the environment">
+            </div>
         </div>
     </section>
 
+
     <!-- Scholarships CTA -->
-    <section>
-        <h4 class="mini-heading">Scholarships</h4>
+    <section class="home-section bg-royal">
+        <div class="mini-heading-cont mt-xl">
+            <img src="images/star-icon.svg" alt="Star Icon">
+            <h4 class="mini-heading">Scholarships</h4>
+        </div>
         <h2>Scholarship Opportunities</h2>
 
         <!-- Cards for Scholarships -->
-        <div>
-            <div>
+        <div class="flex flex-row gap-sm text-midnight mb-xl">
+            <div class="card-content golden-gradient">
                 <h3>S&T Undergraduate Scholarships</h3>
-                <p>
-                    The S&T Undergraduate Scholarships Program aims to stimulate and entice talented Filipino
-                    youths to pursue lifetime productive careers in science and technology and ensure a steady,
-                    adequate supply of qualified S&T human resources which can steer the country towards national
-                    progress.
-                </p>
-                <button>-></button>
+                <div class="content-arrow">
+                    <p>
+                        The S&T Undergraduate Scholarships Program aims to stimulate and entice talented Filipino
+                        youths to pursue lifetime productive careers in science and technology and ensure a steady,
+                        adequate supply of qualified S&T human resources which can steer the country towards national
+                        progress.
+                    </p>
+                    <a routerLink="/scholarship" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
             </div>
-            <div>
-                <h3 class="">Junior-Level Science Scholarships</h3>
-                <p>
-                    The Junior Level Science Scholarships (JLSS) Program aims to: provide scholarships to support
-                    talented third-year college students pursuing science and technology degrees and ensure a steady
-                    supply of qualified S&T professionals to drive national progress.
-                </p>
-                <button>-></button>
+            <div class="card-content golden-gradient">
+                <h3>Junior-Level Science Scholarships</h3>
+                <div class="content-arrow">
+                    <p>
+                        The Junior Level Science Scholarships (JLSS) Program aims to: provide scholarships to support
+                        talented third-year college students pursuing science and technology degrees and ensure a steady
+                        supply of qualified S&T professionals to drive national progress.
+                    </p>
+                    <a routerLink="/scholarship" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQs -->
-    <section>
-        <h2>Frequently Asked Questions </h2>
-        <div>
-            <div>
-                <p class="opacity-100 font-bold">
+
+    <!-- FAQs | Can be put to backend to avoid lengthy/repetitive divs -->
+    <section class="home-section text-center">
+        <h2 class="mt-xl">Frequently Asked Questions</h2>
+        <div class="flex flex-col gap-md mb-xl items-center">
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
                     Who can join ADS-HAUSC and how can I become a member?
                 </p>
                 <p>
@@ -116,8 +159,8 @@
                 </p>
             </div>
     
-            <div>
-                <p class="opacity-100 font-bold">
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
                     What are the benefits of joining ADS-HAUSC?
                 </p>
                 <p>
@@ -128,8 +171,8 @@
                 </p>
             </div>
     
-            <div>
-                <p class="opacity-100 font-bold">
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
                     Does ADS-HAUSC provide financial assistance?
                 </p>
                 <p>
@@ -144,39 +187,47 @@
         </div>
     </section>
 
+
     <!-- Contact CTA -->
-    <section>
-        <img src="" alt="">
-        <div>
+    <section class="home-section lg:flex-row-reverse lg:gap gradient justify-between">
+        <img src="images/stars-cta.svg" alt="Stars">
+        <div class="flex flex-col items-start gap-md justify-center my-xl">
             <h2>Reach for the Stars, <span>Connect with Us</span></h2>
-            <p>
+            <p class="w-3/4">
                 Got questions or ideas? Whether you're a scholar, an aspiring student, or a supporter of
                 S&T, we'd love to hear from you! Let's build a brighter future together.
             </p>
-            <button>Contact Us</button>
+            <a routerLink="/contact" class="btn-full-gradient">Contact Us</a>
         </div>
     </section>
 
+
     <!-- Footer -->
-    <footer>
-        <img class="h-20" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo">
-        <div>
-            <h4 class="mini-heading">Association of DOST Scholars - Holy Angel University Student Chapter</h4>
-            <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
-            <div>
-                <div>
-                    <img src="" alt="">
-                    <p>adshausc</p>
-                </div>
-                <div>
-                    <img src="" alt="">
-                    <p>adshausc</p>
+    <footer class="flex flex-row justify-between px-xl py-xl items-center">
+        <div class="flex flex-row gap-md items-center">
+            <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo">
+            <div class="flex flex-col gap-2xs">
+                <h4 class="mini-heading">Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+                <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
+                <div class="flex flex-row gap-md">
+                    <a href="https://www.facebook.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
+                        <img src="images/fb-icon.svg" alt="Facebook Icon">
+                        <p>adshausc</p>
+                    </a>
+                    <a href="https://www.instagram.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
+                        <img src="images/ig-icon.svg" alt="Instagram Icon">
+                        <p>adshausc</p>
+                    </a>
                 </div>
             </div>
         </div>
-        <div>
+        <div class="flex flex-col gap-2xs">
             <p class="opacity-100 font-bold">Website developed by</p>
-            <p>jimvdz | bancantcode | lmcay | cess2c</p>
+            <p>
+                <a href="https://github.com/jimvdz">jimvdz</a> |
+                <a href="https://github.com/bancantcode">bancantcode</a> |
+                <a href="https://github.com/lmcay">lmcay</a> |
+                <a href="https://github.com/cess2c">cess2c</a></p>
             <p>Copyright &copy; 2025. All rights reserved.</p>
         </div>
     </footer>
