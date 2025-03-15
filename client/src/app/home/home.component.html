@@ -1,35 +1,238 @@
 <main>
-    <!-- HERO SECTION FOR HOME -->
-    <section>
 
+    <!-- Landing Page made with <3 by Jimwel Valdez (jimvdz). Copyright (c) 2025. All rights reserved. -->
+
+    <!-- Home Hero Section -->
+    <section class="relative h-screen">
+        <img class="h-full w-full object-cover" src="images/home-hero-img.png" alt="Group photo of DOST Scholars at Holy Angel University">
+        <div class="hero-gradient absolute h-full w-full top-0">
+            <div class="flex flex-col justify-center gap-md h-full mx-sm sm:mx-lg lg:mx-xl">
+                <div class="mini-heading-cont">
+                    <img src="images/star-icon.svg" alt="Star Icon">
+                    <h4>Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+                </div>
+                <h1 class="text-heading-display leading-none">
+                    Scholars <em>of</em> the nation,<br>
+                    <span><em>for</em> the nation</span>
+                </h1>
+                <p class="sm:w-3/4 lg:w-5/12">
+                    Empowering future leaders in science and technology through education,
+                    innovation, and community service. Join us in shaping a brighter future!
+                </p>
+                <div class="flex gap-sm mt-md">
+                    <a routerLink="/about" class="btn-outlined w-full sm:w-auto">Learn More</a>
+                    <a class="btn-full-gradient w-full sm:w-auto">Join Now</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- ABOUT CTA SECTION -->
-    <section>
-        
+
+    <!-- About Call to Action (CTA) -->
+    <section class="home-section">
+        <div class="mini-heading-cont mt-xl">
+            <img src="images/star-icon.svg" alt="Star Icon">
+            <h4>About ADS-HAUSC</h4>
+        </div>
+        <h2>Where stellar minds of tomorrow <span>shine.</span></h2>
+        <p class="sm:w-3/4 lg:w-7/12">
+            Our organization is a community of scholars united by a passion for science,
+            technology, and service. Through collaboration and innovation, we strive to empower
+            future leaders and create meaningful change.
+        </p>
+
+        <!-- Cards for About -->
+        <div class="flex flex-col lg:flex-row gap-sm mt-lg mb-xl justify-between">
+            <div class="card-content gradient sm:w-3/4 lg:w-auto sm:self-start lg:self-auto">
+                <h3><span>Empowering Scholars</span></h3> <!-- To adjust to lower size -->
+                <div class="content-arrow">
+                    <p>Supporting future leaders in science and tech through education and teamwork.</p>
+                    <a routerLink="/about" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
+            </div>
+            <div class="card-content gradient sm:w-3/4 lg:w-auto sm:self-center lg:self-auto">
+                <h3><span>Serving the Community</span></h3>
+                <div class="content-arrow">
+                    <p>Giving back through outreach programs, mentorship, and advocacy efforts.</p>
+                    <a routerLink="/about" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
+            </div>
+            <div class="card-content gradient sm:w-3/4 lg:w-auto sm:self-end lg:self-auto">
+                <h3><span>Inspiring Excellence</span></h3>
+                <div class="content-arrow">
+                    <p>Encouraging academic achievement and leadership in science and technology.</p>
+                    <a routerLink="/about" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- ACTIVITIES CTA SECTION -->
-    <section>
-        
+
+    <!-- Activities CTA -->
+    <section class="w-full h-full bg-cover bg-center bg-no-repeat px-sm sm:px-lg lg:pr-0 lg:px-xl py-3xl translucent" style="background-image: url('images/activities-cta-img-tl.png');">
+        <div class="flex flex-col lg:flex-row-reverse items-center xl:items-stretch gap-sm">
+            <!-- Right or Top side -->
+            <div class="bg-midnight border-2 border-royal-violet rounded-lg lg:rounded-r-none w-full px-sm sm:px-lg p-xl flex flex-col justify-center items-start gap-md mt-xl lg:mb-xl">
+                <div class="mini-heading-cont">
+                    <img src="images/star-icon.svg" alt="Star Icon">
+                    <h4>Our Activities</h4>
+                </div>
+                <h2 class="w-5/7">Uplifting others through <span>knowledge</span> and <span>service.</span></h2>
+                <p>
+                    ADS-HAUSC is committed to making a difference beyond the classroom. Through outreach programs,
+                    educational initiatives, and community-driven projects, we use science and technology to uplift
+                    and inspire. Join us as we create meaningful change—one initiative at a time.
+                </p>
+
+                <a routerLink="/activities" class="btn-full-gradient mt-lg">See Activities</a>
+            </div>
+
+            <!-- Left or Bottom side -->
+            <div class="flex flex-col sm:flex-row lg:flex-col justify-center gap-sm mb-xl lg:mt-xl max-w-full">
+                <div class="w-full h-auto object-contain">
+                    <img src="images/feat-activity-1.png" alt="Pamasko ni Isko event for elementary students">
+                </div>
+                <div class="w-full h-auto object-contain">
+                    <img class="" src="images/feat-activity-2.png" alt="Green Delivery Initiative for the environment">
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- SCHOLARSHIP CTA SECTION -->
-    <section>
-        
+
+    <!-- Scholarships CTA -->
+    <section class="home-section bg-royal">
+        <div class="mini-heading-cont mt-xl">
+            <img src="images/star-icon.svg" alt="Star Icon">
+            <h4>Scholarships</h4>
+        </div>
+        <h2>Scholarship Opportunities</h2>
+
+        <!-- Cards for Scholarships -->
+        <div class="flex flex-col lg:flex-row gap-sm text-midnight mb-xl">
+            <div class="card-content golden-gradient">
+                <h3>S&T Undergraduate Scholarships</h3>
+                <div class="content-arrow">
+                    <p>
+                        The S&T Undergraduate Scholarships Program aims to stimulate and entice talented Filipino
+                        youths to pursue lifetime productive careers in science and technology and ensure a steady,
+                        adequate supply of qualified S&T human resources which can steer the country towards national
+                        progress.
+                    </p>
+                    <a routerLink="/scholarship" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
+            </div>
+            <div class="card-content golden-gradient">
+                <h3>Junior-Level Science Scholarships</h3>
+                <div class="content-arrow">
+                    <p>
+                        The Junior Level Science Scholarships (JLSS) Program aims to: provide scholarships to support
+                        talented third-year college students pursuing science and technology degrees and ensure a steady
+                        supply of qualified S&T professionals to drive national progress.
+                    </p>
+                    <a routerLink="/scholarship" class="btn-arrow">
+                        <img class="arrow" src="images/arrow.svg" alt="Arrow">
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- FAQ'S SECTION -->
-    <section>
-        
-    </section>
 
-    <!-- CONTACT CALL TO ACTION -->
-    <section>
-        
-    </section>
-
-    <!-- FOOTER -->
-    <footer></footer>
+    <!-- FAQs | Can be put to backend to avoid lengthy/repetitive divs -->
+    <section class="home-section">
+        <h2 class="mt-xl text-center">Frequently Asked Questions</h2>
+        <div class="flex flex-col gap-md mb-xl items-center">
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
+                    Who can join ADS-HAUSC and how can I become a member?
+                </p>
+                <p>
+                    Only bona fide students of Holy Angel University (HAU) who are currently DOST scholars are
+                    eligible to join the Association of DOST Scholars - HAU Student Chapter (ADS-HAUSC).
+                    Eligible students can join by <a class="underline" routerLink="/contact">contacting us</a>
+                    for the registration details.
+                </p>
+            </div>
     
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
+                    What are the benefits of joining ADS-HAUSC?
+                </p>
+                <p>
+                    As a member, you gain access to a supportive community of DOST scholars, networking opportunities,
+                    and academic resources. You can enhance your leadership and career skills through exclusive events,
+                    training, and outreach programs. Additionally, you stay updated on scholarship opportunities,
+                    internships, and initiatives that promote science, technology, and community engagement.
+                </p>
+            </div>
+    
+            <div class="faq-item">
+                <p class="opacity-100 font-bold mb-sm">
+                    Does ADS-HAUSC provide financial assistance?
+                </p>
+                <p>
+                    No. ADS-HAUSC is a student organization and DOES NOT provide financial assistance.
+                    The DOST-SEI is the official provider of the scholarship. However, we support scholars
+                    by fostering a strong academic community, offering mentorship, and sharing valuable resources
+                    about scholarship opportunities. Through our outreach programs and initiatives, we also
+                    strive to give back to the community, promoting education and helping future scholars access
+                    the support they need.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact CTA -->
+    <section class="home-section lg:flex-row-reverse lg:gap gradient justify-between">
+        <img class="w-1/2 sm:3/8 mt-xl lg:m-auto" src="images/stars-cta.svg" alt="Stars">
+        <div class="flex flex-col items-start gap-md justify-center mb-xl lg:my-xl">
+            <h2>Reach for the Stars, <span>Connect with Us</span></h2>
+            <p class="w-3/4">
+                Got questions or ideas? Whether you're a scholar, an aspiring student, or a supporter of
+                S&T, we'd love to hear from you! Let's build a brighter future together.
+            </p>
+            <a routerLink="/contact" class="btn-full-gradient">Contact Us</a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="flex flex-col lg:flex-row justify-between gap-md px-sm sm:px-lg lg:px-xl py-2xl sm:py-xl items-center">
+        <div class="flex flex-col sm:flex-row gap-md items-center text-center sm:text-start">
+            <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo">
+            <div class="flex flex-col gap-2xs">
+                <h4>Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+                <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
+                <div class="flex flex-row gap-md justify-center sm:justify-start">
+                    <a href="https://www.facebook.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
+                        <img src="images/fb-icon.svg" alt="Facebook Icon">
+                        <p>adshausc</p>
+                    </a>
+                    <a href="https://www.instagram.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
+                        <img src="images/ig-icon.svg" alt="Instagram Icon">
+                        <p>adshausc</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-2xs text-center lg:text-start">
+            <p class="opacity-100 font-bold">Website developed by</p>
+            <p>
+                <a href="https://github.com/jimvdz">jimvdz</a> |
+                <a href="https://github.com/bancantcode">bancantcode</a> |
+                <a href="https://github.com/lmcay">lmcay</a> |
+                <a href="https://github.com/cess2c">cess2c</a></p>
+            <p>Copyright &copy; 2025. All rights reserved.</p>
+        </div>
+    </footer>
 </main>
