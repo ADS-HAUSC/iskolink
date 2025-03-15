@@ -16,7 +16,8 @@
         <!-- Activities -->
         <div [class.hidden]="!isActivitiesActive" class="inactive flex flex-col gap-md"> 
 
-            <div *ngFor="let activity of activities" class="dashboard-content flex flex-col gap-sm"><!-- template -->
+            <div *ngFor="let activity of activities" class="dashboard-content flex flex-col gap-sm">
+                <!-- template -->
                 <div class="flex flex-col md:flex-row text-left md:gap-2xs">
                     <!-- <h3><span>United We Lead</span></h3> for introductory phrase input -->
                     <h3>{{ activity.title }}</h3>  <!-- for title input-->
@@ -41,15 +42,17 @@
 
         <!-- Forms -->
         <div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-sm">
-            <!-- template -->
-            <div class="dashboard-content flex flex-col text-left">
-                <h3><span>Bryan A-aron Santiago</span></h3>
-                <div class="mini-heading-cont pb-sm">
-                    <h4>test&commat;email.com</h4>
-                    <img src="images/star-icon.svg" alt="Star Icon">
-                    <h4>09123456789</h4>
+            <div *ngFor="let form of forms">
+                <!-- template -->
+                <div class="dashboard-content flex flex-col text-left">
+                    <h3><span>{{ form.name }}</span></h3>
+                    <div class="mini-heading-cont pb-sm">
+                        <h4>{{ form.email }}</h4>
+                        <img src="images/star-icon.svg" alt="Star Icon">
+                        <h4>{{ form.contactNum }}</h4>
+                    </div>
+                    <p>{{ form.message }}</p>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed sollicitudin nunc. Sed condimentum eros orci, ut viverra arcu elementum id. Fusce ultricies dolor ac porttitor tempus. Nam viverra in nisl vestibulum ornare. Curabitur consectetur orci sit amet magna viverra.</p>
             </div>
         </div>
     </section>

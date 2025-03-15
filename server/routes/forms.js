@@ -1,7 +1,7 @@
 // Forms API Routes
 
 import express from 'express';
-// import form model/schema
+import Forms from '../models/Form';
 
 const formsRoute = express.Router();
 
