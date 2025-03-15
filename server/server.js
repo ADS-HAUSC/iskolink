@@ -30,6 +30,7 @@ const initDatabase = async () => {
 
 // Updated to use the API routes imported (-API endpoint to get activities-)
 app.use("/api/activities", activitiesRoute)
+app.use("/api/forms", formsRoute)
 
 // Handle graceful shutdown
 process.on('SIGINT', async () => {

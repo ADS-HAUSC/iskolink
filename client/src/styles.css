@@ -11,7 +11,7 @@
     --text-heading-3: clamp(1.25rem, 1rem + 1.25vw, 2rem);
     --text-heading-2: clamp(1.375rem, 1rem + 1.875vw, 2.5rem);
     --text-heading-1: clamp(2rem, 1.5rem + 2.8vw, 4.5rem);
-    --text-heading-display: clamp(2.6518rem, 1.88rem + 3.459vi, 5.3131rem);
+    --text-heading-display: clamp(2.6518rem, 1.88rem + 2.59vi, 4.5rem);
 
     /* COLORS */
     --tw-text-opacity: 1;
