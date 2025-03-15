@@ -16,18 +16,20 @@
         <!-- Activities -->
         <div [class.hidden]="!isActivitiesActive" class="inactive flex flex-col gap-md"> 
 
-            <div class="dashboard-content flex flex-col gap-sm"><!-- template -->
+            <div *ngFor="let activity of activities" class="dashboard-content flex flex-col gap-sm"><!-- template -->
                 <div class="flex flex-col md:flex-row text-left md:gap-2xs">
-                    <h3><span>United We Lead</span></h3> <!-- for introductory phrase input -->
-                    <h3>Empowering Future Leaders</h3>  <!-- for title input-->
+                    <!-- <h3><span>United We Lead</span></h3> for introductory phrase input -->
+                    <h3>{{ activity.title }}</h3>  <!-- for title input-->
                 </div>
                 <article class="flex flex-col md:grid md:grid-cols-[auto_auto] text-left gap-sm md:gap-md ">
-                    <p class="line-clamp-4">The National Patriot Scholars Congress (NPSC) 2024 brought together DOST scholars from across the country to foster collaboration and leadership in nation-building. Held at The Manor, Camp John Hay, Baguio City, from September 3 to 6, this prestigious event served as a platform for over 500 scholars to deepen their commitment to serving the Filipino people. 
+                    <p class="line-clamp-4">
+                        {{ activity.desc1 }}<br>
+                        {{ activity.desc2 }}
                     </p>
                     <div class="grid grid-cols-[auto_auto_auto] justify-between md:gap-xs ">
-                        <img src="" alt="" class="aspect-square h-auto md:max-h-30 object-cover">
-                        <img src="" alt="" class="aspect-square h-auto md:max-h-30 object-cover">
-                        <img src="" alt="" class="aspect-square h-auto md:max-h-30 object-cover">
+                        <img src="{{ activity.img1 }}" alt="" class="aspect-square h-auto md:max-h-30 object-cover">
+                        <img src="{{ activity.img2 }}" alt="" class="aspect-square h-auto md:max-h-30 object-cover">
+                        <img src="{{ activity.img3 }}" alt="" class="aspect-square h-auto md:max-h-30 object-cover">
                     </div>
                 </article>
                 <div class="flex flex-row gap-xs justify-end">
