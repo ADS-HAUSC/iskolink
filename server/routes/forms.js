@@ -1,7 +1,7 @@
 // Forms API Routes
 
 import express from 'express';
-import Forms from '../models/Form';
+import Forms from '../models/Form.js';
 
 const formsRoute = express.Router();
 
@@ -17,7 +17,7 @@ export const getFormsData = async () => {
     }
 };
   
-// CRUD routes here
+//http://localhost:3000/api/forms - show all forms (get)
 formsRoute.get("/", async (req, res) => {
     try {
         const forms = await getFormsData();
@@ -29,6 +29,7 @@ formsRoute.get("/", async (req, res) => {
     }
 });
 
+//http://localhost:3000/api/forms/67d5e12fc89740c44a57e254 - by id (get)
 formsRoute.get("/:id", async (req, res) => {
     try {
         const form = await Forms.findById(req.params.id);
@@ -44,6 +45,7 @@ formsRoute.get("/:id", async (req, res) => {
     }
 });
 
+//http://localhost:3000/api/forms/new - add form (post)
 formsRoute.post("/new", async (req, res) => {
     try {
         const { name, email, contactNum, message } = req.body;
@@ -61,6 +63,7 @@ formsRoute.post("/new", async (req, res) => {
     }
 });
 
+//http://localhost:3000/api/forms/67d5e9ceff95f77f4712d313 - to update a form (put)
 formsRoute.put("/:id", async (req, res) => {
     try {
         const form = await Forms.findByIdAndUpdate(
@@ -82,6 +85,7 @@ formsRoute.put("/:id", async (req, res) => {
     }
 });
 
+//http://localhost:3000/api/forms/67d5e9ceff95f77f4712d313 - to delete a form by id (delete)
 formsRoute.delete("/:id", async (req, res) => {
     try {
         const form = await Forms.findByIdAndDelete(req.params.id);
@@ -99,3 +103,8 @@ formsRoute.delete("/:id", async (req, res) => {
 });
 
 export default formsRoute;
+
+
+
+
+
