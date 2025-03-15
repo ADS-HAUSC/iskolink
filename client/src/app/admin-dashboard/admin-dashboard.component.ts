@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './admin-dashboard.component.css'
 })
 export class AdminDashboardComponent {
+  isActivitiesActive: boolean = true;
 
+  toggleSection(isActivities: boolean): void {
+    this.isActivitiesActive = isActivities;
+  }
 }
