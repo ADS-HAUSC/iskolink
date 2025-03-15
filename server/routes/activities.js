@@ -1,17 +1,15 @@
 // Activities API Routes
 
-import { ObjectId } from 'mongodb';
 import express from 'express';
-import { client, databaseName } from '../db.js'
+import Activity from '../models/Activity.js'
 
 const activitiesRoute = express.Router();
-const database = client.db(databaseName);
-const collection = database.collection("activities");
+// const database = client.db(databaseName);
 
 // Function to get activity data;  Also for testing purposes
 export const getActivitiesData = async () => {
   try {
-    const activities = await collection.find({}).toArray();
+    const activities = await Activity.find();
     console.log(`Retrieved ${activities.length} activities from database`);
     return activities;
   } 
@@ -20,7 +18,6 @@ export const getActivitiesData = async () => {
     throw error;
   }
 };
-
 
 // Get all activities
 activitiesRoute.get('/', async (req, res) => {
@@ -36,7 +33,10 @@ activitiesRoute.get('/', async (req, res) => {
 // Get one specific activity
 activitiesRoute.get('/:id', async (req, res) => {
   try {
-    const activity = await collection.findOne({ _id: new ObjectId(req.params.id) });
+    const activity = await Activity.findById(req.params.id);
+    if (!activity) {
+      return res.status(404).json({ message: 'Activity not found' });
+    }
     console.log(`Retrieved ${activity.title} from database`);
     res.json(activity);
   } 

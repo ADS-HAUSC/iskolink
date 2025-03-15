@@ -1,17 +1,18 @@
 import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose'
 import "dotenv/config";
 
 const mongoUserName = process.env.USER_MONGO;
 const mongoPassword = process.env.USER_PASSWORD;
-const mongoUri = `mongodb+srv://${mongoUserName}:${mongoPassword}@hau-db.lo4ig.mongodb.net/?retryWrites=true&w=majority`;
-export const client = new MongoClient(mongoUri, { monitorCommands: true });
-export const databaseName = "ads-hausc";
+const databaseName = "ads-hausc";
+const mongoUri = `mongodb+srv://${mongoUserName}:${mongoPassword}@hau-db.lo4ig.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
+export const client = mongoose;
 
 export const connectToDatabase = async () => {
   try {
-    await client.connect();
+    await client.connect(mongoUri);
     console.log('Connected to MongoDB successfully');
-    return client.db(databaseName);
+    return client.connection.db;
   } 
   catch (error) {
     console.error('Failed to connect to MongoDB:', error);
@@ -21,7 +22,7 @@ export const connectToDatabase = async () => {
 
 export const closeConnection = async () => {
   try {
-    await client.close();
+    await client.connection.close();
     console.log('MongoDB connection closed');
   } 
   catch (error) {

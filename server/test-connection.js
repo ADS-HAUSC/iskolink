@@ -4,7 +4,7 @@ import { getActivitiesData } from './routes/activities.js'
 const testConnection = async () => {
   try {
     // Connect to the database
-    const db = await connectToDatabase();
+    await connectToDatabase();
     console.log('Database connection test successful');
     
     // Get activities data
