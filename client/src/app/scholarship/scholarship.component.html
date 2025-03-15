@@ -5,16 +5,33 @@
     </section>
 
     <!-- SCHOLARSHIP OPPORTUNITIES SECTION -->
-    <section class="py-xl px-sm md:px-md lg:px-xl">
-        <p class="pb-lg">Scholarship Opportunities</p>
-        <div class="text-blue grid lg:grid-cols-2 gap-2 place-content-center">
-            <div class="gold-gradient p-sm rounded-lg md:max-w-[60vw]">
-                <h3 class="pb-sm font-bold">S&T Undergraduate Scholarships</h3>
-                <p>The S&T Undergraduate Scholarships Program aims to stimulate and entice talented Filipino youths to pursue lifetime productive careers in science and technology and ensure a steady, adequate supply of qualified S&T human resources which can steer the country towards national progress.</p>
+    <section class="px-sm sm:px-lg lg:px-xl py-3xl flex flex-col gap-md bg-royal">
+        <div class="mini-heading-cont mt-xl">
+            <img src="images/star-icon.svg" alt="Star Icon">
+            <h4>Scholarship Opportunities</h4>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-sm text-midnight mb-xl">
+            <div class="card-content golden-gradient">
+                <h3>S&T Undergraduate Scholarships</h3>
+                <div class="content-arrow">
+                    <p>
+                        The S&T Undergraduate Scholarships Program aims to stimulate and entice talented Filipino
+                        youths to pursue lifetime productive careers in science and technology and ensure a steady,
+                        adequate supply of qualified S&T human resources which can steer the country towards national
+                        progress.
+                    </p>
+                </div>
             </div>
-            <div class="gold-gradient p-sm rounded-lg md:max-w-[60vw]">
-                <h3 class="pb-sm font-bold">Junior-Level Science Scholarships(JLSS)</h3>
-                <p>The Junior Level Science Scholarships (JLSS) Program aims to: provide scholarships to support talented third-year college students pursuing science and technology degrees and ensure a steady supply of qualified S&T professionals to drive national progress.</p>
+            <div class="card-content golden-gradient">
+                <h3>Junior-Level Science Scholarships</h3>
+                <div class="content-arrow">
+                    <p>
+                        The Junior Level Science Scholarships (JLSS) Program aims to: provide scholarships to support
+                        talented third-year college students pursuing science and technology degrees and ensure a steady
+                        supply of qualified S&T professionals to drive national progress.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -92,12 +109,22 @@
     </section>
 
     <!-- WHO CAN APPLY SECTION -->
-    <section class="gradient my-xl py-3xl px-sm md:px-md lg:px-xl ">
-        <h2 class="pb-lg">Who Can <span>Apply</span>?</h2>
+    <section class="px-sm sm:px-lg lg:px-xl py-3xl flex flex-col gap-md lg:flex-row-reverse lg:gap gradient justify-between">
+        <!-- <h2 class="pb-lg">Who Can <span>Apply</span>?</h2>
         <p>Ongoing Grade 12 students in Negros Oriental who are expected to graduate at the end of SY 2024-2025.</p>
         <p><span>STEM STRAND</span>: All students belonging to the STEM class can apply.</p>
         <p><span>NON-STEM STRAND</span>: Must be in the top 5% of the class based on Grade 11 ranking.</p>
-
+         -->
+         <img class="w-1/2 sm:3/8 mt-xl lg:m-auto" src="images/stars-cta.svg" alt="Stars">
+         <div class="flex flex-col items-start gap-md justify-center mb-xl lg:my-xl">
+             <h2>Who Can <span>Apply</span>?</h2>
+             <p class="w-3/4">
+                Ongoing Grade 12 students in Negros Oriental who are expected to graduate at the end of SY 2024-2025.<br>
+                <span>STEM STRAND</span>: All students belonging to the STEM class can apply.<br>
+                <span>NON-STEM STRAND</span>: Must be in the top 5% of the class based on Grade 11 ranking.
+             </p>
+             <a routerLink="/contact" class="btn-full-gradient">Contact Us</a>
+         </div>
         <!-- CONTACT CALL TO ACTION -->
     </section>
 
@@ -136,6 +163,33 @@
     </section>
 
     <!-- FOOTER -->
-    <footer></footer>
+    <footer class="flex flex-col lg:flex-row justify-between gap-md px-sm sm:px-lg lg:px-xl py-2xl sm:py-xl items-center">
+        <div class="flex flex-col sm:flex-row gap-md items-center text-center sm:text-start">
+            <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo">
+            <div class="flex flex-col gap-2xs">
+                <h4>Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+                <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
+                <div class="flex flex-row gap-md justify-center sm:justify-start">
+                    <a href="https://www.facebook.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
+                        <img src="images/fb-icon.svg" alt="Facebook Icon">
+                        <p>adshausc</p>
+                    </a>
+                    <a href="https://www.instagram.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
+                        <img src="images/ig-icon.svg" alt="Instagram Icon">
+                        <p>adshausc</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-2xs text-center lg:text-start">
+            <p class="opacity-100 font-bold">Website developed by</p>
+            <p>
+                <a href="https://github.com/jimvdz">jimvdz</a> |
+                <a href="https://github.com/bancantcode">bancantcode</a> |
+                <a href="https://github.com/lmcay">lmcay</a> |
+                <a href="https://github.com/cess2c">cess2c</a></p>
+            <p>Copyright &copy; 2025. All rights reserved.</p>
+        </div>
+    </footer>
     
 </main>

@@ -103,6 +103,7 @@
         color: var(--color-champagne);
         opacity: 1;
         font-weight: bold;
+<<<<<<< HEAD
     }
 
     em {
@@ -114,6 +115,8 @@
         font-family: 'Figtree', 'Arial', sans-serif;
         font-size: var(--text-base);
         cursor: pointer;
+=======
+>>>>>>> ffa9e5729d58667f8d6ea4fa651159c49a1769eb
     }
 }
 
@@ -121,6 +124,7 @@
     .gradient {
         background-image: linear-gradient(125deg, var(--color-midnight), var(--color-royal), var(--color-royal-violet));
     }
+<<<<<<< HEAD
 
     .hero-gradient {
         background-image: linear-gradient(90deg, rgba(from var(--color-midnight) r g b / 0.95) -3.08%, rgba(from var(--color-midnight) r g b / 0.90) 46.92%, rgba(from var(--color-midnight) r g b / 0.75) 96.92%);
@@ -179,4 +183,9 @@
         @apply border-2 border-royal-violet rounded-lg p-sm lg:max-w-8/12
     }
     
+=======
+    .gold-gradient{
+        background-image: linear-gradient(125deg,var(--color-champagne) 0%, #C5974E 26%, #906821 100%);
+    }
+>>>>>>> ffa9e5729d58667f8d6ea4fa651159c49a1769eb
 }
