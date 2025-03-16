@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,23 +12,39 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminDashboardComponent {
   activities: any[] = [];
+
+  constructor(private authService: AuthService, private router: Router, public dataService: DataService) {}
+
   forms: any[] = [];
+
   isActivitiesActive: boolean = true;
   editingForm: any = null;
   formIdToDelete: string | null = null;
+  activityIdToDelete: string | null = null;
   isEditModalOpen: boolean = false;
   isDeleteModalOpen: boolean = false;
   isAddModalOpen: boolean = false;
+  inModal: String = ''; // Activity or Form
 
-  constructor(public dataService: DataService) {}
 
   toggleSection(isActivities: boolean): void {
     this.isActivitiesActive = isActivities;
   }
 
-  ngOnInit() {
-    this.refreshActivities();
-    this.refreshForms();
+  ngOnInit(){
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/admin-login']);
+    }
+    else {
+      this.refreshActivities();
+      this.refreshForms();
+    }
+  }
+  
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['/admin-login']);
+
   }
 
   // Activities
@@ -44,7 +62,7 @@ export class AdminDashboardComponent {
 
   deleteActivity(id: any) {
     this.dataService.deleteActivity(id).subscribe(() => {
-      this.refreshActivities();
+      this.refreshActivities(); // Refresh after deleting
     });
   }
 
@@ -81,9 +99,19 @@ export class AdminDashboardComponent {
     });
   }
 
-  openDeleteModal(formId: string) {
-    this.formIdToDelete = formId;
-    this.isDeleteModalOpen = true;
+  openDeleteModal(dataName: string, id: string) {
+    this.inModal = dataName;
+    console.log(this.inModal);
+    if (this.inModal == "activity") {
+      this.activityIdToDelete = id;
+      this.isDeleteModalOpen = true;
+    }
+
+    else if (this.inModal == "form") {
+      this.formIdToDelete = id;
+      this.isDeleteModalOpen = true;
+    }
+    
   }
 
   closeDeleteModal() {
@@ -91,11 +119,22 @@ export class AdminDashboardComponent {
     this.formIdToDelete = null;
   }
 
-  confirmDelete() {
-    if (!this.formIdToDelete) return;
-    this.dataService.deleteForm(this.formIdToDelete).subscribe(() => {
-      this.refreshForms();
-      this.closeDeleteModal();
-    });
+  confirmDeleteForm() {
+    if (!this.activityIdToDelete && !this.formIdToDelete) return;
+    if (this.inModal == "activity") {
+      console.log('activity');
+      this.dataService.deleteActivity(this.activityIdToDelete!).subscribe(() => {
+        this.refreshActivities(); // Refresh after deleting
+        this.closeDeleteModal();
+      });
+    }
+
+    else if (this.inModal == "form")
+    {
+      this.dataService.deleteForm(this.formIdToDelete!).subscribe(() => {
+        this.refreshForms();
+        this.closeDeleteModal();
+      });
+    }
   }
 }

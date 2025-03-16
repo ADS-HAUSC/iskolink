@@ -86,45 +86,36 @@
   </section>
 
   <!-- LIST OF ACTIVITIES/EVENTS -->
-  <section class="pt-36 section-padding">
-    <div class="services__section">
+  <section class="pt-36 px-sm flex flex-col gap-2xl pb-16 lg:px-3xl">
+    <div *ngFor="let activity of activities" class="services__section">
       <h2 class="md:text-right">
-        <span>United We Lead:<br class="hidden md:block" /></span> Empowering
-        Future Leaders
+        <span>{{ activity.title }}</span>
       </h2>
       <div class="first__service">
         <div
           class="mt-6 md:grid md:grid-cols-2 md:gap-sm w-full lg:grid-cols-3"
         >
           <img
-            src="images/activities/section-1-activity-1.jpg"
+            ngSrc="{{ activity.img1 }}"
+            width=100
+            height=200
             class="placeholder-image w-full h-full bg-gray-50 row-span-2 lg:h-full object-cover object-center bg-no-repeat"
           />
           <img
-            src="images/activities/section-1-activity-2.jpg"
+            ngSrc="{{ activity.img2 }}"
+            width=100
+            height=100
             class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat"
           />
           <img
-            src="images/activities/section-1-activity-3.jpg"
+            ngSrc="{{ activity.img3 }}"
+            width=100
+            height=100
             class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat"
           />
           <div class="flex flex-col gap-2 mt-5 md:mt-0">
             <p>
-              The National Patriot Scholars Congress (NPSC) 2024 brought
-              together DOST scholars from across the country to foster
-              collaboration and leadership in nation-building. Held at The
-              Manor, Camp John Hay, Baguio City, from September 3 to 6, this
-              prestigious event served as a platform for over 500 scholars to
-              deepen their commitment to serving the Filipino people.
-            </p>
-            <p>
-              Representatives from ADS-HAUSC, Jan Michael Policarpio and Camille
-              Janh Nolasco, proudly took part in discussions, networking
-              opportunities, and interactive sessions designed to shape the next
-              generation of leaders. Key figures, including DOST Secretary
-              Renato U. Solidum Jr. and former DOST-SEI Secretary Dr. Josette
-              Biyo, provided invaluable insights on leadership and public
-              service.
+              {{ activity.desc1 }}
             </p>
           </div>
           <div>
@@ -133,15 +124,7 @@
               class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat"
             />
             <p class="pt-5 md:pt-0">
-              With the theme "United We Lead," the event emphasized the role of
-              scholars in driving progress through scientific innovation and
-              community development. Through this gathering, participants were
-              inspired to become catalysts of change, reinforcing their sense of
-              duty as Iskolar Para Sa Bayan. The scholars gained a renewed
-              perspective on their responsibilities, equipping them with the
-              mindset and skills necessary to contribute meaningfully to the
-              nation. ADS-HAUSC remains dedicated to ensuring that its members
-              continue to lead with integrity and a vision for a better
+              {{ activity.desc2 }}
             </p>
             <img
               src="images/activities/section-1-activity-3.jpg"
@@ -151,10 +134,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Act 2 -->
-
-    <!-- Act 3 -->
   </section>
 
   <!-- BUILDING A COMMUNITY SECTION -->
