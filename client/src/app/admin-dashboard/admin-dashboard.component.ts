@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,7 +12,7 @@ import { DataService } from '../services/data.service';
 export class AdminDashboardComponent {
   activities: any[] = [];
 
-  constructor(public dataService: DataService) {}
+  constructor(private authService: AuthService, private router: Router, public dataService: DataService) {}
 
   isActivitiesActive: boolean = true;
 
@@ -19,7 +21,17 @@ export class AdminDashboardComponent {
   }
 
   ngOnInit(){
-    this.refreshActivities();
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/admin-login']);
+    }
+    else {
+      this.refreshActivities();
+    }
+  }
+  
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['/admin-login']);
   }
 
   refreshActivities() {
@@ -35,8 +47,12 @@ export class AdminDashboardComponent {
   }
 
   deleteActivity(id: any) {
-    this.dataService.deleteActivity(id).subscribe(() => {
-      this.refreshActivities(); // Refresh after deleting
-    });
+    const confirmDelete = confirm("Are you sure you want to delete this activity?");
+
+    if (confirmDelete) {
+      this.dataService.deleteActivity(id).subscribe(() => {
+        this.refreshActivities(); // Refresh after deleting
+      });
+    }
   }
 }

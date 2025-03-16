@@ -6,6 +6,7 @@
             <h2 [class.hidden]="isActivitiesActive" class="forms hidden">Admin Forms</h2>
         </nav>
     </section>
+    <button class="btn-full" (click)="logOut()" [class.btn-full]>Logout</button> <!-- temporary -->
     <!-- Content Section -->
     <section class="pb-xs px-sm sm:px-lg lg:px-xl">
         <div class="flex flex-row gap-sm pb-sm lg:pb-md">
@@ -33,7 +34,7 @@
                 </article>
                 <div class="flex flex-row gap-xs justify-end">
                     <button class="btn-full px-xl">Edit</button>
-                    <button class="btn-outlined">Delete</button>
+                    <button (click)="deleteActivity(activity._id)" class="btn-outlined">Delete</button>
                 </div>
             </div>
         </div>
