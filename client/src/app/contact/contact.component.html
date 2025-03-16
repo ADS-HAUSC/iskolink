@@ -93,55 +93,44 @@
     <section class="pt-36 section-padding pb-3xl grid md:grid-cols-2 gap-2">
         <div class="pb-lg md:pb-0">
             <article class="pb-lg lg:leading-lg">
-                <h2>Have Questions? </h2>
+                <h2>Have Questions?</h2>
                 <h2><span>We're Here to Help</span></h2>
             </article>
             <article class="md:w-[40vw]">
-                <p>ADS-HAUSC believes in fostering strong connections within our scholar community. Whether it's about upcoming events, partnerships, or how to get involved, our team is ready to provide the information you need. Your journey toward growth and success starts with a conversation.</p><br>
+                <p>ADS-HAUSC believes in fostering strong connections within our scholar community. Whether it's about upcoming events, partnerships, or how to get involved, our team is ready to provide the information you need. Your journey toward growth and success starts with a conversation.</p>
+                <br>
                 <p>Leave us a message, and our team will reach out to you!</p>
             </article>
         </div>
-        <div class="">
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contactForm">
-                <input 
-                    type="text" 
-                    id="name" 
-                    formControlName="name" 
-                    placeholder="NAME" 
-                    maxlength="40"
-                    class="my-sm border-b-1 w-full outline-none" 
-                    required />
-            
-                <input 
-                    type="email" 
-                    id="email" 
-                    formControlName="email" 
-                    placeholder="EMAIL"
-                    class="my-sm border-b-1 w-full outline-none" 
-                    required />
-            
-                <input 
-                    type="tel" 
-                    id="contactNum" 
-                    formControlName="contactNum" 
-                    placeholder="CONTACT NO."
-                    class="my-sm border-b-1 w-full outline-none" 
-                    required />
-            
-                <textarea 
-                    id="message" 
-                    formControlName="message" 
-                    rows="4" 
-                    placeholder="MESSAGE"
-                    class="my-sm border-b-1 w-full outline-none align-text-bottom" 
-                    required>
-                </textarea>
-            
-                <button class="btn-full-gradient cursor-pointer" type="submit" [disabled]="contactForm.invalid">Send Message</button>
+    
+        <div>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contactForm" class="space-y-4">
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>NAME</mat-label>
+                    <input matInput type="text" formControlName="name" required maxlength="40" />
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>EMAIL</mat-label>
+                    <input matInput type="email" formControlName="email" required />
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>CONTACT NO.</mat-label>
+                    <input matInput type="tel" formControlName="contactNum" required />
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="w-full">
+                    <mat-label>MESSAGE</mat-label>
+                    <textarea matInput rows="4" formControlName="message" required></textarea>
+                </mat-form-field>
+    
+                <button mat-raised-button color="primary" class="w-full" type="submit" [disabled]="contactForm.invalid">Send Message</button>
             </form>
         </div>
     </section>
-
+    
+    
     <!-- FOOTER -->
     <footer class="flex flex-col lg:flex-row justify-between gap-md px-sm sm:px-lg lg:px-xl py-2xl sm:py-xl items-center">
         <div class="flex flex-col sm:flex-row gap-md items-center text-center sm:text-start">
