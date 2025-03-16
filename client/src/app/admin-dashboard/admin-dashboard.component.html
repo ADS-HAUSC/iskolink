@@ -22,8 +22,8 @@
                     <!-- <h3><span>United We Lead</span></h3> for introductory phrase input -->
                     <h3>{{ activity.title }}</h3>  <!-- for title input-->
                 </div>
-                <article class="flex flex-col md:grid md:grid-cols-[auto_auto] text-left gap-sm md:gap-md ">
-                    <p class="line-clamp-4">
+                <article class="flex flex-col md:grid md:grid-cols-[auto_auto] text-left gap-sm md:gap-md">
+                    <p class="line-clamp-5">
                         {{ activity.desc1 }}<br>
                         {{ activity.desc2 }}
                     </p>
@@ -41,7 +41,7 @@
         </div>
 
         <!-- Forms -->
-        <!-- <div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-sm">
+        <div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-sm">
             <div *ngFor="let form of forms">
                 <div class="dashboard-content flex flex-col text-left">
                     <h3><span>{{ form.name }}</span></h3>
@@ -53,6 +53,6 @@
                     <p>{{ form.message }}</p>
                 </div>
             </div>
-        </div> -->
+        </div>
     </section>
 </main>

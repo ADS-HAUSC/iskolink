@@ -9,10 +9,10 @@ import { DataService } from '../services/data.service';
 })
 export class AdminDashboardComponent {
   activities: any[] = [];
+  forms: any[] = [];
+  isActivitiesActive: boolean = true;
 
   constructor(public dataService: DataService) {}
-
-  isActivitiesActive: boolean = true;
 
   toggleSection(isActivities: boolean): void {
     this.isActivitiesActive = isActivities;
@@ -20,8 +20,10 @@ export class AdminDashboardComponent {
 
   ngOnInit(){
     this.refreshActivities();
+    this.refreshForms();
   }
 
+  //activities
   refreshActivities() {
     this.dataService.getActivities().subscribe(data => {
       this.activities = data; // Update local variable
@@ -37,6 +39,19 @@ export class AdminDashboardComponent {
   deleteActivity(id: any) {
     this.dataService.deleteActivity(id).subscribe(() => {
       this.refreshActivities(); // Refresh after deleting
+    });
+  }
+
+  //forms
+  refreshForms() {
+    this.dataService.getForms().subscribe(data => {
+      this.forms = data;
+    });
+  }
+
+  deleteForm(id: string) {
+    this.dataService.deleteForm(id).subscribe(() => {
+      this.refreshForms();
     });
   }
 }
