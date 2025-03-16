@@ -146,10 +146,10 @@ export class AdminDashboardComponent {
   saveForm() {
     if (!this.editingActivity) return;
     this.dataService.editActivity(this.editingActivity._id, this.editingActivity).subscribe(() => {
-      this.refreshForms();
-      this.closeEditFormModal();
+        this.refreshForms();
+        this.closeEditFormModal();
     });
-  }
+}
 
   openDeleteModal(dataName: string, id: string) {
     this.inModal = dataName;
