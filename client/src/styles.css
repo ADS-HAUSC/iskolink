@@ -2,52 +2,43 @@
 @import "tailwindcss";
 
 @theme {
-  /* #FONT FAMILY */
+    /* #FONT FAMILY */
 
-<<<<<<< HEAD
     /* FONT SIZES */
-    --text-base: clamp(0.9rem, 0.9rem + 0.07vw, 1.05rem);
+    --text-base: clamp(1rem, 0.9rem + 0.07vw, 1.05rem);
     --text-base--large: clamp(1rem, 0.7071rem + 0.5143vi, 1.2rem);
     --text-heading-4: clamp(1rem, 1rem + 1.25vw, 1rem);
     --text-heading-3: clamp(1.25rem, 1rem + 1.25vw, 2rem);
     --text-heading-2: clamp(1.375rem, 1rem + 1.875vw, 2.5rem);
-    --text-heading-1: clamp(1.6rem, 1.5rem + 2.8vw, 2.6rem);
-    --text-heading-display: clamp(2.2rem, 1.88rem + 3.459vi, 4.3131rem);
-=======
-  /* FONT SIZES */
-  --text-base: clamp(1rem, 0.9rem + 0.07vw, 1.05rem);
-  --text-heading-3: clamp(1.25rem, 1rem + 1.25vw, 2rem);
-  --text-heading-2: clamp(1.375rem, 1rem + 1.875vw, 2.5rem);
-  --text-heading-1: clamp(2rem, 1.5rem + 2.8vw, 4.5rem);
-  --text-heading-display: clamp(2.6518rem, 1.88rem + 3.459vi, 7.3131rem);
->>>>>>> dev__lmcay
+    --text-heading-1: clamp(2rem, 1.5rem + 2.8vw, 4.5rem);
+    --text-heading-display: clamp(2.6518rem, 1.88rem + 2.59vi, 4.5rem);
 
-  /* COLORS */
-  --tw-text-opacity: 1;
-  --color-midnight: rgb(14 24 75 / var(--tw-text-opacity)); /* #0E184B */
-  --color-royal: rgb(35 39 92 / var(--tw-text-opacity)); /* #23275C */
-  --color-royal-violet: rgb(62 62 119 / var(--tw-text-opacity)); /* #3E3E77 */
-  --color-golden: rgb(201 154 86 / var(--tw-text-opacity)); /* #C99A56 */
-  --color-champagne: rgb(249 198 123 / var(--tw-text-opacity)); /* #F9C67B */
-  --color-white: rgb(255 255 255 / var(--tw-text-opacity)); /* #FFFFFF */
+    /* COLORS */
+    --tw-text-opacity: 1;
+    --color-midnight: rgb(14 24 75 / var(--tw-text-opacity)); /* #0E184B */
+    --color-royal: rgb(35 39 92 / var(--tw-text-opacity)); /* #23275C */
+    --color-royal-violet: rgb(62 62 119 / var(--tw-text-opacity)); /* #3E3E77 */
+    --color-golden: rgb(201 154 86 / var(--tw-text-opacity)); /* #C99A56 */
+    --color-champagne: rgb(249 198 123 / var(--tw-text-opacity)); /* #F9C67B */
+    --color-white: rgb(255 255 255 / var(--tw-text-opacity)); /* #FFFFFF */
 
-  /* SPACINGS */
-  --spacing-3xs: clamp(0.3125rem, 0.3125rem + 0vi, 0.3125rem);
-  --spacing-2xs: clamp(0.5625rem, 0.5446rem + 0.0893vi, 0.625rem);
-  --spacing-xs: clamp(0.875rem, 0.8571rem + 0.0893vi, 0.9375rem);
-  --spacing-sm: clamp(1.125rem, 1.0893rem + 0.1786vi, 1.25rem);
-  --spacing-md: clamp(1.6875rem, 1.6339rem + 0.2679vi, 1.875rem);
-  --spacing-lg: clamp(2.25rem, 2.1786rem + 0.3571vi, 2.5rem);
-  --spacing-xl: clamp(3.375rem, 3.2679rem + 0.5357vi, 3.75rem);
-  --spacing-2xl: clamp(4.5rem, 4.3571rem + 0.7143vi, 5rem);
-  --spacing-3xl: clamp(4.75rem, 5.2571rem + 1.2023vi, 5.25rem);
+    /* SPACINGS */
+    --spacing-3xs: clamp(0.3125rem, 0.3125rem + 0vi, 0.3125rem);
+    --spacing-2xs: clamp(0.5625rem, 0.5446rem + 0.0893vi, 0.625rem);
+    --spacing-xs: clamp(0.875rem, 0.8571rem + 0.0893vi, 0.9375rem);
+    --spacing-sm: clamp(1.125rem, 1.0893rem + 0.1786vi, 1.25rem);
+    --spacing-md: clamp(1.6875rem, 1.6339rem + 0.2679vi, 1.875rem);
+    --spacing-lg: clamp(2.25rem, 2.1786rem + 0.3571vi, 2.5rem);
+    --spacing-xl: clamp(3.375rem, 3.2679rem + 0.5357vi, 3.75rem);
+    --spacing-2xl: clamp(4.5rem, 4.3571rem + 0.7143vi, 5rem);
+    --spacing-3xl: clamp(4.75rem, 5.2571rem + 1.2023vi, 5.25rem);
 }
 
 @font-face {
-  font-family: "The Seasons Bold";
-  src: url("/fonts/TheSeasonsBold.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
+    font-family: "The Seasons Bold";
+    src: url("/fonts/TheSeasonsBold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
@@ -79,7 +70,6 @@
 }
 
 @layer base {
-<<<<<<< HEAD
     body {
         font-family: 'The Seasons Bold', 'Times New Roman', serif;
         background-color: var(--color-midnight);
@@ -120,50 +110,12 @@
         opacity: 1;
         font-weight: bold;
     }
-=======
-  body {
-    font-family: "The Seasons Bold", "Times New Roman", serif;
-    background-color: var(--color-midnight);
-    color: var(--color-white);
-  }
 
-  h1 {
-    font-size: var(--text-heading-1);
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+    em {
+        font-family: "The Seasons Bold Italic", "Times New Roman", serif;
+        font-style: italic;
+    }
 
-  h2 {
-    font-size: var(--text-heading-2);
-  }
-
-  h3 {
-    font-size: var(--text-heading-3);
-    font-family: "Albertus Nova Bold", "Times New Roman", "serif";
-  }
-
-  h4 {
-    font-size: var(--text-base);
-    font-family: "Albertus Nova";
-  }
-
-  p {
-    font-family: "Figtree", "Arial", sans-serif;
-    font-size: var(--text-base);
-    opacity: 0.8;
-  }
-
-  span {
-    color: var(--color-champagne);
-    opacity: 1;
-  }
->>>>>>> dev__lmcay
-
-  em {
-    font-family: "The Seasons Bold Italic", "Times New Roman", serif;
-    font-style: italic;
-  }
-
-<<<<<<< HEAD
     a {
         font-family: 'Figtree', 'Arial', sans-serif;
         font-size: var(--text-base);
@@ -177,50 +129,59 @@
 
     @media screen and (min-width: 1567px) {
         h1 {
-            font-size: var(--text-heading-1);
+            font-size: var(--text-heading-2);
         }
         p {
             font-size: var(--text-base--large);
         }
     }
-=======
-  a {
-    font-family: "Figtree", "Arial", sans-serif;
-    font-size: var(--text-base);
-    cursor: pointer;
-  }
->>>>>>> dev__lmcay
 }
 
 @layer components {
-  .gradient {
-    background-image: linear-gradient(
-      125deg,
-      var(--color-midnight),
-      var(--color-royal),
-      var(--color-royal-violet)
-    );
-  }
+    .gradient {
+        background-image: linear-gradient(
+            125deg,
+            var(--color-midnight),
+            var(--color-royal),
+            var(--color-royal-violet)
+        );
+    }
 
-  .hero-gradient {
-    background-image: linear-gradient(
-      90deg,
-      rgba(from var(--color-midnight) r g b / 0.95) -3.08%,
-      rgba(from var(--color-midnight) r g b / 0.9) 46.92%,
-      rgba(from var(--color-midnight) r g b / 0.75) 96.92%
-    );
-  }
+    .hero-gradient {
+        background-image: linear-gradient(
+            90deg,
+            rgba(from var(--color-midnight) r g b / 0.95) -3.08%,
+            rgba(from var(--color-midnight) r g b / 0.9) 46.92%,
+            rgba(from var(--color-midnight) r g b / 0.75) 96.92%
+        );
+    }
 
-  .golden-gradient {
-    background-image: linear-gradient(
-      102deg,
-      var(--color-golden) -1.27%,
-      rgba(197, 151, 78, 0.95) 26.69%,
-      rgba(144, 104, 33, 0.9) 104.31%
-    );
-  }
+    .golden-gradient {
+        background-image: linear-gradient(
+            102deg,
+            var(--color-golden) -1.27%,
+            rgba(197, 151, 78, 0.95) 26.69%,
+            rgba(144, 104, 33, 0.9) 104.31%
+        );
+    }
+    .midnight-golden-gradient {
+        background-image: linear-gradient(
+            to bottom right,
+            var(--color-midnight) 0%,
+            var(--color-royal-violet) 50%,
+            rgba(144, 104, 33, 0.9) 100%
+        );
+    }
+    .btn-full-gradient {
+        @apply py-2xs px-lg rounded-lg text-midnight text-center;
+            background-image: linear-gradient(
+            102deg,
+            var(--color-golden) -1.27%,
+            rgba(197, 151, 78, 0.95) 26.69%,
+            rgba(144, 104, 33, 0.9) 104.31%
+        );
+    }
 
-<<<<<<< HEAD
     .section-padding {
         @apply px-md md:px-lg lg:px-3xl grid w-full gap-xs;
     }
@@ -236,22 +197,11 @@
     .mini-heading-cont {
         @apply flex items-center gap-2xs;
     }
-=======
-  .midnight-golden-gradient {
-    background-image: linear-gradient(
-      to bottom right,
-      var(--color-midnight) 0%,
-      var(--color-royal-violet) 50%,
-      rgba(144, 104, 33, 0.9) 100% /* Bottom-right */
-    );
-  }
->>>>>>> dev__lmcay
 
-  .mini-heading-cont {
-    @apply flex gap-2xs;
-  }
+    .mini-heading-cont {
+        @apply flex gap-2xs;
+    }
 
-<<<<<<< HEAD
     .btn-inactive {
         @apply py-2xs px-lg rounded-lg text-white bg-midnight text-center;
     }
@@ -262,55 +212,40 @@
 
     .btn-full-gradient {
         @apply py-2xs px-lg rounded-lg text-midnight text-center;
-        background-image: linear-gradient(102deg, var(--color-golden) -1.27%, rgba(197, 151, 78, 0.95) 26.69%, rgba(144, 104, 33, 0.90) 104.31%);
+        /* background-image: linear-gradient(102deg, var(--color-golden) -1.27%, rgba(197, 151, 78, 0.95) 26.69%, rgba(144, 104, 33, 0.90) 104.31%); */
     }
-=======
-  .btn-full {
-    @apply py-2xs px-lg rounded-lg text-midnight bg-golden text-center;
-  }
->>>>>>> dev__lmcay
+    .btn-full {
+        @apply py-2xs px-lg rounded-lg text-midnight bg-golden text-center;
+    }
 
-  .btn-full-gradient {
-    @apply py-2xs px-lg rounded-lg text-midnight text-center;
-    background-image: linear-gradient(
-      102deg,
-      var(--color-golden) -1.27%,
-      rgba(197, 151, 78, 0.95) 26.69%,
-      rgba(144, 104, 33, 0.9) 104.31%
-    );
-  }
+    .btn-outlined {
+        @apply py-2xs px-lg border border-golden rounded-lg text-golden text-center;
+    }
 
-  .btn-outlined {
-    @apply py-2xs px-lg border border-golden rounded-lg text-golden text-center;
-  }
+    .card-content {
+        @apply p-md flex flex-col gap-md rounded-lg basis-full justify-between;
+    }
 
-  .card-content {
-    @apply p-md flex flex-col gap-md rounded-lg basis-full justify-between;
-  }
+    .content-arrow {
+        @apply flex flex-row items-end gap-sm justify-between;
+    }
 
-  .content-arrow {
-    @apply flex flex-row items-end gap-sm justify-between;
-  }
+    .btn-arrow {
+        @apply bg-midnight p-xs rounded-full;
+    }
 
-  .btn-arrow {
-    @apply bg-midnight p-xs rounded-full;
-  }
+    .arrow {
+        @apply w-5 max-w-none h-5;
+    }
 
-  .arrow {
-    @apply w-5 max-w-none h-5;
-  }
-
-<<<<<<< HEAD
     .faq-item {
         @apply border-2 border-royal-violet rounded-lg p-sm lg:max-w-8/12
     }
-=======
-  .home-section {
-    @apply px-sm sm:px-lg lg:px-xl py-3xl flex flex-col gap-md;
-  }
+    .home-section {
+        @apply px-sm sm:px-lg lg:px-xl py-3xl flex flex-col gap-md;
+    }
 
-  .faq-item {
-    @apply border-2 border-royal-violet rounded-lg p-sm lg:max-w-8/12;
-  }
->>>>>>> dev__lmcay
+    .faq-item {
+        @apply border-2 border-royal-violet rounded-lg p-sm lg:max-w-8/12;
+    }
 }
