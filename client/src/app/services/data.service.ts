@@ -20,7 +20,15 @@ export class DataService {
   }
 
   addActivity(activity: any): Observable<any> {
-    return this.http.post<any>(this.actAPIUrl, activity);
+    return this.http.post<any>(`${this.actAPIUrl}/new`, activity);
+  }
+
+  uploadImage(formData: FormData) {
+    return this.http.post<{ filePath: string }>('http://localhost:3000/api/upload', formData);
+  }
+
+  editActivity(id: string, activity: any): Observable<any> {
+    return this.http.put<any>(`${this.actAPIUrl}/${id}`, activity);
   }
 
   deleteActivity(id: any): Observable<any> {

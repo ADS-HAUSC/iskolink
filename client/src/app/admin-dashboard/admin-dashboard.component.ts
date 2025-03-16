@@ -18,13 +18,24 @@ export class AdminDashboardComponent {
   forms: any[] = [];
 
   isActivitiesActive: boolean = true;
+  editingActivity: any = null;
   editingForm: any = null;
   formIdToDelete: string | null = null;
   activityIdToDelete: string | null = null;
-  isEditModalOpen: boolean = false;
+  isEditFormModalOpen: boolean = false;
+  isEditActivityModalOpen: boolean = false;
   isDeleteModalOpen: boolean = false;
   isAddModalOpen: boolean = false;
   inModal: String = ''; // Activity or Form
+
+  addingActivity = {
+    title: '', 
+    img1: '', 
+    img2: '', 
+    img3: '',
+    desc1: '',
+    desc2: ''
+  };
 
 
   toggleSection(isActivities: boolean): void {
@@ -56,7 +67,22 @@ export class AdminDashboardComponent {
 
   addActivity(newActivity: any) {
     this.dataService.addActivity(newActivity).subscribe(() => {
+      this.closeAddModal();
       this.refreshActivities();
+    });
+  }
+
+  onFileSelected(event: any, imageField: string) {
+    const file = event.target.files[0];
+    if (!file) return;
+  
+    const formData = new FormData();
+    formData.append('image', file);
+  
+    this.dataService.uploadImage(formData).subscribe((response: any) => {
+      (this.addingActivity as any)[imageField] = response.filePath; // Store only the image path
+    }, error => {
+      console.error('Error uploading file:', error);
     });
   }
 
@@ -73,29 +99,55 @@ export class AdminDashboardComponent {
     });
   }
 
-  openAddModal() {
+  openAddModal(form: any) {
     this.isAddModalOpen = true;
   }
 
   closeAddModal() {
     this.isAddModalOpen = false;
+    this.addingActivity = {
+      title: '', 
+      img1: '', 
+      img2: '', 
+      img3: '',
+      desc1: '',
+      desc2: ''
+    };
   }
 
-  openEditModal(form: any) {
+  openEditActivityModal(activity: any) {
+    this.editingActivity = { ...activity };
+    this.isEditActivityModalOpen = true;
+  }
+
+  closeEditActivityModal() {
+    this.isEditActivityModalOpen = false;
+    this.editingActivity = null;
+  }
+
+  openEditFormModal(form: any) {
     this.editingForm = { ...form };
-    this.isEditModalOpen = true;
+    this.isEditFormModalOpen = true;
   }
 
-  closeEditModal() {
-    this.isEditModalOpen = false;
+  closeEditFormModal() {
+    this.isEditFormModalOpen = false;
     this.editingForm = null;
   }
 
+  saveActivity() {
+    if (!this.editingActivity) return;
+    this.dataService.editActivity(this.editingActivity._id, this.editingActivity).subscribe(() => {
+      this.refreshActivities();
+      this.closeEditActivityModal();
+    });
+  }
+
   saveForm() {
-    if (!this.editingForm) return;
-    this.dataService.updateForm(this.editingForm._id, this.editingForm).subscribe(() => {
+    if (!this.editingActivity) return;
+    this.dataService.editActivity(this.editingActivity._id, this.editingActivity).subscribe(() => {
       this.refreshForms();
-      this.closeEditModal();
+      this.closeEditFormModal();
     });
   }
 
