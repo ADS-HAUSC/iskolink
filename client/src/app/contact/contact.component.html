@@ -8,14 +8,14 @@
                     <img src="images/star-icon.svg" alt="Star Icon">
                     <h4>Stay Connected</h4>
                 </div>
-                <h1 class="col-start-1 col-span-4 md:col-span-7 text-heading-display"><span>Let's Work Together</span><br/>for a Brigther Future</h1>
+                <h1 class="col-start-1 col-span-4 md:col-span-7 text-heading-display"><span>Let's Work Together</span><br/>for a Brighter Future</h1>
                 <p class="col-start-1 col-span-3 md:col-span-6 xl:col-start-9 xl:col-span-4">Have questions or want to collaborate? Reach out to ADS-HAUSC and be part of our growing community of scholars and innovators. Whether you’re a student, mentor, or partner, we’re here to connect, inspire, and create opportunities together.</p>
             </div>
         </div>
     </section>
 
     <!-- SOCIALS SECTION -->
-    <section class="py-xl px-sm md:px-md lg:px-xl ">
+    <section class="pt-36 section-padding">
         <div class="pb-lg xl:pb-2xl grid lg:grid-cols-3 md:grid-cols-2 ">
             <article class="lg:col-span-2 pr-md lg:pr-[30%]">
                 <h2 class="pb-sm lg:leading-lg">Building the Next <Span>Generation of Innovators</Span></h2>
@@ -41,7 +41,7 @@
                             <p>Have questions? Contact us anytime at <span>adshausc&commat;gmail.com</span></p>
                         </div>
                         <div class="md:col-start-2 md:justify-self-end">
-                            <button class="btn-full">Contact Us</button>
+                            <button class="btn-full cursor-pointer">Contact Us</button>
                         </div>
                     </article>
                 </div>
@@ -61,7 +61,7 @@
                             <p>Follow our official page for updates at <span>facebook.com/adshausc</span></p>
                         </div>
                         <div class="md:col-start-2 md:justify-self-end">
-                            <button class="btn-full">View Page</button>
+                            <button class="btn-full cursor-pointer">View Facebook</button>
                         </div>
                     </article>
                 </div>
@@ -81,7 +81,7 @@
                             <p>Join us on Instagram at <span>instagram.com/adshausc</span></p>
                         </div>
                         <div class="md:col-start-2 md:justify-self-end">
-                            <button class="btn-full">View Page</button>
+                            <button class="btn-full cursor-pointer">View Instagram</button>
                         </div>
                     </article>
                 </div>
@@ -90,7 +90,7 @@
     </section>
         
     <!-- FORMS SECTION -->
-    <section class="py-xl px-sm md:px-md lg:px-xl grid md:grid-cols-2 gap-2">
+    <section class="pt-36 section-padding pb-3xl grid md:grid-cols-2 gap-2">
         <div class="pb-lg md:pb-0">
             <article class="pb-lg lg:leading-lg">
                 <h2>Have Questions? </h2>
@@ -102,12 +102,42 @@
             </article>
         </div>
         <div class="">
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="NAME" maxlength="40" class="my-sm border-b-1 w-full outline-none" required>
-                <input type="email" id="email" placeholder="EMAIL" class="my-sm border-b-1 w-full outline-none" required>
-                <input type="tel" id="contactNum" placeholder="CONTACT NO." class="my-sm border-b-1 w-full outline-none" required>
-                <textarea id="message" rows="4" placeholder="MESSAGE" class="my-sm border-b-1 w-full outline-none align-text-bottom" required></textarea>
-                <button type="submit">Submit</button>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contactForm">
+                <input 
+                    type="text" 
+                    id="name" 
+                    formControlName="name" 
+                    placeholder="NAME" 
+                    maxlength="40"
+                    class="my-sm border-b-1 w-full outline-none" 
+                    required />
+            
+                <input 
+                    type="email" 
+                    id="email" 
+                    formControlName="email" 
+                    placeholder="EMAIL"
+                    class="my-sm border-b-1 w-full outline-none" 
+                    required />
+            
+                <input 
+                    type="tel" 
+                    id="contactNum" 
+                    formControlName="contactNum" 
+                    placeholder="CONTACT NO."
+                    class="my-sm border-b-1 w-full outline-none" 
+                    required />
+            
+                <textarea 
+                    id="message" 
+                    formControlName="message" 
+                    rows="4" 
+                    placeholder="MESSAGE"
+                    class="my-sm border-b-1 w-full outline-none align-text-bottom" 
+                    required>
+                </textarea>
+            
+                <button class="btn-full-gradient cursor-pointer" type="submit" [disabled]="contactForm.invalid">Send Message</button>
             </form>
         </div>
     </section>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -9,10 +10,13 @@ import { DataService } from '../services/data.service';
 })
 export class AdminDashboardComponent {
   activities: any[] = [];
-
-  constructor(public dataService: DataService) {}
-
+  forms: any[] = [];
   isActivitiesActive: boolean = true;
+  editingForm: any = null;
+  formIdToDelete: string | null = null;
+  isEditModalOpen: boolean = false;
+  isDeleteModalOpen: boolean = false;
+  constructor(public dataService: DataService) {}
 
   toggleSection(isActivities: boolean): void {
     this.isActivitiesActive = isActivities;
@@ -20,23 +24,68 @@ export class AdminDashboardComponent {
 
   ngOnInit(){
     this.refreshActivities();
+    this.refreshForms();
   }
 
+  //activities
   refreshActivities() {
     this.dataService.getActivities().subscribe(data => {
-      this.activities = data; // Update local variable
+      this.activities = data;
     });
   }
 
   addActivity(newActivity: any) {
     this.dataService.addActivity(newActivity).subscribe(() => {
-      this.refreshActivities(); // Refresh after adding
+      this.refreshActivities();
     });
   }
 
   deleteActivity(id: any) {
     this.dataService.deleteActivity(id).subscribe(() => {
-      this.refreshActivities(); // Refresh after deleting
+      this.refreshActivities();
+    });
+  }
+
+  //forms
+  refreshForms() {
+    this.dataService.getForms().subscribe(data => {
+      this.forms = data;
+    });
+  }
+
+  openEditModal(form: any) {
+    this.editingForm = { ...form };
+    this.isEditModalOpen = true;
+  }
+
+  closeEditModal() {
+    this.isEditModalOpen = false;
+    this.editingForm = null;
+  }
+
+  saveForm() {
+    if (!this.editingForm) return;
+    this.dataService.updateForm(this.editingForm._id, this.editingForm).subscribe(() => {
+      this.refreshForms();
+      this.closeEditModal();
+    });
+  }
+
+  openDeleteModal(formId: string) {
+    this.formIdToDelete = formId;
+    this.isDeleteModalOpen = true;
+  }
+
+  closeDeleteModal() {
+    this.isDeleteModalOpen = false;
+    this.formIdToDelete = null;
+  }
+
+  confirmDelete() {
+    if (!this.formIdToDelete) return;
+    this.dataService.deleteForm(this.formIdToDelete).subscribe(() => {
+      this.refreshForms();
+      this.closeDeleteModal();
     });
   }
 }
