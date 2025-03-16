@@ -19,13 +19,11 @@
             <div *ngFor="let activity of activities" class="dashboard-content flex flex-col gap-sm">
                 <!-- template -->
                 <div class="flex flex-col md:flex-row text-left md:gap-2xs">
-                    <!-- <h3><span>United We Lead</span></h3> for introductory phrase input -->
                     <h3>{{ activity.title }}</h3>  <!-- for title input-->
                 </div>
                 <article class="flex flex-col md:grid md:grid-cols-[auto_auto] text-left gap-sm md:gap-md ">
-                    <p class="line-clamp-4">
-                        {{ activity.desc1 }}<br>
-                        {{ activity.desc2 }}
+                    <p class="line-clamp-6">
+                        {{ activity.desc1 }}
                     </p>
                     <div class="grid grid-cols-[auto_auto_auto] justify-between md:gap-xs ">
                         <img src="{{ activity.img1 }}" alt="" class="aspect-square h-auto md:max-h-30 object-cover">
