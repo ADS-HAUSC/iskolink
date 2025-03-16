@@ -50,7 +50,7 @@ formsRoute.post("/new", async (req, res) => {
     try {
         const { name, email, contactNum, message } = req.body;
         if (!name || !email || !contactNum || !message) {
-        return res.status(400).json({ message: "All fields are required" });
+            return res.status(400).json({ message: "All fields are required" });
         }
 
         const form = await Forms.create(req.body);
