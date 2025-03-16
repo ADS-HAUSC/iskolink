@@ -8,15 +8,15 @@
 
         </nav>
     </section>
-    <button class="btn-full" (click)="logOut()" [class.btn-full]>Logout</button> <!-- temporary -->
+    <button class="btn-full cursor-pointer" (click)="logOut()" [class.btn-full]>Logout</button> <!-- temporary -->
     <!-- Content Section -->
     <section class="pb-xs px-sm sm:px-lg lg:px-xl h-screen w-screen">
         <div class="flex justify-between pb-sm lg:pb-md w-full">
             <div class="flex flex-row gap-sm ">
-                <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Activities</button>
-                <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive">Forms</button>
+                <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full cursor-pointer">Activities</button>
+                <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive cursor-pointer">Forms</button>
             </div>
-            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="openAddModal()" class="btn-full">Add Activities</button>
+            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="openAddModal()" class="btn-full cursor-pointer">Add Activities</button>
         </div>
 
         <!-- Activities -->
