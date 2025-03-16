@@ -32,6 +32,10 @@ export class DataService {
     return this.http.get<any[]>(this.formsAPIUrl);
   }
 
+  updateForm(id: string, updatedForm: any): Observable<any> {
+    return this.http.put<any>(`${this.formsAPIUrl}/${id}`, updatedForm);
+  }
+
   deleteForm(id: string): Observable<any> {
     return this.http.delete(`${this.formsAPIUrl}/${id}`);
   }

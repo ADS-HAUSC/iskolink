@@ -41,18 +41,39 @@
         </div>
 
         <!-- Forms -->
-        <div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-sm">
-            <div *ngFor="let form of forms">
-                <div class="dashboard-content flex flex-col text-left">
-                    <h3><span>{{ form.name }}</span></h3>
-                    <div class="mini-heading-cont pb-sm">
-                        <h4>{{ form.email }}</h4>
-                        <img src="images/star-icon.svg" alt="Star Icon">
-                        <h4>{{ form.contactNum }}</h4>
-                    </div>
-                    <p>{{ form.message }}</p>
+<div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-sm">
+    <div *ngFor="let form of forms">
+        <div class="dashboard-content flex flex-col text-left">
+            <!-- Check if this form is being edited -->
+            <ng-container *ngIf="editingForm && editingForm._id === form._id; else viewMode">
+                <!-- Editable form -->
+                <input type="text" [(ngModel)]="editingForm.name" class="input-field" placeholder="Name">
+                <input type="email" [(ngModel)]="editingForm.email" class="input-field" placeholder="Email">
+                <input type="text" [(ngModel)]="editingForm.contactNum" class="input-field" placeholder="Contact Number">
+                <textarea [(ngModel)]="editingForm.message" class="input-field" placeholder="Message"></textarea>
+                <div class="flex flex-row gap-xs justify-end">
+                    <button class="btn-full px-xl" (click)="saveForm()">Save</button>
+                    <button class="btn-outlined" (click)="cancelEdit()">Cancel</button>
                 </div>
-            </div>
+            </ng-container>
+
+            <!-- View Mode -->
+            <ng-template #viewMode>
+                <h3><span>{{ form.name }}</span></h3>
+                <div class="mini-heading-cont pb-sm">
+                    <h4>{{ form.email }}</h4>
+                    <img src="images/star-icon.svg" alt="Star Icon">
+                    <h4>{{ form.contactNum }}</h4>
+                </div>
+                <p>{{ form.message }}</p>
+                <div class="flex flex-row gap-xs justify-end">
+                    <button class="btn-full px-xl" (click)="editForm(form)">Edit</button>
+                    <button class="btn-outlined" (click)="deleteForm(form._id)">Delete</button>
+                </div>
+            </ng-template>
         </div>
+    </div>
+</div>
+        
     </section>
 </main>

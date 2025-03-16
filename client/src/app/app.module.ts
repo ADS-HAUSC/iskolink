@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { ActivitiesComponent } from './activities/activities.component';
@@ -30,7 +30,8 @@ import { provideHttpClient } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, 
-    HttpClientModule  
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient()

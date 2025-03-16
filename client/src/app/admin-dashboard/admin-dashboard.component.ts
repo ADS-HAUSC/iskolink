@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -11,6 +12,8 @@ export class AdminDashboardComponent {
   activities: any[] = [];
   forms: any[] = [];
   isActivitiesActive: boolean = true;
+  formToEdit: any = null;
+  editingForm: any = null;
 
   constructor(public dataService: DataService) {}
 
@@ -49,7 +52,24 @@ export class AdminDashboardComponent {
     });
   }
 
+  editForm(form: any) {
+    this.editingForm = { ...form };
+  }
+
+  saveForm() {
+    if (!this.editingForm) return;
+    this.dataService.updateForm(this.editingForm._id, this.editingForm).subscribe(() => {
+      this.refreshForms();
+      this.editingForm = null;
+    });
+  }
+
+  cancelEdit() {
+    this.editingForm = null;
+  }
+
   deleteForm(id: string) {
+    console.log('Deleting form with ID:', id); // Debugging
     this.dataService.deleteForm(id).subscribe(() => {
       this.refreshForms();
     });
