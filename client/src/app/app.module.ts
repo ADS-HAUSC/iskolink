@@ -14,7 +14,6 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { HomeComponent } from './home/home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { NgOptimizedImage } from '@angular/common';
-import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [

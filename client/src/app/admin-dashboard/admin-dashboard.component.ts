@@ -22,7 +22,6 @@ export class AdminDashboardComponent {
   formIdToDelete: string | null = null;
   isEditModalOpen: boolean = false;
   isDeleteModalOpen: boolean = false;
-  constructor(public dataService: DataService) {}
 
   toggleSection(isActivities: boolean): void {
     this.isActivitiesActive = isActivities;
