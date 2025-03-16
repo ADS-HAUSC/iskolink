@@ -16,18 +16,20 @@ export class AdminDashboardComponent {
   formIdToDelete: string | null = null;
   isEditModalOpen: boolean = false;
   isDeleteModalOpen: boolean = false;
+  isAddModalOpen: boolean = false;
+
   constructor(public dataService: DataService) {}
 
   toggleSection(isActivities: boolean): void {
     this.isActivitiesActive = isActivities;
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.refreshActivities();
     this.refreshForms();
   }
 
-  //activities
+  // Activities
   refreshActivities() {
     this.dataService.getActivities().subscribe(data => {
       this.activities = data;
@@ -46,11 +48,19 @@ export class AdminDashboardComponent {
     });
   }
 
-  //forms
+  // Forms
   refreshForms() {
     this.dataService.getForms().subscribe(data => {
       this.forms = data;
     });
+  }
+
+  openAddModal() {
+    this.isAddModalOpen = true;
+  }
+
+  closeAddModal() {
+    this.isAddModalOpen = false;
   }
 
   openEditModal(form: any) {

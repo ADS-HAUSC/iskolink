@@ -15,7 +15,7 @@
                 <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Activities</button>
                 <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive">Forms</button>
             </div>
-            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Add Activities</button>
+            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="openAddModal()" class="btn-full">Add Activities</button>
         </div>
 
         <!-- Activities -->
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        
+            
         <!-- Delete Confirmation Modal -->
         <div *ngIf="isDeleteModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
@@ -88,6 +88,34 @@
                 </div>
             </div>
         </div>
-        
+        <!-- Add Activities modal *ngIf="isEditModalOpen"-->
+        <div *ngIf="isAddModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+              <h3 class="text-midnight font-bold mb-4">Add Activities</h3>
+              <form (submit)="saveForm(); $event.preventDefault()">
+                <input type="text" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Title" required />
+                <div>
+                  <div class="grid grid-cols-[auto_auto] gap-xs">
+                    <label class="text-black">Image 1:</label>
+                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                  </div>
+                  <div class="grid grid-cols-[auto_auto] gap-xs">
+                    <label class="text-black">Image 2:</label>
+                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                  </div>
+                  <div class="grid grid-cols-[auto_auto] gap-xs">
+                    <label class="text-black">Image 3:</label>
+                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                  </div>
+                </div>
+                <textarea class="w-full p-2 border rounded text-midnight" placeholder="Description 1" required></textarea>
+                <textarea class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Description 2" required></textarea>
+                <div class="flex justify-end gap-2">
+                  <button type="submit" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
+                  <button type="button" class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeAddModal()">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>          
     </section>
 </main>
