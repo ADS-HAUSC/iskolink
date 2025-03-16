@@ -7,7 +7,7 @@
         </nav>
     </section>
     <!-- Content Section -->
-    <section class="pb-xs px-sm sm:px-lg lg:px-xl h-screen">
+    <section class="pb-xs px-sm sm:px-lg lg:px-xl">
         <div class="flex flex-row gap-sm pb-sm lg:pb-md">
             <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Activities</button>
             <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive">Forms</button>
