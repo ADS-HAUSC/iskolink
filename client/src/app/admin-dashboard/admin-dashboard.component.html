@@ -1,4 +1,4 @@
-<main class="bg-[#F3F3F1]">
+<main class="bg-[#F3F3F1] py-32">
     <!-- Nav Section -->
     <section class="section-padding">
         <nav class="flex flex-col text-black">
@@ -15,12 +15,10 @@
 
         <!-- Activities -->
         <div [class.hidden]="!isActivitiesActive" class="inactive flex flex-col gap-md"> 
-
             <div *ngFor="let activity of activities" class="dashboard-content flex flex-col gap-sm">
                 <!-- template -->
                 <div class="flex flex-col md:flex-row text-left md:gap-2xs">
-                    <!-- <h3><span>United We Lead</span></h3> for introductory phrase input -->
-                    <h3>{{ activity.title }}</h3>  <!-- for title input-->
+                    <h3>{{ activity.title }}</h3>
                 </div>
                 <article class="flex flex-col md:grid md:grid-cols-[auto_auto] text-left gap-sm md:gap-md">
                     <p class="line-clamp-5">
@@ -40,17 +38,17 @@
             </div>
         </div>
 
-       <!-- Forms -->
+        <!-- Forms -->
         <div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-4">
             <div *ngFor="let form of forms">
-                <div class="dashboard-content p-6 shadow-md rounded-lg flex flex-col text-left ">
+                <div class="dashboard-content shadow-md rounded-lg flex flex-col text-left">
                     <h3 class="text-champagne">{{ form.name }}</h3>
                         <div class="flex items-center gap-2 pb-4 text-white">
                         <h4>{{ form.email }}</h4>
                         <img src="images/star-icon.svg" alt="Star Icon" class="w-5 h-5">
                         <h4>{{ form.contactNum }}</h4>
                     </div>
-                    <p class="text-base">{{ form.message }}</p>
+                    <p class="text-base line-clamp-6">{{ form.message }}</p>
                     <div class="flex justify-end gap-2 mt-4">
                         <button class="cursor-pointer btn-full px-md py-2 rounded-md" (click)="openEditModal(form)">Edit</button>
                         <button class="cursor-pointer border border-champagne text-champagne px-4 py-2 rounded-md" (click)="openDeleteModal(form._id)">Delete</button>
