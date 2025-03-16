@@ -105,27 +105,27 @@
     
         <div>
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contactForm" class="space-y-4">
-                <mat-form-field appearance="outline" class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
                     <mat-label>NAME</mat-label>
-                    <input matInput type="text" formControlName="name" required maxlength="40" />
+                    <input class="mat__text" matInput type="text" formControlName="name" required maxlength="40" />
                 </mat-form-field>
     
-                <mat-form-field appearance="outline" class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
                     <mat-label>EMAIL</mat-label>
-                    <input matInput type="email" formControlName="email" required />
+                    <input class="mat__text" matInput type="email" formControlName="email" required />
                 </mat-form-field>
     
-                <mat-form-field appearance="outline" class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
                     <mat-label>CONTACT NO.</mat-label>
-                    <input matInput type="tel" formControlName="contactNum" required />
+                    <input class="mat__text" matInput type="tel" formControlName="contactNum" required />
                 </mat-form-field>
     
-                <mat-form-field appearance="outline" class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
                     <mat-label>MESSAGE</mat-label>
-                    <textarea matInput rows="4" formControlName="message" required></textarea>
+                    <textarea class="mat__text" matInput rows="4" formControlName="message" required></textarea>
                 </mat-form-field>
     
-                <button mat-raised-button color="primary" class="w-full" type="submit" [disabled]="contactForm.invalid">Send Message</button>
+                <button class="btn-full-gradient cursor-pointer" type="submit" [disabled]="contactForm.invalid">Send Message</button>
             </form>
         </div>
     </section>
