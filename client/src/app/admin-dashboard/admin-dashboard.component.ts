@@ -23,7 +23,9 @@ export class AdminDashboardComponent {
   activityIdToDelete: string | null = null;
   isEditModalOpen: boolean = false;
   isDeleteModalOpen: boolean = false;
+  isAddModalOpen: boolean = false;
   inModal: String = ''; // Activity or Form
+
 
   toggleSection(isActivities: boolean): void {
     this.isActivitiesActive = isActivities;
@@ -42,9 +44,10 @@ export class AdminDashboardComponent {
   logOut() {
     this.authService.logout();
     this.router.navigate(['/admin-login']);
+
   }
 
-  //activities
+  // Activities
   refreshActivities() {
     this.dataService.getActivities().subscribe(data => {
       this.activities = data;
@@ -63,11 +66,19 @@ export class AdminDashboardComponent {
     });
   }
 
-  //forms
+  // Forms
   refreshForms() {
     this.dataService.getForms().subscribe(data => {
       this.forms = data;
     });
+  }
+
+  openAddModal() {
+    this.isAddModalOpen = true;
+  }
+
+  closeAddModal() {
+    this.isAddModalOpen = false;
   }
 
   openEditModal(form: any) {

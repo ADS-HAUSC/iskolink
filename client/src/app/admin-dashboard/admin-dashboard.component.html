@@ -1,17 +1,22 @@
 <main class="bg-[#F3F3F1] py-32">
     <!-- Nav Section -->
     <section class="section-padding">
-        <nav class="flex flex-col text-black">
+        <nav class="flex flex-row justify-between text-black">
             <h2 [class.hidden]="!isActivitiesActive" class="activities">Admin Activities</h2>
             <h2 [class.hidden]="isActivitiesActive" class="forms hidden">Admin Forms</h2>
+            <img src="/images/user.svg" alt="user" class="h-lg align-center">
+
         </nav>
     </section>
     <button class="btn-full" (click)="logOut()" [class.btn-full]>Logout</button> <!-- temporary -->
     <!-- Content Section -->
-    <section class="section-padding">
-        <div class="flex flex-row gap-sm pb-sm lg:pb-md">
-            <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full cursor-pointer">Activities</button>
-            <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive cursor-pointer">Forms</button>
+    <section class="pb-xs px-sm sm:px-lg lg:px-xl h-screen w-screen">
+        <div class="flex justify-between pb-sm lg:pb-md w-full">
+            <div class="flex flex-row gap-sm ">
+                <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Activities</button>
+                <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive">Forms</button>
+            </div>
+            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="openAddModal()" class="btn-full">Add Activities</button>
         </div>
 
         <!-- Activities -->
@@ -70,7 +75,7 @@
                 </div>
             </div>
         </div>
-        
+            
         <!-- Delete Confirmation Modal -->
         <div *ngIf="isDeleteModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
@@ -82,6 +87,34 @@
                 </div>
             </div>
         </div>
-        
+        <!-- Add Activities modal *ngIf="isEditModalOpen"-->
+        <div *ngIf="isAddModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+              <h3 class="text-midnight font-bold mb-4">Add Activities</h3>
+              <form (submit)="saveForm(); $event.preventDefault()">
+                <input type="text" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Title" required />
+                <div>
+                  <div class="grid grid-cols-[auto_auto] gap-xs">
+                    <label class="text-black">Image 1:</label>
+                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                  </div>
+                  <div class="grid grid-cols-[auto_auto] gap-xs">
+                    <label class="text-black">Image 2:</label>
+                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                  </div>
+                  <div class="grid grid-cols-[auto_auto] gap-xs">
+                    <label class="text-black">Image 3:</label>
+                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                  </div>
+                </div>
+                <textarea class="w-full p-2 border rounded text-midnight" placeholder="Description 1" required></textarea>
+                <textarea class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Description 2" required></textarea>
+                <div class="flex justify-end gap-2">
+                  <button type="submit" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
+                  <button type="button" class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeAddModal()">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>          
     </section>
 </main>
