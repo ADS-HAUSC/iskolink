@@ -20,8 +20,10 @@ export class AdminDashboardComponent {
   isActivitiesActive: boolean = true;
   editingForm: any = null;
   formIdToDelete: string | null = null;
+  activityIdToDelete: string | null = null;
   isEditModalOpen: boolean = false;
   isDeleteModalOpen: boolean = false;
+  inModal: String = ''; // Activity or Form
 
   toggleSection(isActivities: boolean): void {
     this.isActivitiesActive = isActivities;
@@ -56,17 +58,8 @@ export class AdminDashboardComponent {
   }
 
   deleteActivity(id: any) {
-
-    const confirmDelete = confirm("Are you sure you want to delete this activity?");
-
-    if (confirmDelete) {
-      this.dataService.deleteActivity(id).subscribe(() => {
-        this.refreshActivities(); // Refresh after deleting
-      });
-    }
-
     this.dataService.deleteActivity(id).subscribe(() => {
-      this.refreshActivities();
+      this.refreshActivities(); // Refresh after deleting
     });
   }
 
@@ -95,9 +88,19 @@ export class AdminDashboardComponent {
     });
   }
 
-  openDeleteModal(formId: string) {
-    this.formIdToDelete = formId;
-    this.isDeleteModalOpen = true;
+  openDeleteModal(dataName: string, id: string) {
+    this.inModal = dataName;
+    console.log(this.inModal);
+    if (this.inModal == "activity") {
+      this.activityIdToDelete = id;
+      this.isDeleteModalOpen = true;
+    }
+
+    else if (this.inModal == "form") {
+      this.formIdToDelete = id;
+      this.isDeleteModalOpen = true;
+    }
+    
   }
 
   closeDeleteModal() {
@@ -106,10 +109,21 @@ export class AdminDashboardComponent {
   }
 
   confirmDeleteForm() {
-    if (!this.formIdToDelete) return;
-    this.dataService.deleteForm(this.formIdToDelete).subscribe(() => {
-      this.refreshForms();
-      this.closeDeleteModal();
-    });
+    if (!this.activityIdToDelete && !this.formIdToDelete) return;
+    if (this.inModal == "activity") {
+      console.log('activity');
+      this.dataService.deleteActivity(this.activityIdToDelete!).subscribe(() => {
+        this.refreshActivities(); // Refresh after deleting
+        this.closeDeleteModal();
+      });
+    }
+
+    else if (this.inModal == "form")
+    {
+      this.dataService.deleteForm(this.formIdToDelete!).subscribe(() => {
+        this.refreshForms();
+        this.closeDeleteModal();
+      });
+    }
   }
 }
