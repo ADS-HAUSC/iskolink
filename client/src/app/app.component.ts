@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterModule, RouterLink } from '@angular/router';
 
+declare const Lenis: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,4 +9,6 @@ import { RouterOutlet, RouterModule, RouterLink } from '@angular/router';
 })
 export class AppComponent {
   title = 'client';
+
+  
 }

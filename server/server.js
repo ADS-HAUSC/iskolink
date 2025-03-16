@@ -1,10 +1,14 @@
 // server.js
 import express from 'express';
 import cors from 'cors';
-import { connectToDatabase, getEventsData, closeConnection } from './db.js';
+import { connectToDatabase, closeConnection } from './db.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// API routes
+import activitiesRoute from './routes/activities.js';
+import formsRoute from './routes/forms.js';
 
 // Middleware
 app.use(cors());
@@ -24,16 +28,9 @@ const initDatabase = async () => {
   }
 };
 
-// API endpoint to get events
-app.get('/api/events', async (req, res) => {
-  try {
-    const events = await getEventsData();
-    res.json(events);
-  } catch (error) {
-    console.error('Error fetching events:', error);
-    res.status(500).json({ message: 'Failed to fetch events' });
-  }
-});
+// Updated to use the API routes imported (-API endpoint to get activities-)
+app.use("/api/activities", activitiesRoute)
+app.use("/api/forms", formsRoute)
 
 // Handle graceful shutdown
 process.on('SIGINT', async () => {
