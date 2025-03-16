@@ -7,10 +7,13 @@
         </nav>
     </section>
     <!-- Content Section -->
-    <section class="pb-xs px-sm sm:px-lg lg:px-xl h-screen">
-        <div class="flex flex-row gap-sm pb-sm lg:pb-md">
-            <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Activities</button>
-            <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive">Forms</button>
+    <section class="pb-xs px-sm sm:px-lg lg:px-xl h-screen w-screen">
+        <div class="flex justify-between pb-sm lg:pb-md w-full">
+            <div class="flex flex-row gap-sm ">
+                <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Activities</button>
+                <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive">Forms</button>
+            </div>
+            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Add Activities</button>
         </div>
 
         <!-- Activities -->
