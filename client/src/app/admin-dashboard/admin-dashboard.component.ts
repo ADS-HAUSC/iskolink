@@ -12,9 +12,10 @@ export class AdminDashboardComponent {
   activities: any[] = [];
   forms: any[] = [];
   isActivitiesActive: boolean = true;
-  formToEdit: any = null;
   editingForm: any = null;
-
+  formIdToDelete: string | null = null;
+  isEditModalOpen: boolean = false;
+  isDeleteModalOpen: boolean = false;
   constructor(public dataService: DataService) {}
 
   toggleSection(isActivities: boolean): void {
@@ -29,19 +30,19 @@ export class AdminDashboardComponent {
   //activities
   refreshActivities() {
     this.dataService.getActivities().subscribe(data => {
-      this.activities = data; // Update local variable
+      this.activities = data;
     });
   }
 
   addActivity(newActivity: any) {
     this.dataService.addActivity(newActivity).subscribe(() => {
-      this.refreshActivities(); // Refresh after adding
+      this.refreshActivities();
     });
   }
 
   deleteActivity(id: any) {
     this.dataService.deleteActivity(id).subscribe(() => {
-      this.refreshActivities(); // Refresh after deleting
+      this.refreshActivities();
     });
   }
 
@@ -52,26 +53,39 @@ export class AdminDashboardComponent {
     });
   }
 
-  editForm(form: any) {
+  openEditModal(form: any) {
     this.editingForm = { ...form };
+    this.isEditModalOpen = true;
+  }
+
+  closeEditModal() {
+    this.isEditModalOpen = false;
+    this.editingForm = null;
   }
 
   saveForm() {
     if (!this.editingForm) return;
     this.dataService.updateForm(this.editingForm._id, this.editingForm).subscribe(() => {
       this.refreshForms();
-      this.editingForm = null;
+      this.closeEditModal();
     });
   }
 
-  cancelEdit() {
-    this.editingForm = null;
+  openDeleteModal(formId: string) {
+    this.formIdToDelete = formId;
+    this.isDeleteModalOpen = true;
   }
 
-  deleteForm(id: string) {
-    console.log('Deleting form with ID:', id); // Debugging
-    this.dataService.deleteForm(id).subscribe(() => {
+  closeDeleteModal() {
+    this.isDeleteModalOpen = false;
+    this.formIdToDelete = null;
+  }
+
+  confirmDelete() {
+    if (!this.formIdToDelete) return;
+    this.dataService.deleteForm(this.formIdToDelete).subscribe(() => {
       this.refreshForms();
+      this.closeDeleteModal();
     });
   }
 }

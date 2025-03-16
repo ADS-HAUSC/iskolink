@@ -15,7 +15,7 @@
     </section>
 
     <!-- SOCIALS SECTION -->
-    <section class="py-xl px-sm md:px-md lg:px-xl ">
+    <section class="pt-36 section-padding">
         <div class="pb-lg xl:pb-2xl grid lg:grid-cols-3 md:grid-cols-2 ">
             <article class="lg:col-span-2 pr-md lg:pr-[30%]">
                 <h2 class="pb-sm lg:leading-lg">Building the Next <Span>Generation of Innovators</Span></h2>
@@ -41,7 +41,7 @@
                             <p>Have questions? Contact us anytime at <span>adshausc&commat;gmail.com</span></p>
                         </div>
                         <div class="md:col-start-2 md:justify-self-end">
-                            <button class="btn-full">Contact Us</button>
+                            <button class="btn-full cursor-pointer">Contact Us</button>
                         </div>
                     </article>
                 </div>
@@ -61,7 +61,7 @@
                             <p>Follow our official page for updates at <span>facebook.com/adshausc</span></p>
                         </div>
                         <div class="md:col-start-2 md:justify-self-end">
-                            <button class="btn-full">View Page</button>
+                            <button class="btn-full cursor-pointer">View Facebook</button>
                         </div>
                     </article>
                 </div>
@@ -81,7 +81,7 @@
                             <p>Join us on Instagram at <span>instagram.com/adshausc</span></p>
                         </div>
                         <div class="md:col-start-2 md:justify-self-end">
-                            <button class="btn-full">View Page</button>
+                            <button class="btn-full cursor-pointer">View Instagram</button>
                         </div>
                     </article>
                 </div>
@@ -90,7 +90,7 @@
     </section>
         
     <!-- FORMS SECTION -->
-    <section class="py-xl px-sm md:px-md lg:px-xl grid md:grid-cols-2 gap-2">
+    <section class="pt-36 section-padding pb-3xl grid md:grid-cols-2 gap-2">
         <div class="pb-lg md:pb-0">
             <article class="pb-lg lg:leading-lg">
                 <h2>Have Questions? </h2>
@@ -103,19 +103,41 @@
         </div>
         <div class="">
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contactForm">
-                <input type="text" id="name" formControlName="name" placeholder="NAME" maxlength="40"
-                    class="my-sm border-b-1 w-full outline-none" required>
+                <input 
+                    type="text" 
+                    id="name" 
+                    formControlName="name" 
+                    placeholder="NAME" 
+                    maxlength="40"
+                    class="my-sm border-b-1 w-full outline-none" 
+                    required />
             
-                <input type="email" id="email" formControlName="email" placeholder="EMAIL"
-                    class="my-sm border-b-1 w-full outline-none" required>
+                <input 
+                    type="email" 
+                    id="email" 
+                    formControlName="email" 
+                    placeholder="EMAIL"
+                    class="my-sm border-b-1 w-full outline-none" 
+                    required />
             
-                <input type="tel" id="contactNum" formControlName="contactNum" placeholder="CONTACT NO."
-                    class="my-sm border-b-1 w-full outline-none" required>
+                <input 
+                    type="tel" 
+                    id="contactNum" 
+                    formControlName="contactNum" 
+                    placeholder="CONTACT NO."
+                    class="my-sm border-b-1 w-full outline-none" 
+                    required />
             
-                <textarea id="message" formControlName="message" rows="4" placeholder="MESSAGE"
-                    class="my-sm border-b-1 w-full outline-none align-text-bottom" required></textarea>
+                <textarea 
+                    id="message" 
+                    formControlName="message" 
+                    rows="4" 
+                    placeholder="MESSAGE"
+                    class="my-sm border-b-1 w-full outline-none align-text-bottom" 
+                    required>
+                </textarea>
             
-                <button class="btn-full-gradient cursor-pointer" type="submit" [disabled]="contactForm.invalid">Submit</button>
+                <button class="btn-full-gradient cursor-pointer" type="submit" [disabled]="contactForm.invalid">Send Message</button>
             </form>
         </div>
     </section>

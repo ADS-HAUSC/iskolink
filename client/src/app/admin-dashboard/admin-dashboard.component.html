@@ -1,16 +1,16 @@
-<main class="bg-white">
+<main class="bg-[#F3F3F1]">
     <!-- Nav Section -->
-    <section class="pb-sm md:py-md px-sm sm:px-lg lg:px-xl ">
+    <section class="section-padding">
         <nav class="flex flex-col text-black">
             <h2 [class.hidden]="!isActivitiesActive" class="activities">Admin Activities</h2>
             <h2 [class.hidden]="isActivitiesActive" class="forms hidden">Admin Forms</h2>
         </nav>
     </section>
     <!-- Content Section -->
-    <section class="pb-xs px-sm sm:px-lg lg:px-xl h-screen">
+    <section class="section-padding">
         <div class="flex flex-row gap-sm pb-sm lg:pb-md">
-            <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Activities</button>
-            <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive">Forms</button>
+            <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full cursor-pointer">Activities</button>
+            <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive cursor-pointer">Forms</button>
         </div>
 
         <!-- Activities -->
@@ -40,40 +40,51 @@
             </div>
         </div>
 
-        <!-- Forms -->
-<div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-sm">
-    <div *ngFor="let form of forms">
-        <div class="dashboard-content flex flex-col text-left">
-            <!-- Check if this form is being edited -->
-            <ng-container *ngIf="editingForm && editingForm._id === form._id; else viewMode">
-                <!-- Editable form -->
-                <input type="text" [(ngModel)]="editingForm.name" class="input-field" placeholder="Name">
-                <input type="email" [(ngModel)]="editingForm.email" class="input-field" placeholder="Email">
-                <input type="text" [(ngModel)]="editingForm.contactNum" class="input-field" placeholder="Contact Number">
-                <textarea [(ngModel)]="editingForm.message" class="input-field" placeholder="Message"></textarea>
-                <div class="flex flex-row gap-xs justify-end">
-                    <button class="btn-full px-xl" (click)="saveForm()">Save</button>
-                    <button class="btn-outlined" (click)="cancelEdit()">Cancel</button>
+       <!-- Forms -->
+        <div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-4">
+            <div *ngFor="let form of forms">
+                <div class="dashboard-content p-6 shadow-md rounded-lg flex flex-col text-left ">
+                    <h3 class="text-champagne">{{ form.name }}</h3>
+                        <div class="flex items-center gap-2 pb-4 text-white">
+                        <h4>{{ form.email }}</h4>
+                        <img src="images/star-icon.svg" alt="Star Icon" class="w-5 h-5">
+                        <h4>{{ form.contactNum }}</h4>
+                    </div>
+                    <p class="text-base">{{ form.message }}</p>
+                    <div class="flex justify-end gap-2 mt-4">
+                        <button class="cursor-pointer btn-full px-md py-2 rounded-md" (click)="openEditModal(form)">Edit</button>
+                        <button class="cursor-pointer border border-champagne text-champagne px-4 py-2 rounded-md" (click)="openDeleteModal(form._id)">Delete</button>
+                    </div>
                 </div>
-            </ng-container>
-
-            <!-- View Mode -->
-            <ng-template #viewMode>
-                <h3><span>{{ form.name }}</span></h3>
-                <div class="mini-heading-cont pb-sm">
-                    <h4>{{ form.email }}</h4>
-                    <img src="images/star-icon.svg" alt="Star Icon">
-                    <h4>{{ form.contactNum }}</h4>
-                </div>
-                <p>{{ form.message }}</p>
-                <div class="flex flex-row gap-xs justify-end">
-                    <button class="btn-full px-xl" (click)="editForm(form)">Edit</button>
-                    <button class="btn-outlined" (click)="deleteForm(form._id)">Delete</button>
-                </div>
-            </ng-template>
+            </div>
         </div>
-    </div>
-</div>
+        
+        <!-- Edit Modal -->
+        <div *ngIf="isEditModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                <h3 class="text-midnight font-bold mb-4">Edit Form</h3>
+                <input type="text" [(ngModel)]="editingForm.name" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Name" required />
+                <input type="email" [(ngModel)]="editingForm.email" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Email" required />
+                <input type="text" [(ngModel)]="editingForm.contactNum" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Contact Number" required />
+                <textarea [(ngModel)]="editingForm.message" class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Message" required></textarea>
+                <div class="flex justify-end gap-2">
+                    <button class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md" (click)="saveForm()">Save</button>
+                    <button class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeEditModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Delete Confirmation Modal -->
+        <div *ngIf="isDeleteModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
+                <h3 class="text-midnight font-bold mb-4">Confirm Deletion</h3>
+                <p class="text-midnight mb-4">Are you sure you want to delete this form?</p>
+                <div class="flex justify-center gap-2">
+                    <button class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md" (click)="confirmDelete()">Yes, Delete</button>
+                    <button class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeDeleteModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
         
     </section>
 </main>
