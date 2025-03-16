@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,7 +12,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminDashboardComponent {
   activities: any[] = [];
+
+  constructor(private authService: AuthService, private router: Router, public dataService: DataService) {}
+
   forms: any[] = [];
+
   isActivitiesActive: boolean = true;
   editingForm: any = null;
   formIdToDelete: string | null = null;
@@ -23,8 +29,18 @@ export class AdminDashboardComponent {
   }
 
   ngOnInit(){
-    this.refreshActivities();
-    this.refreshForms();
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/admin-login']);
+    }
+    else {
+      this.refreshActivities();
+      this.refreshForms();
+    }
+  }
+  
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['/admin-login']);
   }
 
   //activities
@@ -41,6 +57,15 @@ export class AdminDashboardComponent {
   }
 
   deleteActivity(id: any) {
+
+    const confirmDelete = confirm("Are you sure you want to delete this activity?");
+
+    if (confirmDelete) {
+      this.dataService.deleteActivity(id).subscribe(() => {
+        this.refreshActivities(); // Refresh after deleting
+      });
+    }
+
     this.dataService.deleteActivity(id).subscribe(() => {
       this.refreshActivities();
     });
@@ -81,7 +106,7 @@ export class AdminDashboardComponent {
     this.formIdToDelete = null;
   }
 
-  confirmDelete() {
+  confirmDeleteForm() {
     if (!this.formIdToDelete) return;
     this.dataService.deleteForm(this.formIdToDelete).subscribe(() => {
       this.refreshForms();

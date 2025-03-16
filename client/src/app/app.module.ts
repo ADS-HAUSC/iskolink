@@ -13,6 +13,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { provideHttpClient } from '@angular/common/http';
+import { NgOptimizedImage } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { provideHttpClient } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgOptimizedImage,
     ReactiveFormsModule, 
     HttpClientModule,
     FormsModule

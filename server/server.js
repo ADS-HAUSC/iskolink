@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 3000;
 // API routes
 import activitiesRoute from './routes/activities.js';
 import formsRoute from './routes/forms.js';
+import usersRoute from './routes/users.js'
+import authRoute from './routes/authRoutes.js'
 
 // Middleware
 app.use(cors());
@@ -31,6 +33,8 @@ const initDatabase = async () => {
 // Updated to use the API routes imported (-API endpoint to get activities-)
 app.use("/api/activities", activitiesRoute)
 app.use("/api/forms", formsRoute)
+app.use("/api/users", usersRoute)
+app.use("/api/auth", authRoute)
 
 // Handle graceful shutdown
 process.on('SIGINT', async () => {

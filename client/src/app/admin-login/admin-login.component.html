@@ -29,12 +29,13 @@
               </div>
             </div>
 
-            <form action="#" method="POST" class="flex flex-col">
+            <form (ngSubmit)="onLogin()" #loginForm="ngForm"   class="flex flex-col">
               <label for="username">USERNAME</label>
               <input
                 type="text"
                 id="username"
                 name="username"
+                [(ngModel)]="username"
                 class="bg-white p-2 rounded-md mt-2 text-black"
               />
 
@@ -43,10 +44,13 @@
                 type="password"
                 id="password"
                 name="password"
+                [(ngModel)]="password"
                 class="bg-white p-2 rounded-md mt-2 text-black"
               />
 
-              <div class="mt-lg">
+              <p *ngIf="errorMessage" class="text-red-700 mt-sm p-2xs rounded-lg bg-red-200">{{ errorMessage }}</p>
+
+              <!-- <div class="mt-lg">
                 <input
                   type="checkbox"
                   id="remember"
@@ -54,7 +58,7 @@
                   class="mr-2"
                 />
                 <label for="remember">Remember me</label>
-              </div>
+              </div> -->
 
               <button
                 type="submit"
