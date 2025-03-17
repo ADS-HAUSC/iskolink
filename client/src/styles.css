@@ -2,7 +2,8 @@
 @import "tailwindcss";
 
 @theme {
-    /* #FONT FAMILY */
+    /* FONT FAMILY */
+    --font-family-span: 'Albertus Nova', serif;
 
     /* FONT SIZES */
     --text-base: clamp(1rem, 0.9rem + 0.07vw, 1.05rem);
@@ -40,34 +41,39 @@
         src: url("/fonts/TheSeasonsBold.woff2") format("woff2");
         font-weight: bold;
         font-style: normal;
+        font-display: swap;
     }
     
     @font-face {
-      font-family: "The Seasons Bold Italic";
-      src: url("/fonts/TheSeasonsBoldItalic.woff2") format("woff2");
-      font-weight: bold;
-      font-style: italic;
+        font-family: "The Seasons Bold Italic";
+        src: url("/fonts/TheSeasonsBoldItalic.woff2") format("woff2");
+        font-weight: bold;
+        font-style: italic;
+        font-display: swap;
     }
     
     @font-face {
-      font-family: "Albertus Nova";
-      src: url("/fonts/albertusnova.woff2") format("woff2");
-      font-weight: normal;
-      font-style: normal;
+        font-family: "Albertus Nova";
+        src: url("/fonts/albertusnova.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
     }
     
     @font-face {
-      font-family: "Albertus Nova Bold";
-      src: url("/fonts/albertusnova_bold.woff2") format("woff2");
-      font-weight: bold;
-      font-style: normal;
+        font-family: "Albertus Nova Bold";
+        src: url("/fonts/albertusnova_bold.woff2") format("woff2");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
     }
     
     @font-face {
-      font-family: "Figtree";
-      src: url("/fonts/Figtree-VariableFont_wght.woff2") format("woff2");
-      font-weight: normal;
-      font-style: normal;
+        font-family: "Figtree";
+        src: url("/fonts/Figtree-VariableFont_wght.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
     }
     
     body {
@@ -200,10 +206,6 @@
 
     .mini-heading-cont {
         @apply flex items-center gap-2xs;
-    }
-
-    .mini-heading-cont {
-        @apply flex gap-2xs;
     }
 
     .btn-inactive {
