@@ -24,7 +24,7 @@
 
         <!-- Activities -->
         <div [class.hidden]="!isActivitiesActive" class="inactive flex flex-col gap-md"> 
-            <div *ngFor="let activity of activities" class="dashboard-content flex flex-col gap-sm">
+            <div *ngFor="let activity of activities.slice().reverse()" class="dashboard-content flex flex-col gap-sm">
                 <div class="flex flex-col md:flex-row text-left md:gap-2xs">
                     <h3>{{ activity.title }}</h3>
                 </div>
@@ -47,7 +47,7 @@
 
         <!-- Forms -->
         <div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-4">
-            <div *ngFor="let form of forms">
+            <div *ngFor="let form of forms.slice().reverse()">
                 <div class="dashboard-content shadow-md rounded-lg flex flex-col text-left">
                     <h3 class="text-champagne">{{ form.name }}</h3>
                         <div class="flex items-center gap-2 pb-4 text-white">
@@ -75,19 +75,19 @@
         
                     <div>
                         <!-- Image Upload Fields -->
-                        <div class="grid grid-cols-[auto_auto] gap-xs">
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 1:</label>
                             <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight" required />
                             <img *ngIf="addingActivity.img1" [ngSrc]="'http://localhost:3000/' + addingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
-                        <div class="grid grid-cols-[auto_auto] gap-xs">
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 2:</label>
                             <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight" required />
                             <img *ngIf="addingActivity.img2" [ngSrc]="'http://localhost:3000/' + addingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
-                        <div class="grid grid-cols-[auto_auto] gap-xs">
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 3:</label>
                             <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight" required />
                             <img *ngIf="addingActivity.img3" [ngSrc]="'http://localhost:3000/' + addingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
@@ -114,19 +114,19 @@
         
                     <div>
                         <!-- Image Upload Fields -->
-                        <div class="grid grid-cols-[auto_auto] gap-xs">
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 1:</label>
                             <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight" />
                             <img *ngIf="editingActivity.img1" [ngSrc]="'http://localhost:3000/' + editingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
-                        <div class="grid grid-cols-[auto_auto] gap-xs">
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 2:</label>
                             <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight" />
                             <img *ngIf="editingActivity.img2" [ngSrc]="'http://localhost:3000/' + editingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
-                        <div class="grid grid-cols-[auto_auto] gap-xs">
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 3:</label>
                             <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight" />
                             <img *ngIf="editingActivity.img3" [ngSrc]="'http://localhost:3000/' + editingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
