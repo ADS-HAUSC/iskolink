@@ -78,19 +78,19 @@
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 1:</label>
                             <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                            <img *ngIf="addingActivity.img1" [ngSrc]="'http://localhost:3000/' + addingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <img *ngIf="addingActivity.img1" [ngSrc]="addingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 2:</label>
                             <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                            <img *ngIf="addingActivity.img2" [ngSrc]="'http://localhost:3000/' + addingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <img *ngIf="addingActivity.img2" [ngSrc]="addingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 3:</label>
                             <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                            <img *ngIf="addingActivity.img3" [ngSrc]="'http://localhost:3000/' + addingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <img *ngIf="addingActivity.img3" [ngSrc]="addingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
                     </div>
         
@@ -117,19 +117,19 @@
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 1:</label>
                             <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight" />
-                            <img *ngIf="editingActivity.img1" [ngSrc]="'http://localhost:3000/' + editingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <img *ngIf="editingActivity.img1" [ngSrc]="editingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 2:</label>
                             <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight" />
-                            <img *ngIf="editingActivity.img2" [ngSrc]="'http://localhost:3000/' + editingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <img *ngIf="editingActivity.img2" [ngSrc]="editingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 3:</label>
                             <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight" />
-                            <img *ngIf="editingActivity.img3" [ngSrc]="'http://localhost:3000/' + editingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <img *ngIf="editingActivity.img3" [ngSrc]="editingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
                     </div>
         
