@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 export class AdminDashboardComponent {
   activities: any[] = [];
 
-  constructor(private authService: AuthService, private router: Router, public dataService: DataService) {}
+  constructor(private authService: AuthService, private router: Router, public dataService: DataService, private meta: Meta, private title: Title) {
+    this.title.setTitle('Admin Dashboard — ADS-HAUSC');
+    this.meta.updateTag({ name: 'description', content: 'Manage ADS-HAUSC activities, scholarships, and users from the admin dashboard.' });
+  }
 
   forms: any[] = [];
 
@@ -26,7 +29,7 @@ export class AdminDashboardComponent {
   isEditActivityModalOpen: boolean = false;
   isDeleteModalOpen: boolean = false;
   isAddModalOpen: boolean = false;
-  inModal: String = ''; // Activity or Form
+  inModal: String = '';
 
   addingActivity = {
     title: '', 
@@ -88,7 +91,7 @@ export class AdminDashboardComponent {
 
   deleteActivity(id: any) {
     this.dataService.deleteActivity(id).subscribe(() => {
-      this.refreshActivities(); // Refresh after deleting
+      this.refreshActivities();
     });
   }
 
@@ -176,7 +179,7 @@ export class AdminDashboardComponent {
     if (this.inModal == "activity") {
       console.log('activity');
       this.dataService.deleteActivity(this.activityIdToDelete!).subscribe(() => {
-        this.refreshActivities(); // Refresh after deleting
+        this.refreshActivities();
         this.closeDeleteModal();
       });
     }
