@@ -5,8 +5,8 @@
     <div class="absolute bottom-10 md:bottom-20 lg:bottom-25">
         <div class="section-padding grid-style">
             <div class="mini-heading-cont col-start-1 col-span-4 md:col-span-10 xl:col-span-12 mb-sm">
-                <img src="images/star-icon.svg" alt="Star Icon">
-                <h4>Our Activities</h4>
+              <img [src]="'images/star-icon.svg'" alt="Star Icon" width="300" height="300" loading="lazy">
+              <p class="font-family-span opacity-90">Our Activities</p>
             </div>
             <h1 class="col-start-1 col-span-4 md:col-span-7 text-heading-display">Fostering <span>growth,<br/>knowledge</span>, and <span>service</span></h1>
             <p class="col-start-1 col-span-3 md:col-span-6 xl:col-start-9 xl:col-span-4">ADS-HAUSC is dedicated to shaping well-rounded scholars through activities that foster leadership, service, and academic excellence. From community outreach to environmental sustainability, every initiative is a step toward positive change.</p>
@@ -18,7 +18,10 @@
   <section class="pt-36 section-padding">
     <div class="lg:grid lg:grid-cols-2 lg:gap-xl">
       <div>
-        <p class="mb-4"><span class="mr-1">✦</span>ADS-HAUSC Activities</p>
+        <div class="mini-heading-cont mb-sm">
+          <img [src]="'images/star-icon.svg'" alt="Star Icon" width="300" height="300" loading="lazy">
+          <p class="font-family-span opacity-90">ADS-HAUSC Activities</p>
+        </div>
         <h2 class="md:w-2/3">
           Shaping the <span>Future</span> Through <span>Knowledge</span> and
           <span>Service</span>
