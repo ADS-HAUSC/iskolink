@@ -72,6 +72,20 @@ export class AdminDashboardComponent {
     });
   }
 
+  // onFileSelected(event: any, imageField: string) {
+  //   const file = event.target.files[0];
+  //   if (!file) return;
+  
+  //   const formData = new FormData();
+  //   formData.append('image', file);
+  
+  //   this.dataService.uploadImage(formData).subscribe((response: any) => {
+  //     (this.addingActivity as any)[imageField] = response.filePath; // Store only the image path
+  //   }, error => {
+  //     console.error('Error uploading file:', error);
+  //   });
+  // }
+
   onFileSelected(event: any, imageField: string) {
     const file = event.target.files[0];
     if (!file) return;
@@ -80,7 +94,8 @@ export class AdminDashboardComponent {
     formData.append('image', file);
   
     this.dataService.uploadImage(formData).subscribe((response: any) => {
-      (this.addingActivity as any)[imageField] = response.filePath; // Store only the image path
+      // Store the Cloudinary URL in the corresponding field of the activity
+      (this.addingActivity as any)[imageField] = response.filePath;
     }, error => {
       console.error('Error uploading file:', error);
     });
@@ -144,8 +159,8 @@ export class AdminDashboardComponent {
   }
 
   saveForm() {
-    if (!this.editingActivity) return;
-    this.dataService.editActivity(this.editingActivity._id, this.editingActivity).subscribe(() => {
+    if (!this.editingForm) return;
+    this.dataService.updateForm(this.editingForm._id, this.editingForm).subscribe(() => {
         this.refreshForms();
         this.closeEditFormModal();
     });
