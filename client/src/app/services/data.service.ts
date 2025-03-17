@@ -24,7 +24,7 @@ export class DataService {
   }
 
   uploadImage(formData: FormData) {
-    return this.http.post<{ filePath: string }>('http://localhost:3000/api/upload', formData);
+    return this.http.post<{ filePath: string }>(`${this.actAPIUrl}/api/upload`, formData);
   }
 
   editActivity(id: string, activity: any): Observable<any> {

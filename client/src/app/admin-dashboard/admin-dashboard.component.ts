@@ -66,25 +66,21 @@ export class AdminDashboardComponent {
   }
 
   addActivity(newActivity: any) {
-    this.dataService.addActivity(newActivity).subscribe(() => {
-      this.closeAddModal();
-      this.refreshActivities();
-    });
+    if (!newActivity.title || !newActivity.img1 || !newActivity.img2 || !newActivity.img3 || !newActivity.desc1 || !newActivity.desc2) {
+      alert('Please fill in all the required fields!');
+      return;
+    }
+  
+    this.dataService.addActivity(newActivity).subscribe(
+      () => {
+        this.closeAddModal();
+        this.refreshActivities();
+      },
+      (error) => {
+        console.error('Error adding activity:', error);
+      }
+    );
   }
-
-  // onFileSelected(event: any, imageField: string) {
-  //   const file = event.target.files[0];
-  //   if (!file) return;
-  
-  //   const formData = new FormData();
-  //   formData.append('image', file);
-  
-  //   this.dataService.uploadImage(formData).subscribe((response: any) => {
-  //     (this.addingActivity as any)[imageField] = response.filePath; // Store only the image path
-  //   }, error => {
-  //     console.error('Error uploading file:', error);
-  //   });
-  // }
 
   onFileSelected(event: any, imageField: string) {
     const file = event.target.files[0];

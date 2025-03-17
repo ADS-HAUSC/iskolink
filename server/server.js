@@ -6,6 +6,7 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import cloudinary from 'cloudinary';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,20 +37,17 @@ const initDatabase = async () => {
   }
 };
 
-// Ensure 'public/uploads' folder exists
-const uploadDir = path.join(__dirname, '../client/public/images/activities-img');
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 // Set storage engine for multer
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, path.join(__dirname, '../client/public/images/activities-img'));
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname); // Unique file name
-    }
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname); // unique filename
+  },
 });
 
 const upload = multer({ storage: storage });
@@ -61,13 +59,33 @@ app.use("/api/users", usersRoute)
 app.use("/api/auth", authRoute)
 app.use('/images', express.static(path.join(__dirname, '../client/public/images')));
 
-// API to handle image upload
+// API to handle image upload to Cloudinary
 app.post('/api/upload', upload.single('image'), (req, res) => {
   if (!req.file) {
-      return res.status(400).json({ error: 'No file uploaded' });
+    return res.status(400).json({ error: 'No file uploaded' });
   }
-  const filePath = `images/activities-img/${req.file.filename}`; // File path stored in database
-  res.json({ filePath });
+
+  console.log('Uploaded file path:', req.file.path);
+
+  cloudinary.v2.uploader.upload(
+    req.file.path,
+    {
+      folder: 'images/activities-img',  // The folder in Cloudinary where the image will be stored
+      public_id: Date.now() + '-' + req.file.originalname.replace(path.extname(req.file.originalname), '')
+    },
+    (error, result) => {  // Correct the callback to receive `error` and `result`
+      if (error) {
+        console.log('Error uploading to Cloudinary:', error);
+        return res.status(500).json({ error: error.message });
+      }
+  
+      console.log('File uploaded successfully:', result);  // Log the result object
+  
+      return res.status(200).json({
+        filePath: result.secure_url  // Use `secure_url` for the link to the uploaded
+      });
+    }
+  );  
 });
 
 
