@@ -5,9 +5,9 @@
         <div class="absolute bottom-10 md:bottom-20 lg:bottom-25">
             <div class="section-padding grid-style">
                 <div class="mini-heading-cont col-start-1 col-span-4 md:col-span-10 xl:col-span-12 mb-sm">
-                    <img src="images/star-icon.svg" alt="Star Icon">
-                    <h4>Stay Connected</h4>
-                </div>
+                    <img [src]="'images/star-icon.svg'" alt="Star Icon" width="300" height="300" loading="lazy">
+                    <p class="font-family-span opacity-90">Stay Connected</p>
+                  </div>
                 <h1 class="col-start-1 col-span-4 md:col-span-7 text-heading-display"><span>Let's Work Together</span><br/>for a Brighter Future</h1>
                 <p class="col-start-1 col-span-3 md:col-span-6 xl:col-start-9 xl:col-span-4">Have questions or want to collaborate? Reach out to ADS-HAUSC and be part of our growing community of scholars and innovators. Whether you’re a student, mentor, or partner, we’re here to connect, inspire, and create opportunities together.</p>
             </div>
@@ -18,7 +18,7 @@
     <section class="pt-36 section-padding">
         <div class="pb-lg xl:pb-2xl grid lg:grid-cols-3 md:grid-cols-2 ">
             <article class="lg:col-span-2 pr-md lg:pr-[30%]">
-                <h2 class="pb-sm lg:leading-lg">Building the Next <Span>Generation of Innovators</Span></h2>
+                <h2 class="pb-sm lg:leading-lg">Building the Next <span>Generation of Innovators</span></h2>
             </article>
             <article class="">
                 <p>DOST is dedicated to nurturing young talents and equipping them with the resources to thrive in STEM fields. Through scholarships, research grants, and technological initiatives, it empowers students to develop groundbreaking solutions to real-world problems. The agency's commitment extends to funding cutting-edge research and fostering partnerships with institutions worldwide.</p><br>
@@ -99,61 +99,50 @@
     <section class="pt-36 section-padding pb-3xl grid md:grid-cols-2 gap-2">
         <div class="pb-lg md:pb-0">
             <article class="pb-lg lg:leading-lg">
-                <h2>Have Questions? </h2>
+                <h2>Have Questions?</h2>
                 <h2><span>We're Here to Help</span></h2>
             </article>
             <article class="md:w-[40vw]">
-                <p>ADS-HAUSC believes in fostering strong connections within our scholar community. Whether it's about upcoming events, partnerships, or how to get involved, our team is ready to provide the information you need. Your journey toward growth and success starts with a conversation.</p><br>
+                <p>ADS-HAUSC believes in fostering strong connections within our scholar community. Whether it's about upcoming events, partnerships, or how to get involved, our team is ready to provide the information you need. Your journey toward growth and success starts with a conversation.</p>
+                <br>
                 <p>Leave us a message, and our team will reach out to you!</p>
             </article>
         </div>
-        <div class="">
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contactForm">
-                <input 
-                    type="text" 
-                    id="name" 
-                    formControlName="name" 
-                    placeholder="NAME" 
-                    maxlength="40"
-                    class="my-sm border-b-1 w-full outline-none" 
-                    required />
-            
-                <input 
-                    type="email" 
-                    id="email" 
-                    formControlName="email" 
-                    placeholder="EMAIL"
-                    class="my-sm border-b-1 w-full outline-none" 
-                    required />
-            
-                <input 
-                    type="tel" 
-                    id="contactNum" 
-                    formControlName="contactNum" 
-                    placeholder="CONTACT NO."
-                    class="my-sm border-b-1 w-full outline-none" 
-                    required />
-            
-                <textarea 
-                    id="message" 
-                    formControlName="message" 
-                    rows="4" 
-                    placeholder="MESSAGE"
-                    class="my-sm border-b-1 w-full outline-none align-text-bottom" 
-                    required>
-                </textarea>
-            
+    
+        <div>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contactForm" class="space-y-4">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>NAME</mat-label>
+                    <input class="mat__text" matInput type="text" formControlName="name" required maxlength="40" />
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>EMAIL</mat-label>
+                    <input class="mat__text" matInput type="email" formControlName="email" required />
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>CONTACT NO.</mat-label>
+                    <input class="mat__text" matInput type="tel" formControlName="contactNum" required />
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>MESSAGE</mat-label>
+                    <textarea class="mat__text" matInput rows="4" formControlName="message" required></textarea>
+                </mat-form-field>
+    
                 <button class="btn-full-gradient cursor-pointer" type="submit" [disabled]="contactForm.invalid">Send Message</button>
             </form>
         </div>
     </section>
-
+    
+    
     <!-- FOOTER -->
     <footer class="flex flex-col lg:flex-row justify-between gap-md px-sm sm:px-lg lg:px-xl py-2xl sm:py-xl items-center">
         <div class="flex flex-col sm:flex-row gap-md items-center text-center sm:text-start">
             <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo">
             <div class="flex flex-col gap-2xs">
-                <h4>Association of DOST Scholars - Holy Angel University Student Chapter</h4>
+                <h2 class="text-heading-3">Association of DOST Scholars - Holy Angel University Student Chapter</h2>
                 <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
                 <div class="flex flex-row gap-md justify-center sm:justify-start">
                     <a href="https://www.facebook.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">

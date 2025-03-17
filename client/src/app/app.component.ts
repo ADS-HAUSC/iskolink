@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-declare const Lenis: any;
+// declare const Lenis: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

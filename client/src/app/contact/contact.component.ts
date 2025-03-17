@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +13,10 @@ export class ContactComponent {
   contactForm: FormGroup;
   isSubmitting = false;
 
-  constructor(private fb: FormBuilder, private dataService: DataService) {
+  constructor(private fb: FormBuilder, private dataService: DataService, private meta: Meta, private title: Title) {
+    this.title.setTitle('Contact Us — ADS-HAUSC');
+    this.meta.addTag({ name: 'description', content: 'Stay connected with ADS-HAUSC. Reach out to us for inquiries, collaborations, and partnership opportunities.' });
+
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

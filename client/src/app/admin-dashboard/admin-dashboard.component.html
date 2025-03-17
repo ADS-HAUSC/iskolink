@@ -1,27 +1,30 @@
 <main class="bg-[#F3F3F1] py-32">
     <!-- Nav Section -->
     <section class="section-padding">
-        <nav class="flex flex-row justify-between text-black">
+        <nav class="flex flex-row justify-between text-black mb-lg">
             <h2 [class.hidden]="!isActivitiesActive" class="activities">Admin Activities</h2>
             <h2 [class.hidden]="isActivitiesActive" class="forms hidden">Admin Forms</h2>
-            <img src="/images/user.svg" alt="user" class="h-lg align-center">
+            <div class="flex flex-row gap-sm items-end justify-between">
+                <img src="/images/user.svg" alt="user" class="h-lg align-center">
+                <button class="cursor-pointer btn-outlined text-midnight border-midnight" (click)="logOut()" [class.btn-full]>Logout</button>
+            </div>
 
         </nav>
     </section>
-    <button class="btn-full" (click)="logOut()" [class.btn-full]>Logout</button> <!-- temporary -->
     <!-- Content Section -->
-    <section class="pb-xs px-sm sm:px-lg lg:px-xl h-screen w-screen">
+    <section class="section-padding">
         <div class="flex justify-between pb-sm lg:pb-md w-full">
             <div class="flex flex-row gap-sm ">
-                <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full">Activities</button>
-                <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive">Forms</button>
+                <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full cursor-pointer">Activities</button>
+                <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive cursor-pointer">Forms</button>
             </div>
-            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="openAddModal()" class="btn-full">Add Activities</button>
+            
+            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="openAddModal(addingActivity)" class="cursor-pointer btn-full">Add Activities</button>
         </div>
 
         <!-- Activities -->
         <div [class.hidden]="!isActivitiesActive" class="inactive flex flex-col gap-md"> 
-            <div *ngFor="let activity of activities" class="dashboard-content flex flex-col gap-sm">
+            <div *ngFor="let activity of activities.slice().reverse()" class="dashboard-content flex flex-col gap-sm">
                 <div class="flex flex-col md:flex-row text-left md:gap-2xs">
                     <h3>{{ activity.title }}</h3>
                 </div>
@@ -36,7 +39,7 @@
                     </div>
                 </article>
                 <div class="flex flex-row gap-xs justify-end">
-                    <button class="cursor-pointer btn-full px-xl">Edit</button>
+                    <button (click)="openEditActivityModal(activity)" class="cursor-pointer btn-full px-xl">Edit</button>
                     <button (click)="openDeleteModal('activity', activity._id)" class="cursor-pointer btn-outlined">Delete</button>
                 </div>
             </div>
@@ -44,7 +47,7 @@
 
         <!-- Forms -->
         <div [class.hidden]="isActivitiesActive" class="grid lg:grid-cols-2 gap-4">
-            <div *ngFor="let form of forms">
+            <div *ngFor="let form of forms.slice().reverse()">
                 <div class="dashboard-content shadow-md rounded-lg flex flex-col text-left">
                     <h3 class="text-champagne">{{ form.name }}</h3>
                         <div class="flex items-center gap-2 pb-4 text-white">
@@ -54,15 +57,95 @@
                     </div>
                     <p class="text-base line-clamp-6">{{ form.message }}</p>
                     <div class="flex justify-end gap-2 mt-4">
-                        <button class="cursor-pointer btn-full px-md py-2 rounded-md" (click)="openEditModal(form)">Edit</button>
+                        <button class="cursor-pointer btn-full px-md py-2 rounded-md" (click)="openEditFormModal(form)">Edit</button>
                         <button class="cursor-pointer border border-champagne text-champagne px-4 py-2 rounded-md" (click)="openDeleteModal('form', form._id)">Delete</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Hidden modals -->
+
+        <!-- Add Activities modal -->
+        <div *ngIf="isAddModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[80vh] overflow-y-auto">
+                <h3 class="text-midnight font-bold mb-4">Add Activities</h3>
+                <form (submit)="saveActivity()">
+                    <input [(ngModel)]="addingActivity.title" name="title" type="text" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Title" required />
         
-        <!-- Edit Modal -->
-        <div *ngIf="isEditModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
+                    <div>
+                        <!-- Image Upload Fields -->
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
+                            <label class="text-black">Image 1:</label>
+                            <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                            <img *ngIf="addingActivity.img1" [ngSrc]="'http://localhost:3000/' + addingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                        </div>
+        
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
+                            <label class="text-black">Image 2:</label>
+                            <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                            <img *ngIf="addingActivity.img2" [ngSrc]="'http://localhost:3000/' + addingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                        </div>
+        
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
+                            <label class="text-black">Image 3:</label>
+                            <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight" required />
+                            <img *ngIf="addingActivity.img3" [ngSrc]="'http://localhost:3000/' + addingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                        </div>
+                    </div>
+        
+                    <textarea [(ngModel)]="addingActivity.desc1" name="desc1" class="w-full p-2 border rounded text-midnight" placeholder="Description 1" required></textarea>
+                    <textarea [(ngModel)]="addingActivity.desc2" name="desc2" class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Description 2" required></textarea>
+        
+                    <div class="flex justify-end gap-2">
+                        <button type="submit" (click)="addActivity(addingActivity)" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
+                        <button type="button" class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeAddModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Activities modal -->
+        <div *ngIf="isEditActivityModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[80vh] overflow-y-auto">
+                <h3 class="text-midnight font-bold mb-4">Edit Activities</h3>
+                <form (submit)="saveActivity()">
+                    <input [(ngModel)]="editingActivity.title" name="title" type="text" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Title" required />
+        
+                    <div>
+                        <!-- Image Upload Fields -->
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
+                            <label class="text-black">Image 1:</label>
+                            <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight" />
+                            <img *ngIf="editingActivity.img1" [ngSrc]="'http://localhost:3000/' + editingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                        </div>
+        
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
+                            <label class="text-black">Image 2:</label>
+                            <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight" />
+                            <img *ngIf="editingActivity.img2" [ngSrc]="'http://localhost:3000/' + editingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                        </div>
+        
+                        <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
+                            <label class="text-black">Image 3:</label>
+                            <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight" />
+                            <img *ngIf="editingActivity.img3" [ngSrc]="'http://localhost:3000/' + editingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                        </div>
+                    </div>
+        
+                    <textarea [(ngModel)]="editingActivity.desc1" name="desc1" class="w-full p-2 border rounded text-midnight" placeholder="Description 1" required></textarea>
+                    <textarea [(ngModel)]="editingActivity.desc2" name="desc2" class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Description 2" required></textarea>
+        
+                    <div class="flex justify-end gap-2">
+                        <button type="submit" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
+                        <button type="button" class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeEditActivityModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>          
+        
+        <!-- Edit Modal for Form -->
+        <div *ngIf="isEditFormModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-96">
                 <h3 class="text-midnight font-bold mb-4">Edit Form</h3>
                 <input type="text" [(ngModel)]="editingForm.name" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Name" required />
@@ -71,7 +154,7 @@
                 <textarea [(ngModel)]="editingForm.message" class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Message" required></textarea>
                 <div class="flex justify-end gap-2">
                     <button class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md" (click)="saveForm()">Save</button>
-                    <button class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeEditModal()">Cancel</button>
+                    <button class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeEditFormModal()">Cancel</button>
                 </div>
             </div>
         </div>
@@ -86,35 +169,6 @@
                     <button class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeDeleteModal()">Cancel</button>
                 </div>
             </div>
-        </div>
-        <!-- Add Activities modal *ngIf="isEditModalOpen"-->
-        <div *ngIf="isAddModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-              <h3 class="text-midnight font-bold mb-4">Add Activities</h3>
-              <form (submit)="saveForm(); $event.preventDefault()">
-                <input type="text" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Title" required />
-                <div>
-                  <div class="grid grid-cols-[auto_auto] gap-xs">
-                    <label class="text-black">Image 1:</label>
-                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                  </div>
-                  <div class="grid grid-cols-[auto_auto] gap-xs">
-                    <label class="text-black">Image 2:</label>
-                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                  </div>
-                  <div class="grid grid-cols-[auto_auto] gap-xs">
-                    <label class="text-black">Image 3:</label>
-                    <input type="file" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                  </div>
-                </div>
-                <textarea class="w-full p-2 border rounded text-midnight" placeholder="Description 1" required></textarea>
-                <textarea class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Description 2" required></textarea>
-                <div class="flex justify-end gap-2">
-                  <button type="submit" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
-                  <button type="button" class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeAddModal()">Cancel</button>
-                </div>
-              </form>
-            </div>
-          </div>          
+        </div>        
     </section>
 </main>
