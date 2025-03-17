@@ -31,3 +31,13 @@ Provides essential details about DOST scholarship programs, including available 
 A dedicated space for users to reach out to ADS-HAUSC through contact information and inquiry forms, ensuring effective communication and accessibility.
 
 Each page is designed to align with ADS-HAUSC’s advocacy, making information readily available and fostering a stronger connection within the scholar community.
+
+## Development Team 
+| Name | Role |
+|-|-|
+| Jimwel Valdez [(@jimvdz)](https://github.com/jimvdz) | Project Lead / Back-End Lead Dev / Front-End Dev / UI/UX Designer |
+| Bryan Aaron Santiago [(@Bancantcode)](https://github.com/Bancantcode) | Front-End Lead Dev / Back-End Dev / UI/UX Designer |
+| Frances Luis Tumampos [(@cess2c)](https://github.com/cess2c) | Front-End Developer / UI/UX Designer |
+| Luis Miguel Cayanan [(@lmcay)](https://github.com/lmcay)| Front-End Developer / UI/UX Designer |
+
+Copyright &copy; 2025 by Valdez, Santiago, Tumampos, Cayanan, and ADS-HAUSC. All rights reserved.
