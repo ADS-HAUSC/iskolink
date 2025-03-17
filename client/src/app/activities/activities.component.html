@@ -90,7 +90,7 @@
 
   <!-- LIST OF ACTIVITIES/EVENTS -->
   <section class="pt-36 px-sm flex flex-col gap-2xl pb-16 lg:px-3xl">
-    <div *ngFor="let activity of activities" class="services__section">
+    <div *ngFor="let activity of activities.slice().reverse()" class="services__section">
       <h2 class="md:text-right">
         <span>{{ activity.title }}</span>
       </h2>
