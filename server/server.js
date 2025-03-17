@@ -4,7 +4,6 @@ import cors from 'cors';
 import { connectToDatabase, closeConnection } from './db.js';
 import multer from 'multer';
 import path from 'path';
-import fs from 'fs';
 import { fileURLToPath } from 'url';
 import cloudinary from 'cloudinary';
 
@@ -70,7 +69,6 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
   cloudinary.v2.uploader.upload(
     req.file.path,
     {
-      folder: 'images/activities-img',  // The folder in Cloudinary where the image will be stored
       public_id: Date.now() + '-' + req.file.originalname.replace(path.extname(req.file.originalname), '')
     },
     (error, result) => {  // Correct the callback to receive `error` and `result`

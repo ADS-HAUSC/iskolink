@@ -1,7 +1,8 @@
 // Activities API Routes
 
 import express from 'express';
-import Activity from '../models/Activity.js'
+import Activity from '../models/Activity.js';
+import cloudinary from 'cloudinary';
 
 const activitiesRoute = express.Router();
 
@@ -79,16 +80,70 @@ activitiesRoute.put('/:id', async (req, res) => {
 // Delete a specific activity
 activitiesRoute.delete('/:id', async (req, res) => {
   try {
-    const activity = await Activity.findByIdAndDelete(req.params.id);
+    const activity = await Activity.findById(req.params.id);
     if (!activity) {
       return res.status(404).json({ msg: "Activity not found" });
     }
-    res.status(200).json({ msg: "Activity successfully deleted", activity });
-    console.log(`Updated ${activity.title} from database`);
+
+    console.log(`Attempting to delete images for activity: ${activity.title}`);
+    const deleteImagePromises = [];
+
+    const getPublicIdFromUrl = (url) => {
+      const pathParts = url.split('/');
+      const filename = pathParts[pathParts.length - 1];
+      return filename.split('.')[0];
+    };
+
+    if (activity.img1) {
+      const publicId1 = getPublicIdFromUrl(activity.img1);
+      deleteImagePromises.push(new Promise((resolve, reject) => {
+        cloudinary.v2.uploader.destroy(publicId1, (err, result) => {
+          if (err) {
+            console.error('Error deleting image from cloud:', err);
+            reject(err);
+          } else {
+            resolve(result);
+          }
+        });
+      }));
+    }
+
+    if (activity.img2) {
+      const publicId2 = getPublicIdFromUrl(activity.img2);
+      deleteImagePromises.push(new Promise((resolve, reject) => {
+        cloudinary.v2.uploader.destroy(publicId2, (err, result) => {
+          if (err) {
+            console.error('Error deleting image from cloud:', err);
+            reject(err);
+          } else {
+            resolve(result);
+          }
+        });
+      }));
+    }
+
+    if (activity.img3) {
+      const publicId3 = getPublicIdFromUrl(activity.img3);
+      deleteImagePromises.push(new Promise((resolve, reject) => {
+        cloudinary.v2.uploader.destroy(publicId3, (err, result) => {
+          if (err) {
+            console.error('Error deleting image from cloud:', err);
+            reject(err);
+          } else {
+            resolve(result);
+          }
+        });
+      }));
+    }
+
+    await Promise.all(deleteImagePromises);
+    await Activity.findByIdAndDelete(req.params.id);
+    res.status(200).json({ msg: "Activity and associated images successfully deleted" });
   }
+  
   catch (error) {
-    console.error("Error updating activity data:", error);
-    res.status(500).json({ message: 'Failed to update activity' });
+    console.error("Error deleting activity.", error);
+    res.status(500).json({ message: 'Failed to delete activity.' });
   }
 });
 
