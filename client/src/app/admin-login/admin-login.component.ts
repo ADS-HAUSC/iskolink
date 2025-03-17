@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-login',
@@ -13,7 +14,10 @@ export class AdminLoginComponent {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private meta: Meta, private title: Title) {
+    this.title.setTitle('Admin Login — ADS-HAUSC');
+    this.meta.updateTag({ name: 'description', content: 'Secure login for ADS-HAUSC administrators. Access the admin dashboard with your credentials.' });
+  }
 
   ngOnInit(): void {
     // Check if the admin is already logged in

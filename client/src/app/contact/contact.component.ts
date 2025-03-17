@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { Meta, Title } from '@angular/platform-browser';
 
-
 @Component({
   selector: 'app-contact',
   standalone: false,
