@@ -34,6 +34,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { 
   constructor(scroller: ViewportScroller) {
     scroller.scrollToPosition([0, 0]);
