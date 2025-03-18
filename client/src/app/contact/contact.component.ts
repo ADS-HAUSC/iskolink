@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { Meta, Title } from '@angular/platform-browser';
+import gsap from 'gsap';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +10,7 @@ import { Meta, Title } from '@angular/platform-browser';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
-export class ContactComponent {
+export class ContactComponent implements AfterViewInit {
   contactForm: FormGroup;
   isSubmitting = false;
 
@@ -20,14 +21,19 @@ export class ContactComponent {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      contactNum: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^[0-9]{10,12}$/),
-        ],
-      ],
+      contactNum: ['', [Validators.required]],
       message: ['', Validators.required],
+    });
+  }
+
+  @ViewChild('heroSection', { static: true }) contactSection!: ElementRef;
+
+  ngAfterViewInit() {
+    gsap.from(this.contactSection.nativeElement, {
+      opacity: 0,
+      y: 50,
+      duration: 1.2,
+      ease: 'power3.inOut'
     });
   }
 
