@@ -5,21 +5,20 @@
             <h2 [class.hidden]="!isActivitiesActive" class="activities">Admin Activities</h2>
             <h2 [class.hidden]="isActivitiesActive" class="forms hidden">Admin Forms</h2>
             <div class="flex flex-row gap-sm items-end justify-between">
-                <img src="/images/user.svg" alt="user" class="h-lg align-center">
-                <button class="cursor-pointer btn-outlined text-midnight border-midnight" (click)="logOut()" [class.btn-full]>Logout</button>
+                <button class="cursor-pointer btn-outlined" (click)="logOut()" [class.btn-full]>Logout</button>
             </div>
 
         </nav>
     </section>
     <!-- Content Section -->
     <section class="section-padding">
-        <div class="flex justify-between pb-sm lg:pb-md w-full">
-            <div class="flex flex-row gap-sm ">
-                <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full cursor-pointer">Activities</button>
-                <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive cursor-pointer">Forms</button>
+        <div class="flex justify-between flex-wrap gap-2xs pb-sm lg:pb-md w-full">
+            <div class="flex flex-row gap-sm w-full sm:w-auto">
+                <button [class.btn-full]="isActivitiesActive" [class.btn-inactive]="!isActivitiesActive" (click)="toggleSection(true)" class="btn-full cursor-pointer w-1/2 sm:w-auto">Activities</button>
+                <button  [class.btn-full]="!isActivitiesActive" [class.btn-inactive]="isActivitiesActive" (click)="toggleSection(false)" class="btn-inactive cursor-pointer w-1/2 sm:w-auto">Forms</button>
             </div>
             
-            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="openAddModal(addingActivity)" class="cursor-pointer btn-full">Add Activities</button>
+            <button [class.btn-full]="isActivitiesActive" [class.hidden]="!isActivitiesActive" (click)="openAddModal(addingActivity)" class="cursor-pointer btn-full w-full sm:w-auto">Add Activities</button>
         </div>
 
         <!-- Activities -->
