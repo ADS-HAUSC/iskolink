@@ -52,16 +52,19 @@
           src="images/activities/about-activity-1.jpg"
           class="placeholder-image w-full h-[40vh] bg-gray-50 lg:row-span-2 lg:h-full object-cover object-center bg-no-repeat"
           loading="lazy"
+          alt = "Image of dost scholars after a meeting"
         />
         <img
           src="images/activities/about-activity-2.jpg"
           class="placeholder-image hidden md:block h-[40vh] bg-gray-50 lg:h-full object-cover object-center bg-no-repeat"
           loading="lazy"
+          alt = "Image of a dost scholars in a boot"
         />
         <img
           src="images/activities/about-activity-3.jpg"
           class="placeholder-image hidden lg:block h-[40vh] bg-gray-50 lg:h-full object-cover object-center bg-no-repeat"
           loading="lazy"
+          alt="images of scholars after organization meeting"
         />
       </div>
 
@@ -106,16 +109,19 @@
             [src]="activity.img1"
             class="placeholder-image w-full h-full bg-gray-50 row-span-2 lg:h-full object-cover object-center bg-no-repeat"
             loading="lazy"
+            alt="activity image 1"
           />
           <img
             [src]="activity.img2"
             class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat"
             loading="lazy"
+            alt="activity image 2"
           />
           <img
             [src]="activity.img3"
             class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat"
             loading="lazy"
+            alt="activity image 3"
           />
           <div class="flex flex-col gap-2 mt-5 md:mt-0">
             <p>
@@ -124,17 +130,19 @@
           </div>
           <div>
             <img
-              src="images/activities/section-1-activity-2.jpg"
+              [src]="activity.img2"
               class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat"
               loading="lazy"
+              alt="activity image 2"
             />
             <p class="pt-5 md:pt-0">
               {{ activity.desc2 }}
             </p>
             <img
-              src="images/activities/section-1-activity-3.jpg"
+              [src]="activity.img3"
               class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat"
               loading="lazy"
+              alt="activity image 3"
             />
           </div>
         </div>
@@ -147,8 +155,8 @@
     class="h-screen md:min-h-[600px] px-sm py-16 lg:flex lg:p-3xl relative bg-cover bg-center bg-no-repeat"
     style="background-image: url('images/activities/community-section.jpg')"
   >
-    <div class="hero-gradient absolute h-full w-full top-0 left-0"></div>
-    <h2 class="mb-10 z-1">
+    <div class="hero-gradient absolute h-full w-full top-0 left-0 z-0"></div>
+    <h2 class="relative mb-10 z-10">
       Building a Community of <span>Future Innovators</span> and
       <span>Changemakers</span>
     </h2>
