@@ -15,7 +15,6 @@ export class AboutComponent implements AfterViewInit {
   } 
 
   @ViewChild('heroSection', { static: true }) aboutSection!: ElementRef;
-  
 
   ngAfterViewInit() {
     gsap.from(this.aboutSection.nativeElement, {
