@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Scroll } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
+import { filter } from 'rxjs/operators';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ActivitiesComponent } from './activities/activities.component';
@@ -24,7 +26,16 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes,  {
+      scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
+    })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  constructor(scroller: ViewportScroller) {
+    scroller.scrollToPosition([0, 0]);
+  }
+}

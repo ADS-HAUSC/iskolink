@@ -21,26 +21,31 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private router: Router) {}
   
   ngOnInit() {
-    this.lenis = new Lenis();
-  
+    this.lenis = new Lenis({
+      smooth: true,
+      lerp: 0.1,
+      duration: 1.2, 
+    });
+
     const raf = (time: number) => {
       this.lenis.raf(time);
       requestAnimationFrame(raf);
     };
-  
     requestAnimationFrame(raf);
-  
+
     setInterval(() => {
       this.currentTime = new Date();
     }, 60000);
 
-    setTimeout(() => this.animateBorderOnRouteChange(), 100);
-    
-    this.routerSubscription = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.animateBorderOnRouteChange();
-      });
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.lenis.scrollTo(0, { 
+          immediate: false, 
+          duration: 1.2, 
+          easing: (t: number) => 1 - Math.pow(1 - t, 4) 
+        });
+      }
+    });
   }
   
   ngOnDestroy() {
@@ -57,7 +62,8 @@ export class AppComponent implements OnInit, OnDestroy {
     if (button) {
       if (this.isMobileNavOpen) {
         button.classList.add('active');
-      } else {
+      } 
+      else {
         button.classList.remove('active');
       }
     }
@@ -85,7 +91,7 @@ export class AppComponent implements OnInit, OnDestroy {
       existingBorder.remove();
     }
     
-      const header = document.querySelector('header');
+    const header = document.querySelector('header');
     if (header) {
       const border = document.createElement('div');
       border.className = 'header-animated-border';
