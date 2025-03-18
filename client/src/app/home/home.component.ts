@@ -12,4 +12,8 @@ export class HomeComponent {
     this.title.setTitle('Home — ADS-HAUSC');
     this.meta.updateTag({ name: 'description', content: 'Welcome to the Association of DOST Scholars, HAU Student Chapter. Explore our activities, scholarships, and mission.' });
   }
+
+  smoothScrollTo(target: string) {
+    document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }
