@@ -82,6 +82,15 @@
         background-color: var(--color-midnight);
         color: var(--color-white);
     }
+    body::-webkit-scrollbar {
+        @apply w-[9px];
+    }
+    body::-webkit-scrollbar-track {
+        @apply bg-transparent rounded-[5px];
+    }
+    body::-webkit-scrollbar-thumb {
+        @apply bg-transparent rounded-[5px] border-[#3E3E77] border-solid border;
+    }
     
     h1 {
         font-size: var(--text-heading-2);

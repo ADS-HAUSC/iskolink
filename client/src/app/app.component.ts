@@ -3,24 +3,39 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
+declare const Lenis: any;
+
 @Component({
-  selector: 'app-root', // Or your header component selector
+  selector: 'app-root', 
   templateUrl: './app.component.html',
   standalone: false,
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'client';
+  private lenis: any;
+  currentTime: Date = new Date();
   private routerSubscription: Subscription | undefined;
   isMobileNavOpen = false;
   
   constructor(private router: Router) {}
   
   ngOnInit() {
-    // Initialize the animation on first page load
+    this.lenis = new Lenis();
+  
+    const raf = (time: number) => {
+      this.lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+  
+    requestAnimationFrame(raf);
+  
+    setInterval(() => {
+      this.currentTime = new Date();
+    }, 60000);
+
     setTimeout(() => this.animateBorderOnRouteChange(), 100);
     
-    // Subscribe to route changes
     this.routerSubscription = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -38,7 +53,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.isMobileNavOpen = !this.isMobileNavOpen;
     document.body.style.overflow = this.isMobileNavOpen ? 'hidden' : '';
     
-    // Toggle active class on hamburger button
     const button = document.querySelector('.mobile-nav-toggle');
     if (button) {
       if (this.isMobileNavOpen) {
@@ -58,7 +72,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
   
-  // Close mobile menu when clicking outside or when window is resized to desktop size
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     if (window.innerWidth >= 1024) {
@@ -67,14 +80,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   
   animateBorderOnRouteChange() {
-    // Remove existing animated border if any
     const existingBorder = document.querySelector('.header-animated-border');
     if (existingBorder) {
       existingBorder.remove();
     }
     
-    // Create new animated border
-    const header = document.querySelector('header');
+      const header = document.querySelector('header');
     if (header) {
       const border = document.createElement('div');
       border.className = 'header-animated-border';
