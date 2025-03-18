@@ -11,5 +11,5 @@ export class AboutComponent {
   constructor(private meta: Meta, private title: Title) {
     this.title.setTitle('About Us — ADS-HAUSC');
     this.meta.updateTag({ name: 'description', content: 'Learn more about ADS-HAUSC, our mission, vision, values, and the leaders behind.' });
-  }
+  } 
 }

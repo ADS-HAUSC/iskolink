@@ -3,20 +3,37 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
+declare const Lenis: any;
+
 @Component({
-  selector: 'app-root', // Or your header component selector
+  selector: 'app-root', 
   templateUrl: './app.component.html',
   standalone: false,
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'client';
+  private lenis: any;
+  currentTime: Date = new Date();
   private routerSubscription: Subscription | undefined;
   isMobileNavOpen = false;
   
   constructor(private router: Router) {}
   
   ngOnInit() {
+    this.lenis = new Lenis();
+  
+    const raf = (time: number) => {
+      this.lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+  
+    requestAnimationFrame(raf);
+  
+    setInterval(() => {
+      this.currentTime = new Date();
+    }, 60000);
+
     setTimeout(() => this.animateBorderOnRouteChange(), 100);
     
     this.routerSubscription = this.router.events
