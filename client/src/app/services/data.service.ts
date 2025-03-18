@@ -9,8 +9,8 @@ export class DataService {
 
   constructor(private http:HttpClient) { }
   
-  private readonly actAPIUrl = "https://iskolinkadshausc.onrender.com:3000/api/activities/";
-  private readonly formsAPIUrl = "https://iskolinkadshausc.onrender.com:3000/api/forms/";
+  private readonly actAPIUrl = "https://iskolinkadshausc.onrender.com/api/activities/";
+  private readonly formsAPIUrl = "https://iskolinkadshausc.onrender.com/api/forms/";
 
   activities: any = [];
 
@@ -24,7 +24,7 @@ export class DataService {
   }
 
   uploadImage(formData: FormData) {
-    return this.http.post<{ filePath: string }>('https://iskolinkadshausc.onrender.com:3000/api/upload', formData);
+    return this.http.post<{ filePath: string }>('https://iskolinkadshausc.onrender.com/api/upload', formData);
   }
 
   editActivity(id: string, activity: any): Observable<any> {
