@@ -33,9 +33,9 @@
                         {{ activity.desc1 }}
                     </p>
                     <div class="grid grid-cols-[auto_auto_auto] justify-between md:gap-xs ">
-                        <img ngSrc="{{ activity.img1 }}" alt="" width="120" height="120" class="aspect-square h-auto md:max-h-30 object-cover">
-                        <img ngSrc="{{ activity.img2 }}" alt="" width="120" height="120" class="aspect-square h-auto md:max-h-30 object-cover">
-                        <img ngSrc="{{ activity.img3 }}" alt="" width="120" height="120" class="aspect-square h-auto md:max-h-30 object-cover">
+                        <img src="{{ activity.img1 }}" alt="" width="120" height="120" class="aspect-square h-auto md:max-h-30 object-cover">
+                        <img src="{{ activity.img2 }}" alt="" width="120" height="120" class="aspect-square h-auto md:max-h-30 object-cover">
+                        <img src="{{ activity.img3 }}" alt="" width="120" height="120" class="aspect-square h-auto md:max-h-30 object-cover">
                     </div>
                 </article>
                 <div class="flex flex-row gap-xs justify-end">
@@ -71,31 +71,31 @@
             <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[80vh] overflow-y-auto">
                 <h3 class="text-midnight font-bold mb-4">Add Activities</h3>
                 <form (submit)="saveActivity()">
-                    <input [(ngModel)]="addingActivity.title" name="title" type="text" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Title" required />
+                    <input [(ngModel)]="addingActivity.title" name="title" type="text" class="w-full p-2 border rounded mb-2 text-midnight font-family-p" placeholder="Title" required />
         
                     <div>
                         <!-- Image Upload Fields -->
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 1:</label>
-                            <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                            <img *ngIf="addingActivity.img1" [ngSrc]="addingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight font-family-p" required />
+                            <img *ngIf="addingActivity.img1" src="{{ addingActivity.img1 }}" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 2:</label>
-                            <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                            <img *ngIf="addingActivity.img2" [ngSrc]="addingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight font-family-p" required />
+                            <img *ngIf="addingActivity.img2" src="{{ addingActivity.img2 }}" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 3:</label>
-                            <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight" required />
-                            <img *ngIf="addingActivity.img3" [ngSrc]="addingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight font-family-p" required />
+                            <img *ngIf="addingActivity.img3" src="{{ addingActivity.img3 }}" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
                     </div>
         
-                    <textarea [(ngModel)]="addingActivity.desc1" name="desc1" class="w-full p-2 border rounded text-midnight" placeholder="Description 1" required></textarea>
-                    <textarea [(ngModel)]="addingActivity.desc2" name="desc2" class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Description 2" required></textarea>
+                    <textarea [(ngModel)]="addingActivity.desc1" name="desc1" class="w-full p-2 border rounded text-midnight font-family-p" placeholder="Description 1" required></textarea>
+                    <textarea [(ngModel)]="addingActivity.desc2" name="desc2" class="w-full p-2 border rounded mb-4 text-midnight font-family-p" placeholder="Description 2" required></textarea>
         
                     <div class="flex justify-end gap-2">
                         <button type="submit" (click)="addActivity(addingActivity)" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
@@ -110,31 +110,31 @@
             <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[80vh] overflow-y-auto">
                 <h3 class="text-midnight font-bold mb-4">Edit Activities</h3>
                 <form (submit)="saveActivity()">
-                    <input [(ngModel)]="editingActivity.title" name="title" type="text" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Title" required />
+                    <input [(ngModel)]="editingActivity.title" name="title" type="text" class="w-full p-2 border rounded mb-2 text-midnight font-family-p" placeholder="Title" required />
         
                     <div>
                         <!-- Image Upload Fields -->
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 1:</label>
-                            <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight" />
-                            <img *ngIf="editingActivity.img1" [ngSrc]="editingActivity.img1" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <input type="file" (change)="onFileSelected($event, 'img1')" class="w-full p-1 border rounded mb-2 text-midnight font-family-p" />
+                            <img *ngIf="editingActivity.img1" src="{{ editingActivity.img1 }}" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 2:</label>
-                            <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight" />
-                            <img *ngIf="editingActivity.img2" [ngSrc]="editingActivity.img2" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <input type="file" (change)="onFileSelected($event, 'img2')" class="w-full p-1 border rounded mb-2 text-midnight font-family-p" />
+                            <img *ngIf="editingActivity.img2" src="{{ editingActivity.img2 }}" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
         
                         <div class="grid grid-cols-[auto_auto] gap-x-xs mb-2xs">
                             <label class="text-black">Image 3:</label>
-                            <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight" />
-                            <img *ngIf="editingActivity.img3" [ngSrc]="editingActivity.img3" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
+                            <input type="file" (change)="onFileSelected($event, 'img3')" class="w-full p-1 border rounded mb-2 text-midnight font-family-p" />
+                            <img *ngIf="editingActivity.img3" src="{{ editingActivity.img3 }}" width="64" height="64" alt="Preview" class="w-16 h-16 object-cover rounded mt-2">
                         </div>
                     </div>
         
-                    <textarea [(ngModel)]="editingActivity.desc1" name="desc1" class="w-full p-2 border rounded text-midnight" placeholder="Description 1" required></textarea>
-                    <textarea [(ngModel)]="editingActivity.desc2" name="desc2" class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Description 2" required></textarea>
+                    <textarea [(ngModel)]="editingActivity.desc1" name="desc1" class="w-full p-2 border rounded text-midnight font-family-p" placeholder="Description 1" required></textarea>
+                    <textarea [(ngModel)]="editingActivity.desc2" name="desc2" class="w-full p-2 border rounded mb-4 text-midnight font-family-p" placeholder="Description 2" required></textarea>
         
                     <div class="flex justify-end gap-2">
                         <button type="submit" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
@@ -148,10 +148,10 @@
         <div *ngIf="isEditFormModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-96">
                 <h3 class="text-midnight font-bold mb-4">Edit Form</h3>
-                <input type="text" [(ngModel)]="editingForm.name" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Name" required />
-                <input type="email" [(ngModel)]="editingForm.email" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Email" required />
-                <input type="text" [(ngModel)]="editingForm.contactNum" class="w-full p-2 border rounded mb-2 text-midnight" placeholder="Contact Number" required />
-                <textarea [(ngModel)]="editingForm.message" class="w-full p-2 border rounded mb-4 text-midnight" placeholder="Message" required></textarea>
+                <input type="text" [(ngModel)]="editingForm.name" class="w-full p-2 border rounded mb-2 text-midnight font-family-p" placeholder="Name" required />
+                <input type="email" [(ngModel)]="editingForm.email" class="w-full p-2 border rounded mb-2 text-midnight font-family-p" placeholder="Email" required />
+                <input type="text" [(ngModel)]="editingForm.contactNum" class="w-full p-2 border rounded mb-2 text-midnight font-family-p" placeholder="Contact Number" required />
+                <textarea [(ngModel)]="editingForm.message" class="w-full p-2 border rounded mb-4 text-midnight font-family-p" placeholder="Message" required></textarea>
                 <div class="flex justify-end gap-2">
                     <button class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md" (click)="saveForm()">Save</button>
                     <button class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeEditFormModal()">Cancel</button>
