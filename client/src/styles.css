@@ -193,7 +193,7 @@
     }
 
     .section-padding {
-        @apply px-md md:px-lg lg:px-3xl grid w-full gap-xs;
+        @apply px-md md:px-lg lg:px-xl grid w-full gap-xs;
     }
 
     .grid-style {
