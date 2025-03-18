@@ -1,0 +1,10 @@
+[build]
+  # The build command to run for your Angular app
+  command = "ng build client"
+
+  # The publish directory to deploy (Angular build output)
+  publish = "dist/client/browser"
+
+[plugins]
+  [[plugins]]
+  package = "@netlify/angular-runtime"
