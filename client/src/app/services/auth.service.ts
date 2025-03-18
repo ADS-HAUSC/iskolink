@@ -6,7 +6,7 @@ import { Observable, throwError, catchError } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly API_URL = 'https://iskolinkadshausc.onrender.com/api/auth/admin-login';
+  private readonly API_URL = 'https://iskolinkadshausc.onrender.com:3000/api/auth/admin-login';
   private readonly TOKEN_KEY = 'authToken';
 
   constructor(private http: HttpClient) {}
