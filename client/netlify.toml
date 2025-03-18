@@ -4,7 +4,3 @@
 
   # The publish directory to deploy (Angular build output)
   publish = "dist/client/browser"
-
-[plugins]
-  [[plugins]]
-  package = "@netlify/angular-runtime"
