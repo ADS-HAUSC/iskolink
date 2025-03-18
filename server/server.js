@@ -71,16 +71,16 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
     {
       public_id: Date.now() + '-' + req.file.originalname.replace(path.extname(req.file.originalname), '')
     },
-    (error, result) => {  // Correct the callback to receive `error` and `result`
+    (error, result) => {
       if (error) {
         console.log('Error uploading to Cloudinary:', error);
         return res.status(500).json({ error: error.message });
       }
   
-      console.log('File uploaded successfully:', result);  // Log the result object
+      console.log('File uploaded successfully:', result);
   
       return res.status(200).json({
-        filePath: result.secure_url  // Use `secure_url` for the link to the uploaded
+        filePath: result.secure_url
       });
     }
   );  
