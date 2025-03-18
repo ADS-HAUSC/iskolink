@@ -51,14 +51,17 @@
         <img
           src="images/activities/about-activity-1.jpg"
           class="placeholder-image w-full h-[40vh] bg-gray-50 lg:row-span-2 lg:h-full object-cover object-center bg-no-repeat"
+          loading="lazy"
         />
         <img
           src="images/activities/about-activity-2.jpg"
           class="placeholder-image hidden md:block h-[40vh] bg-gray-50 lg:h-full object-cover object-center bg-no-repeat"
+          loading="lazy"
         />
         <img
           src="images/activities/about-activity-3.jpg"
           class="placeholder-image hidden lg:block h-[40vh] bg-gray-50 lg:h-full object-cover object-center bg-no-repeat"
+          loading="lazy"
         />
       </div>
 
@@ -83,6 +86,7 @@
         <img
           src="images/activities/about-activity-2.jpg"
           class="placeholder-image w-full h-[40vh] bg-gray-50 mt-10 md:hidden object-cover object-center bg-no-repeat"
+          loading="lazy"
         />
       </div>
     </div>
@@ -99,22 +103,19 @@
           class="mt-6 md:grid md:grid-cols-2 md:gap-sm w-full lg:grid-cols-3"
         >
           <img
-            ngSrc="{{ activity.img1 }}"
-            width=100
-            height=200
+            [src]="activity.img1"
             class="placeholder-image w-full h-full bg-gray-50 row-span-2 lg:h-full object-cover object-center bg-no-repeat"
+            loading="lazy"
           />
           <img
-            ngSrc="{{ activity.img2 }}"
-            width=100
-            height=100
+            [src]="activity.img2"
             class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat"
+            loading="lazy"
           />
           <img
-            ngSrc="{{ activity.img3 }}"
-            width=100
-            height=100
+            [src]="activity.img3"
             class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat"
+            loading="lazy"
           />
           <div class="flex flex-col gap-2 mt-5 md:mt-0">
             <p>
@@ -125,6 +126,7 @@
             <img
               src="images/activities/section-1-activity-2.jpg"
               class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat"
+              loading="lazy"
             />
             <p class="pt-5 md:pt-0">
               {{ activity.desc2 }}
@@ -132,6 +134,7 @@
             <img
               src="images/activities/section-1-activity-3.jpg"
               class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat"
+              loading="lazy"
             />
           </div>
         </div>
@@ -188,6 +191,7 @@
         <img
           src="images/activities/last-image-1.jpg"
           class="placeholder-image h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat"
+          loading="lazy"
         />
         <h3><span>Leading with Purpose</span></h3>
         <p class="mt-2">
@@ -199,6 +203,7 @@
         <img
           src="images/activities/last-image-2.jpg"
           class="placeholder-image max-w h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat"
+          loading="lazy"
         />
         <h3><span>Scholars in Action</span></h3>
         <p class="mt-2">
@@ -210,6 +215,7 @@
         <img
           src="images/activities/last-image-3.jpg"
           class="placeholder-image max-w h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat"
+          loading="lazy"
         />
         <h3><span>Excellence in Learning</span></h3>
         <p class="mt-2">
@@ -222,7 +228,7 @@
 
   <!-- About Call to Action (CTA) -->
   <section class="home-section mt-24 lg:flex-row-reverse lg:gap gradient justify-between">
-    <img class="w-1/2 sm:3/8 mt-xl lg:m-auto" src="images/stars-cta.svg" alt="Stars">
+    <img class="w-1/2 sm:3/8 mt-xl lg:m-auto" src="images/stars-cta.svg" alt="Stars" loading="lazy">
     <div class="flex flex-col items-start gap-md justify-center mb-xl lg:my-xl">
         <h1>Reach for the Stars, <span>Connect with Us</span></h1>
         <p class="w-3/4">
@@ -236,17 +242,17 @@
     <!-- FOOTER -->
     <footer class="flex flex-col lg:flex-row justify-between gap-md px-sm sm:px-lg lg:px-xl py-2xl sm:py-xl items-center">
       <div class="flex flex-col sm:flex-row gap-md items-center text-center sm:text-start">
-          <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo">
+          <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo" loading="lazy">
           <div class="flex flex-col gap-2xs">
-              <h2 class="text-heading-3">Association of DOST Scholars - Holy Angel University Student Chapter</h2>
+              <h2 class="text-base--large font-family-span leading-tight">Association of DOST Scholars - Holy Angel University Student Chapter</h2>
               <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
-              <div class="flex flex-row gap-md justify-center sm:justify-start">
+              <div class="flex flex-row gap-md justify-center sm:justify-start" loading="lazy">
                   <a href="https://www.facebook.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
                       <img src="images/fb-icon.svg" alt="Facebook Icon">
                       <p>adshausc</p>
                   </a>
                   <a href="https://www.instagram.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
-                      <img src="images/ig-icon.svg" alt="Instagram Icon">
+                      <img src="images/ig-icon.svg" alt="Instagram Icon" loading="lazy">
                       <p>adshausc</p>
                   </a>
               </div>

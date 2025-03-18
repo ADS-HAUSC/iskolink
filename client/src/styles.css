@@ -4,6 +4,7 @@
 @theme {
     /* FONT FAMILY */
     --font-family-span: 'Albertus Nova', serif;
+    --font-family-p: 'Figtree', sans-serif;
 
     /* FONT SIZES */
     --text-base: clamp(1rem, 0.9rem + 0.07vw, 1.05rem);
