@@ -19,14 +19,14 @@ import { provideHttpClient } from '@angular/common/http';
 // Import Angular Material Modules
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+// import { MatButtonModule } from '@angular/material/button';
+// import { MatCheckboxModule } from '@angular/material/checkbox';
+// import { MatSelectModule } from '@angular/material/select';
+// import { MatIconModule } from '@angular/material/icon';
+// import { MatSliderModule } from '@angular/material/slider';
+// import { MatRadioModule } from '@angular/material/radio';
+// import { MatDatepickerModule } from '@angular/material/datepicker';
+// import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     AdminLoginComponent,
     AdminDashboardComponent,
     HomeComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -52,14 +51,14 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatIconModule,
-    MatSliderModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatNativeDateModule
+    // MatButtonModule,
+    // MatCheckboxModule,
+    // MatSelectModule,
+    // MatIconModule,
+    // MatSliderModule,
+    // MatRadioModule,
+    // MatDatepickerModule,
+    // MatNativeDateModule,
   ],
   exports: [ContactComponent],
   providers: [
