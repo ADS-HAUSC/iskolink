@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+// import { filter } from 'rxjs/operators';
 
 declare const Lenis: any;
 
@@ -19,6 +19,10 @@ export class AppComponent implements OnInit, OnDestroy {
   isMobileNavOpen = false;
   
   constructor(private router: Router) {}
+
+  isAdminRoute(): boolean {
+    return this.router.url.includes('/admin-login') || this.router.url.includes('/admin-dashboard');
+  }
   
   ngOnInit() {
     this.lenis = new Lenis({
