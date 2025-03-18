@@ -1,18 +1,48 @@
 <main class="absolute w-full z-99">
-  <!-- <header class="bg-white text-midnight text-base opacity-40 flex justify-between">
-    <h4>Navbar under construction | coming soon</h4>
-    <nav >
-      <ul class="flex gap-xl justify-center">
-        <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-        <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
-        <li><a routerLink="/activities" routerLinkActive="active" ariaCurrentWhenActive="page">Activities</a></li>
-        <li><a routerLink="/scholarship" routerLinkActive="active" ariaCurrentWhenActive="page">Scholarship</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a></li>
-        <li><a routerLink="/admin-login" routerLinkActive="active" ariaCurrentWhenActive="page">Admin-Login</a></li>
-        <li><a routerLink="/admin-dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Admin-Dashboard</a></li>
+  <header class="grid-style section-padding items-center py-3">
+    <div class="col-start-1 col-span-4 lg:col-span-3">
+      <div class="flex items-center">
+        <a routerLink="/"><img src="/images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo" class="h-10 lg:h-14"></a>
+        <span class="text-white text-lg font-semibold ml-4">ADS-HAUSC</span>
+      </div>
+    </div>
+  
+    <!-- Desktop navigation -->
+    <nav class="hidden lg:block lg:col-start-5 xl:col-start-8 2xl:col-start-9 col-span-4">
+      <ul class="flex gap-8 white font-medium">
+        <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">ABOUT</a></li>
+        <li><a routerLink="/activities" routerLinkActive="active" ariaCurrentWhenActive="page">ACTIVITIES</a></li>
+        <li><a routerLink="/scholarship" routerLinkActive="active" ariaCurrentWhenActive="page">SCHOLARSHIP</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">CONTACT</a></li>
       </ul>
     </nav>
-  </header> -->
+  
+    <!-- Mobile hamburger button -->
+    <div class="lg:hidden ml-auto">
+      <button class="mobile-nav-toggle" (click)="toggleMobileNav()" aria-label="Toggle navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  
+    <!-- Mobile navigation menu -->
+    <nav class="mobile-nav" [class.active]="isMobileNavOpen">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileNav()">HOME</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMobileNav()">ABOUT</a></li>
+        <li><a routerLink="/activities" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMobileNav()">ACTIVITIES</a></li>
+        <li><a routerLink="/scholarship" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMobileNav()">SCHOLARSHIP</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMobileNav()">CONTACT</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Overlay for mobile nav -->
+    <div class="nav-overlay" [class.active]="isMobileNavOpen" (click)="closeMobileNav()"></div>
+  
+    <div class="animated-border"></div>
+  </header>
 </main>
 
 <router-outlet />
