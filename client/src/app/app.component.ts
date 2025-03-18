@@ -17,8 +17,14 @@ export class AppComponent implements OnInit, OnDestroy {
   currentTime: Date = new Date();
   private routerSubscription: Subscription | undefined;
   isMobileNavOpen = false;
+  showHeader = false;
   
   constructor(private router: Router) {}
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showHeader = window.scrollY > window.innerHeight;
+  }
 
   isAdminRoute(): boolean {
     return this.router.url.includes('/admin-login') || this.router.url.includes('/admin-dashboard');
