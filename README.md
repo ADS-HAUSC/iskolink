@@ -1,4 +1,4 @@
-# Iskolink
+# IskoLink
 
 IskoLink is an online platform for the Association of DOST Scholars - Holy Angel University Student Chapter (ADS-HAUSC), built to strengthen connections among scholars and create a lasting impact on the community. More than just a hub for updates and resources, this website promotes education, outreach, and collaboration, allowing scholars to use science and technology for meaningful change. Through knowledge-sharing and service, IskoLink empowers scholars to inspire future leaders and contribute to national development.
 

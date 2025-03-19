@@ -1,6 +1,6 @@
 <main>
   <!-- HERO SECTION FOR ACTIVITIES -->
-  <section class="relative flex h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('images/activities/hero-activity.jpg')">
+  <section #heroSection class="relative flex h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('images/activities/hero-activity.jpg')">
     <div class="hero-gradient absolute h-full w-full top-0 left-0"></div>
     <div class="absolute bottom-10 md:bottom-20 lg:bottom-25">
         <div class="section-padding grid-style">
@@ -22,72 +22,23 @@
           <img [src]="'images/star-icon.svg'" alt="Star Icon" width="300" height="300" loading="lazy">
           <p class="font-family-span opacity-90">ADS-HAUSC Activities</p>
         </div>
-        <h2 class="md:w-2/3">
-          Shaping the <span>Future</span> Through <span>Knowledge</span> and
-          <span>Service</span>
-        </h2>
+        <h2 class="md:w-2/3">Shaping the <span>Future</span> Through <span>Knowledge</span> and<span> Service</span></h2>
         <div class="hidden lg:block">
-          <p class="mt-10">
-            The ADS-HAUSC is more than just an organization—it is a community of
-            scholars driven by passion, curiosity, and a deep sense of
-            responsibility. As recipients of the DOST scholarship, we uphold the
-            values of academic excellence, leadership, and service to the
-            nation. Our commitment to learning extends beyond the classroom,
-            inspiring us to engage in activities that foster scientific inquiry,
-            social awareness, and professional growth. Through collaborative
-            efforts, we create opportunities for scholars to develop their
-            skills and contribute to meaningful causes.
-          </p>
-          <p class="mt-5">
-            In an ever-evolving world, we recognize the role of scholars in
-            driving progress and innovation. By embracing change, we equip
-            ourselves with the knowledge, adaptability, and determination to
-            become catalysts of positive transformation.
-          </p>
+          <p class="mt-10">The ADS-HAUSC is more than just an organization—it is a community of scholars driven by passion, curiosity, and a deep sense of responsibility. As recipients of the DOST scholarship, we uphold the values of academic excellence, leadership, and service to the nation. Our commitment to learning extends beyond the classroom, inspiring us to engage in activities that foster scientific inquiry, social awareness, and professional growth. Through collaborative efforts, we create opportunities for scholars to develop their skills and contribute to meaningful causes.</p>
+          <p class="mt-5">In an ever-evolving world, we recognize the role of scholars in driving progress and innovation. By embracing change, we equip ourselves with the knowledge, adaptability, and determination to become catalysts of positive transformation.</p>
         </div>
       </div>
 
       <div class="md:grid md:grid-cols-2 md:gap-sm mt-6">
-        <img
-          src="images/activities/about-activity-1.jpg"
-          class="placeholder-image w-full h-[40vh] bg-gray-50 lg:row-span-2 lg:h-full object-cover object-center bg-no-repeat"
-          loading="lazy"
-        />
-        <img
-          src="images/activities/about-activity-2.jpg"
-          class="placeholder-image hidden md:block h-[40vh] bg-gray-50 lg:h-full object-cover object-center bg-no-repeat"
-          loading="lazy"
-        />
-        <img
-          src="images/activities/about-activity-3.jpg"
-          class="placeholder-image hidden lg:block h-[40vh] bg-gray-50 lg:h-full object-cover object-center bg-no-repeat"
-          loading="lazy"
-        />
+        <img [src]="'images/activities/about-activity-1.jpg'" class="placeholder-image w-full h-[40vh] bg-gray-50 lg:row-span-2 lg:h-full object-cover object-center bg-no-repeat" loading="lazy" alt = "Image of dost scholars after a meeting" />
+        <img [src]="'images/activities/about-activity-2.jpg'" class="placeholder-image hidden md:block h-[40vh] bg-gray-50 lg:h-full object-cover object-center bg-no-repeat" loading="lazy" alt = "Image of a dost scholars in a boot" />
+        <img [src]="'images/activities/about-activity-3.jpg'" class="placeholder-image hidden lg:block h-[40vh] bg-gray-50 lg:h-full object-cover object-center bg-no-repeat" loading="lazy" alt="images of scholars after organization meeting" />
       </div>
 
       <div class="lg:hidden">
-        <p class="mt-10">
-          The ADS-HAUSC is more than just an organization—it is a community of
-          scholars driven by passion, curiosity, and a deep sense of
-          responsibility. As recipients of the DOST scholarship, we uphold the
-          values of academic excellence, leadership, and service to the nation.
-          Our commitment to learning extends beyond the classroom, inspiring us
-          to engage in activities that foster scientific inquiry, social
-          awareness, and professional growth. Through collaborative efforts, we
-          create opportunities for scholars to develop their skills and
-          contribute to meaningful causes.
-        </p>
-        <p class="mt-5">
-          In an ever-evolving world, we recognize the role of scholars in
-          driving progress and innovation. By embracing change, we equip
-          ourselves with the knowledge, adaptability, and determination to
-          become catalysts of positive transformation.
-        </p>
-        <img
-          src="images/activities/about-activity-2.jpg"
-          class="placeholder-image w-full h-[40vh] bg-gray-50 mt-10 md:hidden object-cover object-center bg-no-repeat"
-          loading="lazy"
-        />
+        <p class="mt-10">The ADS-HAUSC is more than just an organization—it is a community of scholars driven by passion, curiosity, and a deep sense of responsibility. As recipients of the DOST scholarship, we uphold the values of academic excellence, leadership, and service to the nation. Our commitment to learning extends beyond the classroom, inspiring us to engage in activities that foster scientific inquiry, social awareness, and professional growth. Through collaborative efforts, we create opportunities for scholars to develop their skills and contribute to meaningful causes.</p>
+        <p class="mt-5">In an ever-evolving world, we recognize the role of scholars in driving progress and innovation. By embracing change, we equip ourselves with the knowledge, adaptability, and determination to become catalysts of positive transformation.</p>
+        <img [src]="'images/activities/about-activity-2.jpg'" class="placeholder-image w-full h-[40vh] bg-gray-50 mt-10 md:hidden object-cover object-center bg-no-repeat" loading="lazy" />
       </div>
     </div>
   </section>
@@ -99,43 +50,19 @@
         <span>{{ activity.title }}</span>
       </h2>
       <div class="first__service">
-        <div
-          class="mt-6 md:grid md:grid-cols-2 md:gap-sm w-full lg:grid-cols-3"
-        >
-          <img
-            [src]="activity.img1"
-            class="placeholder-image w-full h-full bg-gray-50 row-span-2 lg:h-full object-cover object-center bg-no-repeat"
-            loading="lazy"
-          />
-          <img
-            [src]="activity.img2"
-            class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat"
-            loading="lazy"
-          />
-          <img
-            [src]="activity.img3"
-            class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat"
-            loading="lazy"
-          />
+        <div class="mt-6 md:grid md:grid-cols-2 md:gap-sm w-full lg:grid-cols-3">
+          <img [src]="activity.img1" class="placeholder-image w-full h-full bg-gray-50 row-span-2 lg:h-full object-cover object-center bg-no-repeat" loading="lazy" alt="activity image 1" />
+          <img [src]="activity.img2" class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat" loading="lazy" alt="activity image 2" />
+          <img [src]="activity.img3" class="placeholder-image w-full h-full bg-gray-50 hidden md:block lg:h-[40vh] object-cover object-center bg-no-repeat" loading="lazy" alt="activity image 3" />
           <div class="flex flex-col gap-2 mt-5 md:mt-0">
             <p>
               {{ activity.desc1 }}
             </p>
           </div>
           <div>
-            <img
-              src="images/activities/section-1-activity-2.jpg"
-              class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat"
-              loading="lazy"
-            />
-            <p class="pt-5 md:pt-0">
-              {{ activity.desc2 }}
-            </p>
-            <img
-              src="images/activities/section-1-activity-3.jpg"
-              class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat"
-              loading="lazy"
-            />
+            <img [src]="activity.img2" class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat" loading="lazy" alt="activity image 2" />
+            <p class="pt-5 md:pt-0">{{ activity.desc2 }}</p>
+            <img [src]="activity.img3" class="placeholder-image max-w h-[40vh] bg-gray-50 mt-6 md:hidden w-full object-cover object-center bg-no-repeat" loading="lazy" alt="activity image 3" />
           </div>
         </div>
       </div>
@@ -143,39 +70,20 @@
   </section>
 
   <!-- BUILDING A COMMUNITY SECTION -->
-  <section
-    class="h-screen md:min-h-[600px] px-sm py-16 lg:flex lg:p-3xl relative bg-cover bg-center bg-no-repeat"
-    style="background-image: url('images/activities/community-section.jpg')"
-  >
-    <div class="hero-gradient absolute h-full w-full top-0 left-0"></div>
-    <h2 class="mb-10 z-1">
+  <section class="h-screen md:min-h-[600px] px-sm py-16 lg:flex lg:p-3xl relative bg-cover bg-center bg-no-repeat" style="background-image: url('images/activities/community-section.jpg')">
+    <div class="hero-gradient absolute h-full w-full top-0 left-0 z-0"></div>
+    <h2 class="relative mb-10 z-10">
       Building a Community of <span>Future Innovators</span> and
       <span>Changemakers</span>
     </h2>
     <div class="h-[80%] flex flex-col justify-between lg:w-4/3">
       <div class="com_large flex justify-center md:justify-end">
-        <p class="text-l uppercase md:text-2xl md:w-1/2 lg:w-2/3">
-          ADS-HAUSC is committed to equipping scholars with the tools they need
-          to succeed academically and as future leaders. Through mentorship,
-          academic support, and leadership workshops, we cultivate a culture of
-          excellence, innovation, and collaboration.
-        </p>
+        <p class="text-l uppercase md:text-2xl md:w-1/2 lg:w-2/3">ADS-HAUSC is committed to equipping scholars with the tools they need to succeed academically and as future leaders. Through mentorship, academic support, and leadership workshops, we cultivate a culture of excellence, innovation, and collaboration.</p>
       </div>
       <div class="com_small flex justify-center md:justify-end">
         <div class="md:w-1/2 lg:w-2/3">
-          <p>
-            At ADS-HAUSC,
-            <span
-              >we believe that scholars are not just learners but also leaders
-              and changemakers.</span
-            >
-            Our services go beyond education, focusing on holistic development
-            and impactful contributions.
-          </p>
-          <p>
-            By supporting scholars today, we are shaping a future where they
-            lead with purpose and create meaningful change in society.
-          </p>
+          <p>At ADS-HAUSC,<span>we believe that scholars are not just learners but also leaders and changemakers.</span> Our services go beyond education, focusing on holistic development and impactful contributions.</p>
+          <p>By supporting scholars today, we are shaping a future where they lead with purpose and create meaningful change in society.</p>
         </div>
       </div>
     </div>
@@ -184,67 +92,41 @@
   <!-- WHERE SCHOLARSHIP THRIVE SECTION -->
   <section class="pt-36 section-padding">
     <h2 class="md:w-1/2">Where <span>Scholars</span> Thrive and <span>Inspire</span> Change</h2>
-    <div
-      class="scholarship_section grid gap-md mt-10 md:grid-cols-2 md:gap-sm lg:grid-cols-3"
-    >
+    <div class="scholarship_section grid gap-md mt-10 md:grid-cols-2 md:gap-sm lg:grid-cols-3">
       <div>
-        <img
-          src="images/activities/last-image-1.jpg"
-          class="placeholder-image h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat"
-          loading="lazy"
-        />
+        <img src="images/activities/last-image-1.jpg" class="placeholder-image h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat" loading="lazy" />
         <h3><span>Leading with Purpose</span></h3>
-        <p class="mt-2">
-          ADS-HAUSC develops leaders through mentorship, training, and
-          professional growth.
-        </p>
+        <p class="mt-2">ADS-HAUSC develops leaders through mentorship, training, and professional growth.</p>
       </div>
       <div>
-        <img
-          src="images/activities/last-image-2.jpg"
-          class="placeholder-image max-w h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat"
-          loading="lazy"
-        />
+        <img src="images/activities/last-image-2.jpg" class="placeholder-image max-w h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat" loading="lazy"/>
         <h3><span>Scholars in Action</span></h3>
-        <p class="mt-2">
-          Our scholars drive change through outreach, sustainability, and
-          service.
-        </p>
+        <p class="mt-2">Our scholars drive change through outreach, sustainability, and service.</p>
       </div>
       <div>
-        <img
-          src="images/activities/last-image-3.jpg"
-          class="placeholder-image max-w h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat"
-          loading="lazy"
-        />
+        <img src="images/activities/last-image-3.jpg" class="placeholder-image max-w h-[40vh] w-full bg-gray-50 mb-5 object-cover object-center bg-no-repeat" loading="lazy" />
         <h3><span>Excellence in Learning</span></h3>
-        <p class="mt-2">
-          We empower scholars in STEM through learning, research, and
-          collaboration.
-        </p>
+        <p class="mt-2">We empower scholars in STEM through learning, research, and collaboration.</p>
       </div>
     </div>
   </section>
 
   <!-- About Call to Action (CTA) -->
-  <section class="home-section mt-24 lg:flex-row-reverse lg:gap gradient justify-between">
-    <img class="w-1/2 sm:3/8 mt-xl lg:m-auto" src="images/stars-cta.svg" alt="Stars" loading="lazy">
-    <div class="flex flex-col items-start gap-md justify-center mb-xl lg:my-xl">
-        <h1>Reach for the Stars, <span>Connect with Us</span></h1>
-        <p class="w-3/4">
-            Got questions or ideas? Whether you're a scholar, an aspiring student, or a supporter of
-            S&T, we'd love to hear from you! Let's build a brighter future together.
-        </p>
-        <a routerLink="/contact" class="btn-full-gradient">Contact Us</a>
-    </div>
-</section>
+      <section class="home-section mt-24 lg:flex-row-reverse lg:gap gradient justify-between">
+        <img class="w-1/2 sm:3/8 mt-xl lg:m-auto" src="images/stars-cta.svg" alt="Stars" loading="lazy">
+        <div class="flex flex-col items-start gap-md justify-center mb-xl lg:my-xl">
+            <h1>Reach for the Stars, <span>Connect with Us</span></h1>
+            <p class="w-3/4">Got questions or ideas? Whether you're a scholar, an aspiring student, or a supporter of S&T, we'd love to hear from you! Let's build a brighter future together.</p>
+            <a routerLink="/contact" class="btn-full-gradient">Contact Us</a>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer class="flex flex-col lg:flex-row justify-between gap-md px-sm sm:px-lg lg:px-xl py-2xl sm:py-xl items-center">
       <div class="flex flex-col sm:flex-row gap-md items-center text-center sm:text-start">
-          <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo" loading="lazy">
+          <img class="h-28" src="images/adshausc-logo-owl.webp" alt="ADS-HAUSC Logo" loading="lazy">
           <div class="flex flex-col gap-2xs">
-              <h2 class="text-base--large font-family-span leading-tight">Association of DOST Scholars - Holy Angel University Student Chapter</h2>
+              <h2 class="text-base font-family-span leading-tight">Association of DOST Scholars - Holy Angel University Student Chapter</h2>
               <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
               <div class="flex flex-row gap-md justify-center sm:justify-start" loading="lazy">
                   <a href="https://www.facebook.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">

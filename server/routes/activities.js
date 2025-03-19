@@ -6,7 +6,7 @@ import cloudinary from 'cloudinary';
 
 const activitiesRoute = express.Router();
 
-// Function to get activity data;  Also for testing purposes
+// Function to get activity data;  Originally for testing purposes
 export const getActivitiesData = async () => {
   try {
     const activities = await Activity.find();

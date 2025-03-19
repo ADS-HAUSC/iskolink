@@ -3,7 +3,7 @@
     <!-- Landing Page made with <3 by Jimwel Valdez (jimvdz). Copyright (c) 2025. All rights reserved. -->
 
     <!-- Home Hero Section -->
-    <section class="relative h-screen">
+    <section #heroSection class="relative h-screen">
         <img class="h-full w-full object-cover" src="images/home/home-hero-img.webp" alt="Group photo of DOST Scholars at Holy Angel University" priority="true">
         <div class="hero-gradient absolute h-full w-full top-0">
             <div class="flex flex-col justify-center gap-md h-full mx-sm sm:mx-lg lg:mx-xl pt-18">
@@ -20,8 +20,9 @@
                     innovation, and community service. Join us in shaping a brighter future!
                 </p>
                 <div class="flex gap-sm mt-md">
-                    <a routerLink="/about" class="btn-outlined w-full sm:w-auto">Learn More</a>
-                    <a routerLink="/contact" class="btn-full-gradient w-full sm:w-auto">Join Now</a>
+                    <a routerLink="/contact" class="btn-outlined w-full sm:w-auto">Join Us</a>
+                    <button (click)="smoothScrollTo('#about-cta')" class="btn-full-gradient w-full sm:w-auto cursor-pointer">Discover
+                    </button>
                 </div>
             </div>
         </div>
@@ -29,7 +30,7 @@
 
 
     <!-- About Call to Action (CTA) -->
-    <section class="home-section">
+    <section class="home-section" id="about-cta">
         <div class="mini-heading-cont mt-xl">
             <img [src]="'images/star-icon.svg'" alt="Star Icon" width="300" height="300" loading="lazy">
             <p class="font-family-span opacity-90">About ADS-HAUSC</p>
@@ -209,13 +210,13 @@
     <!-- FOOTER -->
     <footer class="flex flex-col lg:flex-row justify-between gap-md px-sm sm:px-lg lg:px-xl py-2xl sm:py-xl items-center">
         <div class="flex flex-col sm:flex-row gap-md items-center text-center sm:text-start">
-            <img class="h-28" src="images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo" loading="lazy">
+            <img class="h-28" src="images/adshausc-logo-owl.webp" alt="ADS-HAUSC Logo" loading="lazy">
             <div class="flex flex-col gap-2xs">
-                <h2 class="text-base--large font-family-span leading-tight">Association of DOST Scholars - Holy Angel University Student Chapter</h2>
+                <h2 class="text-base font-family-span leading-tight">Association of DOST Scholars - Holy Angel University Student Chapter</h2>
                 <p>#1 Holy Angel Avenue, Sto Rosario, Angeles City, Pampanga 2009</p>
                 <div class="flex flex-row gap-md justify-center sm:justify-start" loading="lazy">
                     <a href="https://www.facebook.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
-                        <img src="images/fb-icon.svg" alt="Facebook Icon" loading="lazy">
+                        <img src="images/fb-icon.svg" alt="Facebook Icon">
                         <p>adshausc</p>
                     </a>
                     <a href="https://www.instagram.com/adshausc" target="_blank" class="flex flex-row h-fit gap-2xs">
@@ -235,4 +236,5 @@
             <p>Copyright &copy; 2025. All rights reserved.</p>
         </div>
     </footer>
+    
 </main>

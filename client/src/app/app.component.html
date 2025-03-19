@@ -1,12 +1,12 @@
-<main class="absolute w-full z-99">
+<main class="absolute w-full z-99" *ngIf="!isAdminRoute()">
   <header class="flex section-padding justify-between items-center py-2">
     <div class="flex items-center">
-      <a routerLink="/"><img src="/images/adshausc-logo-owl.png" alt="ADS-HAUSC Logo" class="h-10 lg:h-14 xl:h-14"></a>
+      <a routerLink="/"><img src="/images/adshausc-logo-owl.webp" alt="ADS-HAUSC Logo" class="h-10 lg:h-14 xl:h-14"></a>
       <span class="text-white text-lg font-semibold ml-4">ADS-HAUSC</span>
     </div>
   
     <nav class="hidden lg:block">
-      <ul class="flex gap-8 white font-medium">
+      <ul class="flex gap-8 font-medium">
         <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
         <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">ABOUT</a></li>
         <li><a routerLink="/activities" routerLinkActive="active" ariaCurrentWhenActive="page">ACTIVITIES</a></li>
@@ -23,7 +23,7 @@
       </button>
     </div>
   
-    <nav class="mobile-nav" [class.active]="isMobileNavOpen">
+    <nav class="mobile-nav lg:hidden" [class.active]="isMobileNavOpen">
       <ul>
         <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileNav()">HOME</a></li>
         <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="closeMobileNav()">ABOUT</a></li>
