@@ -2,6 +2,7 @@
 
 import express from 'express';
 import Forms from '../models/Form.js';
+import { authenticateAdmin } from '../middlewares/authMiddleware.js'
 
 const formsRoute = express.Router();
 
@@ -18,7 +19,7 @@ export const getFormsData = async () => {
 };
   
 //http://localhost:3000/api/forms - show all forms (get)
-formsRoute.get("/", async (req, res) => {
+formsRoute.get("/", authenticateAdmin, async (req, res) => {
     try {
         const forms = await getFormsData();
         res.status(200).json(forms);
@@ -30,7 +31,7 @@ formsRoute.get("/", async (req, res) => {
 });
 
 //http://localhost:3000/api/forms/67d5e12fc89740c44a57e254 - by id (get)
-formsRoute.get("/:id", async (req, res) => {
+formsRoute.get("/:id", authenticateAdmin, async (req, res) => {
     try {
         const form = await Forms.findById(req.params.id);
         if (!form) {
@@ -64,7 +65,7 @@ formsRoute.post("/new", async (req, res) => {
 });
 
 //http://localhost:3000/api/forms/67d5e9ceff95f77f4712d313 - to update a form (put)
-formsRoute.put("/:id", async (req, res) => {
+formsRoute.put("/:id", authenticateAdmin, async (req, res) => {
     try {
         const form = await Forms.findByIdAndUpdate(
         req.params.id,
@@ -86,7 +87,7 @@ formsRoute.put("/:id", async (req, res) => {
 });
 
 //http://localhost:3000/api/forms/67d5e9ceff95f77f4712d313 - to delete a form by id (delete)
-formsRoute.delete("/:id", async (req, res) => {
+formsRoute.delete("/:id", authenticateAdmin, async (req, res) => {
     try {
         const form = await Forms.findByIdAndDelete(req.params.id);
         if (!form) {

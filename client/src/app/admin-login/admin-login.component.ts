@@ -1,3 +1,5 @@
+// Made with <3 by Jimwel L. Valdez (jimvdz). Copyright (c) 2025. All rights reserved.
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -19,10 +21,14 @@ export class AdminLoginComponent {
     this.meta.updateTag({ name: 'description', content: 'Secure login for ADS-HAUSC administrators. Access the admin dashboard with your credentials.' });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     // Check if the admin is already logged in
-    if (this.authService.isLoggedIn()) {
+    if (await this.authService.isLoggedIn()) {
       this.router.navigate(['/admin-dashboard']); // Redirect to dashboard if logged in
+    }
+
+    else {
+      this.authService.logout();
     }
   }
 

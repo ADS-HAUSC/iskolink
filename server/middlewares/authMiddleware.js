@@ -1,3 +1,5 @@
+// Middleware to authenticate admin in API requests. Made with <3 by Jimwel L. Valdez (jimvdz).
+
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 

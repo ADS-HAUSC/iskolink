@@ -1,8 +1,9 @@
-// Activities API Routes
+// Activities API Routes made with <3 by Jimwel L. Valdez (jimvdz). Copyright (c) 2025. All rights reserved.
 
 import express from 'express';
 import Activity from '../models/Activity.js';
 import cloudinary from 'cloudinary';
+import { authenticateAdmin } from '../middlewares/authMiddleware.js'
 
 const activitiesRoute = express.Router();
 
@@ -47,7 +48,7 @@ activitiesRoute.get('/:id', async (req, res) => {
 });
 
 // Create an activity
-activitiesRoute.post('/new', async (req, res) => {
+activitiesRoute.post('/new', authenticateAdmin, async (req, res) => {
   try {
     const activity = await Activity.create(req.body);
     console.log(`Saved ${activity.title} to database`);
@@ -61,7 +62,7 @@ activitiesRoute.post('/new', async (req, res) => {
 
 
 // Update an activity
-activitiesRoute.put('/:id', async (req, res) => {
+activitiesRoute.put('/:id', authenticateAdmin, async (req, res) => {
   try {
     const activity = await Activity.findByIdAndUpdate(
       req.params.id,
@@ -78,7 +79,7 @@ activitiesRoute.put('/:id', async (req, res) => {
 });
 
 // Delete a specific activity
-activitiesRoute.delete('/:id', async (req, res) => {
+activitiesRoute.delete('/:id', authenticateAdmin, async (req, res) => {
   try {
     const activity = await Activity.findById(req.params.id);
     if (!activity) {

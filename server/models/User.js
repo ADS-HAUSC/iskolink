@@ -1,3 +1,5 @@
+// User schema and methods made with <3 by Jimwel L. Valdez (jimvdz). Copyright (c) 2025. All rights reserved.
+
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';

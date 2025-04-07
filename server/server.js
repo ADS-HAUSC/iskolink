@@ -2,10 +2,8 @@
 import express from 'express';
 import cors from 'cors';
 import { connectToDatabase, closeConnection } from './db.js';
-import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import cloudinary from 'cloudinary';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +15,7 @@ import activitiesRoute from './routes/activities.js';
 import formsRoute from './routes/forms.js';
 import usersRoute from './routes/users.js'
 import authRoute from './routes/authRoutes.js'
+import uploadRoute from './routes/uploadRoutes.js'
 
 // Middleware
 app.use(cors());
@@ -36,56 +35,18 @@ const initDatabase = async () => {
   }
 };
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
-});
-
-// Set storage engine for multer
-const storage = multer.diskStorage({
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname); // unique filename
-  },
-});
-
-const upload = multer({ storage: storage });
-
-// Updated to use the API routes imported (-API endpoint to get activities-)
+// Import API routes
 app.use("/api/activities", activitiesRoute)
 app.use("/api/forms", formsRoute)
 app.use("/api/users", usersRoute)
 app.use("/api/auth", authRoute)
+app.use("/api/upload", uploadRoute)
 app.use('/images', express.static(path.join(__dirname, '../client/public/images')));
 
-// API to handle image upload to Cloudinary
-app.post('/api/upload', upload.single('image'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded' });
-  }
-
-  console.log('Uploaded file path:', req.file.path);
-
-  cloudinary.v2.uploader.upload(
-    req.file.path,
-    {
-      public_id: Date.now() + '-' + req.file.originalname.replace(path.extname(req.file.originalname), '')
-    },
-    (error, result) => {
-      if (error) {
-        console.log('Error uploading to Cloudinary:', error);
-        return res.status(500).json({ error: error.message });
-      }
-  
-      console.log('File uploaded successfully:', result);
-  
-      return res.status(200).json({
-        filePath: result.secure_url
-      });
-    }
-  );  
+// For purposes of calling or starting Render backend service early na
+app.get('/api', (req, res) => {
+  res.status(200).json({ message: 'Server is running.' });
 });
-
 
 // Handle graceful shutdown
 process.on('SIGINT', async () => {

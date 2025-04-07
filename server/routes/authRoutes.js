@@ -1,13 +1,16 @@
+// Auth API routes made with <3 by Jimwel L. Valdez (jimvdz). Copyright (c) 2025. All rights reserved.
+
 import express from 'express';
 import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import { authenticateAdmin } from '../middlewares/authMiddleware.js'
 
 dotenv.config();
 
-const router = express.Router();
+const authRoute = express.Router();
 
-router.post('/admin-login', async (req, res) => {
+authRoute.post('/admin-login', async (req, res) => {
     const { username, password } = req.body;
 
     try {
@@ -15,12 +18,12 @@ router.post('/admin-login', async (req, res) => {
 
         if (!admin) {
             console.log("Admin not found in the database.");
-            return res.status(401).json({ message: "Invalid username" });
+            return res.status(401).json({ message: "Invalid credentials" });
         }
 
         if (!admin.validatePassword(password)) {
             console.log("Password validation failed.");
-            return res.status(401).json({ message: "Invalid password" });
+            return res.status(401).json({ message: "Invalid credentials" });
         }
 
         // Generate JWT token
@@ -34,5 +37,9 @@ router.post('/admin-login', async (req, res) => {
     }
 });
 
+// Para maverify if yung token ng user is valid
+authRoute.get('/verify-token', authenticateAdmin, (req, res) => {
+    res.json({ valid: true, user: req.admin });
+  });
 
-export default router;
+export default authRoute;
