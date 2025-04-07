@@ -33,7 +33,10 @@ uploadRoute.post('/', authenticateAdmin, upload.single('image'), (req, res) => {
   cloudinary.v2.uploader.upload(
     req.file.path,
     {
-      public_id: Date.now() + '-' + req.file.originalname.replace(path.extname(req.file.originalname), '')
+      public_id: Date.now() + '-' + req.file.originalname.replace(path.extname(req.file.originalname), ''),
+      eager: [
+        { width: 800, crop: 'scale', format: 'webp' }
+      ],
     },
     (error, result) => {
       if (error) {
@@ -44,10 +47,10 @@ uploadRoute.post('/', authenticateAdmin, upload.single('image'), (req, res) => {
       console.log('File uploaded successfully');
   
       return res.status(200).json({
-        filePath: result.secure_url
+        filePath: result.eager[0].secure_url
       });
     }
-  );
+  );  
 });
 
 export default uploadRoute;

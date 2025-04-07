@@ -69,7 +69,7 @@
         <div *ngIf="isAddModalOpen" class="fixed inset-0 bg-midnight/60 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[80vh] overflow-y-auto">
                 <h3 class="text-midnight font-bold mb-4">Add Activities</h3>
-                <form (submit)="saveActivity()">
+                <form (submit)="addActivity(addingActivity)">
                     <input [(ngModel)]="addingActivity.title" name="title" type="text" class="w-full p-2 border rounded mb-2 text-midnight font-family-p" placeholder="Title" required />
         
                     <div>
@@ -97,7 +97,7 @@
                     <textarea [(ngModel)]="addingActivity.desc2" name="desc2" class="w-full p-2 border rounded mb-4 text-midnight font-family-p" placeholder="Description 2" required></textarea>
         
                     <div class="flex justify-end gap-2">
-                        <button type="submit" (click)="addActivity(addingActivity)" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
+                        <button type="submit" class="cursor-pointer bg-royal text-white px-4 py-2 rounded-md">Save</button>
                         <button type="button" class="cursor-pointer border border-midnight text-midnight px-4 py-2 rounded-md" (click)="closeAddModal()">Cancel</button>
                     </div>
                 </form>
